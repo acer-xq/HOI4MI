@@ -19,6 +19,7 @@ namespace StateEditor.Forms
 
         private ResourceEditorForm resourceEditor;
         private StateSplitterForm stateSplitter;
+        private ResultDialog resultDialog;
 
         private readonly LocalisationManager localeManager;
         private readonly CountryManager countryManager;
@@ -33,9 +34,6 @@ namespace StateEditor.Forms
             resourceManager = new ResourceManager(basePath, countryManager);
 
             Reload();
-
-            stateSplitter = new StateSplitterForm(basePath, localeManager, countryManager, resourceManager);
-            resourceEditor = new ResourceEditorForm(basePath, localeManager, countryManager, resourceManager);
         }
 
         private void OpenForm(Form f) {
@@ -63,14 +61,25 @@ namespace StateEditor.Forms
             State.ReloadAll();
             countryManager.ReloadCountries();
             resourceManager.ReloadResourceMap(true, false);
+
+
+            stateSplitter = new StateSplitterForm(basePath, localeManager, countryManager, resourceManager);
+            resourceEditor = new ResourceEditorForm(basePath, localeManager, countryManager, resourceManager);
+            resultDialog = new ResultDialog();
+            resultDialog.Location = new Point(Location.X + Width / 2, Location.Y + Height / 2);
         }
 
         private void writeButton_Click(object sender, EventArgs e) {
 
             State.Save();
 
-            Form resultDialog = new ResultDialog(State.Status);
+            resultDialog.SetMessage(State.Status);
             resultDialog.ShowDialog();
+        }
+
+        private void reloadButton_Click(object sender, EventArgs e) {
+            mainPanel.Controls.Clear();
+            Reload();
         }
     }
 }

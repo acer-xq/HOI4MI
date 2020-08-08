@@ -72,7 +72,7 @@ namespace StateEditor.Entity
         public static bool ReloadAll() {
             string provinceDefFile = $"{basePath}{provinceDefLocation}";
             if (Parser.ParseProvinceDef(provinceDefFile)) {
-                Console.WriteLine(Parser.GetError());
+                Console.WriteLine(Parser.Status);
                 return false;
             }
             return true;

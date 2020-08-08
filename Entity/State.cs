@@ -28,147 +28,147 @@ namespace StateEditor.Entity
         public string FileName {
             get { return fileName; }
             set {
-                SetModified(this);
+                SetModified();
                 fileName = value; 
             } 
         }
         public string Name { 
             get { return name; }
             set {
-                SetModified(this);
+                SetModified();
                 name = value; 
             }
         }
         public string LocalisedName {
             get { return localisedName; }
             set {
-                SetModified(this);
+                SetModified();
                 localisedName = value;
             }
         }
         public int Manpower {
             get { return manpower; }
             set {
-                SetModified(this);
+                SetModified();
                 manpower = value;
             }
         }
         public int BuildFactor {
             get { return buildFactor; }
             set {
-                SetModified(this);
+                SetModified();
                 buildFactor = value;
             }
         }
         public StateCategory Category {
             get { return category; }
             set {
-                SetModified(this);
+                SetModified();
                 category = value;
             }
         }
         public ResourceSet Resources {
             get { return resources; }
             set {
-                SetModified(this);
+                SetModified();
                 resources = value;
             }
         }
         public string Owner {
             get { return owner; }
             set {
-                SetModified(this);
+                SetModified();
                 owner = value;
             }
         }
         public HashSet<string> Cores {
             get { return cores; }
             set {
-                SetModified(this);
+                SetModified();
                 cores = value;
             }
         }
         public HashSet<Province> Provinces {
             get { return provinces; }
             set {
-                SetModified(this);
+                SetModified();
                 provinces = value;
             }
         }
         public int Infrastructure {
             get { return infrastructure; }
             set {
-                SetModified(this);
+                SetModified();
                 infrastructure = value;
             }
         }
         public int MilitaryFactories {
             get { return militaryFactories; }
             set {
-                SetModified(this);
+                SetModified();
                 militaryFactories = value;
             }
         }
         public int CivillianFactories {
             get { return civillianFactories; }
             set {
-                SetModified(this);
+                SetModified();
                 civillianFactories = value;
             }
         }
         public int Dockyards {
             get { return dockyards; }
             set {
-                SetModified(this);
+                SetModified();
                 dockyards = value;
             }
         }
         public int Refineries {
             get { return refineries; }
             set {
-                SetModified(this);
+                SetModified();
                 refineries = value;
             }
         }
         public int Silos {
             get { return silos; }
             set {
-                SetModified(this);
+                SetModified();
                 silos = value;
             }
         }
         public int Antiair {
             get { return antiair; }
             set {
-                SetModified(this);
+                SetModified();
                 antiair = value;
             }
         }
         public int Reactors {
             get { return reactors; }
             set {
-                SetModified(this);
+                SetModified();
                 reactors = value;
             }
         }
         public int Airbases {
             get { return airbases; }
             set {
-                SetModified(this);
+                SetModified();
                 airbases = value;
             }
         }
         public int Rockets {
             get { return rockets; }
             set {
-                SetModified(this);
+                SetModified();
                 rockets = value;
             }
         }
         public int Radar {
             get { return radar; }
             set {
-                SetModified(this);
+                SetModified();
                 radar = value;
             }
         }
@@ -223,6 +223,8 @@ namespace StateEditor.Entity
 
         }
 
+        // STATIC METHODS //
+
         public static State Get(int id) {
             if (states.ContainsKey(id)) return states[id];
             return null;
@@ -234,7 +236,7 @@ namespace StateEditor.Entity
 
             State s = new State(id);
             states.Add(id, s);
-            SetModified(s);
+            s.SetModified();
             return true;
         }
 
@@ -242,16 +244,12 @@ namespace StateEditor.Entity
             return states.Values.Where(p).OrderBy(x => x.id).ToList();
         }
 
-        public static bool ReloadAll() {
-            states.Clear();
-            string[] stateFiles = Directory.GetFiles($@"{basePath}{stateFileLocation}");
-            foreach (string s in stateFiles) {
-                if (!s.EndsWith(".txt")) continue;
-                if (!Parser.ParseState(s)) {
-                    Debug.WriteLine(Parser.GetError());
-                    return false; 
-                }
-            }
+        public static bool TransferProvince(State s1, State s2, Province p) {
+            if (s1 == null || s2 == null) return false;
+            if (!s1.provinces.Contains(p)) return false;
+
+            s1.provinces.Remove(p);
+            s2.provinces.Add(p);
             return true;
         }
 
@@ -260,8 +258,21 @@ namespace StateEditor.Entity
             if (s == null) return false;
             string stateFile = $@"{basePath}{stateFileLocation}{s.fileName}";
             if (!Parser.ParseState(stateFile)) {
-                Console.WriteLine(Parser.GetError());
+                Debug.WriteLine(Parser.Status);
                 return false;
+            }
+            return true;
+        }
+
+        public static bool ReloadAll() {
+            states.Clear();
+            string[] stateFiles = Directory.GetFiles($@"{basePath}{stateFileLocation}");
+            foreach (string s in stateFiles) {
+                if (!s.EndsWith(".txt")) continue;
+                if (!Parser.ParseState(s)) {
+                    Debug.WriteLine(Parser.Status);
+                    return false; 
+                }
             }
             return true;
         }
@@ -352,23 +363,9 @@ namespace StateEditor.Entity
 
             Debug.WriteLine($"{s.fileName}");
             string path = $"{basePath}{stateFileLocation}{s.fileName}";
-            if (File.Exists(path)) File.Copy(path, $"{path}.old");
+            //if (File.Exists(path)) File.Copy(path, $"{path}.old");
             File.WriteAllText(path, sb.ToString());
             return true;
-        }
-
-
-        public static bool TransferProvince(State s1, State s2, Province p) {
-            if (s1 == null || s2 == null) return false;
-            if (!s1.provinces.Contains(p)) return false;
-
-            s1.provinces.Remove(p);
-            s2.provinces.Add(p);
-            return true;
-        }
-
-        private static void SetModified(State s) {
-            s.Modified = true;
         }
 
         public static bool SetBasePath(string path) {
@@ -376,9 +373,7 @@ namespace StateEditor.Entity
             return true;
         }
 
-        public void SetUnmodified() {
-            Modified = false;
-        }
+        // INSTANCE METHODS //
 
         public bool IsValid() {
             //states must have contiguous ids, if has an id larger than # of states this can't be true
@@ -403,6 +398,14 @@ namespace StateEditor.Entity
 
             if (!resources.IsValid()) return false;
             return true;
+        }
+
+        private void SetModified() {
+            Modified = true;
+        }
+
+        public void SetUnmodified() {
+            Modified = false;
         }
 
         public int CompareTo(State s) {

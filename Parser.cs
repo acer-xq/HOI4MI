@@ -15,7 +15,7 @@ namespace StateEditor
 {
     public static class Parser {
 
-        private static string error;
+        public static string Status { get; private set; }
 
         private static LocalisationManager lm;
         private static NumberStyles valueFormat = NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite;
@@ -30,19 +30,19 @@ namespace StateEditor
                 int id = -1;
                 int[] rgb = new int[3];
                 if (!int.TryParse(data[0], out id)) {
-                    error = $"malformed province ID in line {l}";
+                    Status = $"malformed province ID in line {l}";
                     return false;
                 }
                 if (!int.TryParse(data[1], out rgb[0])) {
-                    error = $"malformed R for province {id}";
+                    Status = $"malformed R for province {id}";
                     return false;
                 }
                 if (!int.TryParse(data[2], out rgb[1])) {
-                    error = $"malformed G for province {id}";
+                    Status = $"malformed G for province {id}";
                     return false;
                 }
                 if (!int.TryParse(data[3], out rgb[2])) {
-                    error = $"malformed B for province {id}";
+                    Status = $"malformed B for province {id}";
                     return false;
                 }
 
@@ -72,14 +72,14 @@ namespace StateEditor
                     };
                     int continent = 0;
                     if (!int.TryParse(data[7], out continent)) {
-                        error = $"malformed continent for province {id}";
+                        Status = $"malformed continent for province {id}";
                         return false;
                     }
                     p.Continent = (Continent)continent;
                 }
 
                 else {
-                    error = $"Error creating province {id}.";
+                    Status = $"Error creating province {id}.";
                     return false;
                 }
             }
@@ -93,7 +93,7 @@ namespace StateEditor
             //check the provinces list is a list of numbers
             string provinceString = FindKey("provinces");
             if (!Regex.IsMatch(provinceString, @"{((\s+)(\d+))+\s*}")) {
-                error = $"Malformed provinces in {path}.";
+                Status = $"Malformed provinces in {path}.";
                 return false;
             }
 
@@ -105,13 +105,13 @@ namespace StateEditor
                 string s = m.Value;
                 //one of the provinces wasn't a number
                 if (!int.TryParse(s, out int provId)) {
-                    error = $"Province {s} isn't an int in {path}.";
+                    Status = $"Province {s} isn't an int in {path}.";
                     return false; 
                 }
 
                 Province p = Province.Get(provId);
                 if (p == null) {
-                    error = $"Province {provId} doesn't exist";
+                    Status = $"Province {provId} doesn't exist";
                     return false;
                 }
                 //check if there are any province-level buildings
@@ -133,7 +133,7 @@ namespace StateEditor
                     int pid = int.Parse(m.Groups[1].Value);
                     Province p = Province.Get(pid);
                     if (p == null) {
-                        error = $"Victory points specified for invalid province {pid}";
+                        Status = $"Victory points specified for invalid province {pid}";
                         return false;
                     }
                     p.VictoryPoints = int.Parse(m.Groups[2].Value);
@@ -152,7 +152,7 @@ namespace StateEditor
             StateCategory? c = FindKey("category").ConvertStateCategory();
             if (c == null) {
                 //state didn't have a valid category listed
-                error = $"Error parsing state category in {path}.";
+                Status = $"Error parsing state category in {path}.";
                 return false;
             }
 
@@ -188,7 +188,7 @@ namespace StateEditor
             }
             //something went wrong when creating the state
             else {
-                error = $"Error creating state {stateId} for {path}.";
+                Status = $"Error creating state {stateId} for {path}.";
                 return false;
             }
 
@@ -234,10 +234,6 @@ namespace StateEditor
 
 
             return result;
-        }
-
-        public static string GetError() {
-            return error;
         }
 
         public static void SetLocalisationManager(LocalisationManager l) {

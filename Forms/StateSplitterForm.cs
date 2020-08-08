@@ -193,8 +193,6 @@ namespace StateEditor.Forms {
 
 
             SetDataSources();
-            stateList.SelectedIndex = stateList.Items.Count-1;
-
 
             validLabel.Text = $"New Valid: {newState.IsValid()}";
 

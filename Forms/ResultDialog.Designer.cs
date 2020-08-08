@@ -33,20 +33,18 @@
             this.resultLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.resultLabel.Location = new System.Drawing.Point(0, 0);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(537, 210);
+            this.resultLabel.Size = new System.Drawing.Size(401, 154);
             this.resultLabel.TabIndex = 0;
             this.resultLabel.Text = "text";
             this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // okButton
             // 
-            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.okButton.Location = new System.Drawing.Point(215, 230);
+            this.okButton.Location = new System.Drawing.Point(111, 157);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(103, 32);
+            this.okButton.Size = new System.Drawing.Size(181, 32);
             this.okButton.TabIndex = 1;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -58,7 +56,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(537, 274);
+            this.ClientSize = new System.Drawing.Size(401, 201);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.resultLabel);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
