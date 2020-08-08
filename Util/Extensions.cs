@@ -19,5 +19,43 @@ namespace StateEditor.Util {
                 d.Add(key, val);
             }
         }
+
+        public static string ConvertStateCategory(this StateCategory c) {
+            return c switch
+            {
+                StateCategory.Wasteland => "wasteland",
+                StateCategory.Tiny_Island => "tiny_island",
+                StateCategory.Enclave => "enclave",
+                StateCategory.Pastoral => "pastoral",
+                StateCategory.Small_Island => "small_island",
+                StateCategory.Rural => "rural",
+                StateCategory.Town => "town",
+                StateCategory.Large_Town => "large_town",
+                StateCategory.City => "city",
+                StateCategory.Large_City => "large_city",
+                StateCategory.Metropolis => "metropolis",
+                StateCategory.Megalopolis => "megalopolis",
+                _ => null,
+            };
+        }
+
+        public static StateCategory? ConvertStateCategory(this string s) {
+            return s switch
+            {
+                "wasteland" => StateCategory.Wasteland,
+                "tiny_island" => StateCategory.Tiny_Island,
+                "enclave" => StateCategory.Enclave,
+                "pastoral" => StateCategory.Pastoral,
+                "small_island" => StateCategory.Small_Island,
+                "rural" => StateCategory.Rural,
+                "town" => StateCategory.Town,
+                "large_town" => StateCategory.Large_Town,
+                "city" => StateCategory.City,
+                "large_city" => StateCategory.Large_City,
+                "metropolis" => StateCategory.Metropolis,
+                "megalopolis" => StateCategory.Megalopolis,
+                _ => null,
+            };
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.debugButton = new System.Windows.Forms.Button();
             this.stateList = new System.Windows.Forms.ListBox();
             this.excavationSelect = new System.Windows.Forms.NumericUpDown();
@@ -59,17 +58,17 @@
             // 
             // stateList
             // 
-            this.stateList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.stateList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
             this.stateList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.stateList.Dock = System.Windows.Forms.DockStyle.Left;
             this.stateList.ForeColor = System.Drawing.Color.White;
             this.stateList.FormattingEnabled = true;
+            this.stateList.IntegralHeight = false;
             this.stateList.ItemHeight = 17;
-            this.stateList.Location = new System.Drawing.Point(716, 37);
-            this.stateList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.stateList.Location = new System.Drawing.Point(432, 0);
+            this.stateList.Margin = new System.Windows.Forms.Padding(0);
             this.stateList.Name = "stateList";
-            this.stateList.Size = new System.Drawing.Size(384, 646);
+            this.stateList.Size = new System.Drawing.Size(237, 697);
             this.stateList.TabIndex = 4;
             this.stateList.SelectedIndexChanged += new System.EventHandler(this.stateList_SelectedIndexChanged);
             // 
@@ -92,7 +91,7 @@
             this.countryInfoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.countryInfoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.countryInfoTextBox.ForeColor = System.Drawing.Color.White;
-            this.countryInfoTextBox.Location = new System.Drawing.Point(1123, 245);
+            this.countryInfoTextBox.Location = new System.Drawing.Point(759, 209);
             this.countryInfoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.countryInfoTextBox.Name = "countryInfoTextBox";
             this.countryInfoTextBox.ReadOnly = true;
@@ -105,7 +104,7 @@
             this.stateListTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateListTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.stateListTextBox.ForeColor = System.Drawing.Color.White;
-            this.stateListTextBox.Location = new System.Drawing.Point(1113, 498);
+            this.stateListTextBox.Location = new System.Drawing.Point(759, 435);
             this.stateListTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stateListTextBox.Name = "stateListTextBox";
             this.stateListTextBox.ReadOnly = true;
@@ -117,70 +116,62 @@
             // 
             this.resourceList.AllowUserToAddRows = false;
             this.resourceList.AllowUserToDeleteRows = false;
+            this.resourceList.AllowUserToResizeRows = false;
             this.resourceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.resourceList.BackgroundColor = System.Drawing.Color.Silver;
+            this.resourceList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
             this.resourceList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.resourceList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.resourceList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.resourceList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.resourceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resourceList.DefaultCellStyle = dataGridViewCellStyle1;
+            this.resourceList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.resourceList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.resourceList.Location = new System.Drawing.Point(0, 0);
+            this.resourceList.Name = "resourceList";
+            this.resourceList.ReadOnly = true;
+            this.resourceList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.resourceList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.resourceList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.resourceList.Location = new System.Drawing.Point(12, 37);
-            this.resourceList.Name = "resourceList";
-            this.resourceList.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.resourceList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.resourceList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.resourceList.RowHeadersVisible = false;
             this.resourceList.ShowEditingIcon = false;
-            this.resourceList.Size = new System.Drawing.Size(698, 650);
+            this.resourceList.Size = new System.Drawing.Size(432, 697);
             this.resourceList.TabIndex = 10;
             this.resourceList.SelectionChanged += new System.EventHandler(this.resourceList_SelectionChanged);
             // 
-            // MainForm
+            // ResourceEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1509, 697);
+            this.Controls.Add(this.stateList);
             this.Controls.Add(this.resourceList);
             this.Controls.Add(this.stateListTextBox);
             this.Controls.Add(this.countryInfoTextBox);
             this.Controls.Add(this.excavationSelect);
-            this.Controls.Add(this.stateList);
             this.Controls.Add(this.debugButton);
-            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(100, 100);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "MainForm";
+            this.Name = "ResourceEditorForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.Controls.SetChildIndex(this.debugButton, 0);
-            this.Controls.SetChildIndex(this.stateList, 0);
-            this.Controls.SetChildIndex(this.excavationSelect, 0);
-            this.Controls.SetChildIndex(this.countryInfoTextBox, 0);
-            this.Controls.SetChildIndex(this.stateListTextBox, 0);
-            this.Controls.SetChildIndex(this.resourceList, 0);
             ((System.ComponentModel.ISupportInitialize)(this.excavationSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resourceList)).EndInit();
             this.ResumeLayout(false);

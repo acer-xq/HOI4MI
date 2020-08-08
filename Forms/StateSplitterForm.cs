@@ -12,12 +12,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StateEditor.Forms {
-    public partial class StateSplitterForm : FormDark.FormDark {
+    public partial class StateSplitterForm : Form {
 
         public string baseDirectory = @"A:\Files\Documents\Paradox Interactive\Hearts of Iron IV\mod\thirdreich";
         private readonly LocalisationManager localeManager;
         private readonly CountryManager countryManager;
         private readonly ResourceManager resourceManager;
+
+        private State currentState;
 
         public StateSplitterForm() {
             InitializeComponent();
@@ -50,14 +52,14 @@ namespace StateEditor.Forms {
         }
 
         private void debugButton_Click(object sender, EventArgs e) {
-            
+            State.Write((State)stateList.SelectedItem);
         }
 
         private void stateList_SelectedIndexChanged(object sender, EventArgs e) {
             
             //populate province list
             provinceSelectList.Items.Clear();
-            State currentState = (State)stateList.SelectedItem;
+            currentState = (State)stateList.SelectedItem;
             foreach (Province p in currentState.Provinces) {
                 provinceSelectList.Items.Add(p);
             }
@@ -87,6 +89,7 @@ namespace StateEditor.Forms {
             foreach (string s in currentState.Cores) {
                 Country c = countryManager.GetCountry(s);
                 oldStateCoreInput.SelectedItems.Add(c);
+                newStateCoreInput.SelectedItems.Add(c);
             }
 
             oldStateInfrastructureInput.Value = currentState.Infrastructure;
@@ -100,6 +103,15 @@ namespace StateEditor.Forms {
             oldStateRadarInput.Value = currentState.Radar;
             oldStateRocketsInput.Value = currentState.Rockets;
             oldStateAntiairInput.Value = currentState.Antiair;
+
+        }
+
+        private void oldStateManpowerInput_ValueChanged(object sender, EventArgs e) {
+            newStateManpowerInput.Value = currentState.Manpower - oldStateManpowerInput.Value;
+        }
+
+        private void newStateManpowerInput_ValueChanged(object sender, EventArgs e) {
+            oldStateManpowerInput.Value = currentState.Manpower - newStateManpowerInput.Value;
 
         }
     }

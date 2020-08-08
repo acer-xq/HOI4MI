@@ -26,7 +26,6 @@ namespace StateEditor
             string[] lines = File.ReadAllLines(path);
             string[] data = { "" };
             foreach (string l in lines) {
-                //4;0;0;232;sea;true;ocean;0
                 data = l.Split(';');
                 int id = -1;
                 int[] rgb = new int[3];
@@ -150,11 +149,8 @@ namespace StateEditor
                 Rubber = FindKeyDouble("rubber")
             };
 
-            StateCategory c;
-            try {
-                c = (StateCategory)Enum.Parse(typeof(StateCategory), FindKey("category"), true);
-            }
-            catch {
+            StateCategory? c = FindKey("category").ConvertStateCategory();
+            if (c == null) {
                 //state didn't have a valid category listed
                 error = $"Error parsing state category in {path}.";
                 return false;
@@ -167,10 +163,11 @@ namespace StateEditor
             if (State.Create(stateId)) {
                 State s = State.Get(stateId);
                 s.Name = stateName;
+                s.FileName = path.Split('\\').Last();
                 s.LocalisedName = lm.GetLocalisationItem(stateName);
                 s.Manpower = FindKeyInt("manpower");
                 s.BuildFactor = buildingFactor == 0 ? 1 : buildingFactor;
-                s.Category = c;
+                s.Category = (StateCategory)c;
                 s.Resources = res;
 
                 s.Owner = FindKey("owner");

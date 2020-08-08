@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace StateEditor
 {
-    public partial class ResourceEditorForm : FormDark.FormDark
+    public partial class ResourceEditorForm : Form
     {
         public string baseDirectory = @"A:\Files\Documents\Paradox Interactive\Hearts of Iron IV\mod\thirdreich";
         private readonly LocalisationManager localeManager;

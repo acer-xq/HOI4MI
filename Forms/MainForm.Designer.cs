@@ -31,15 +31,25 @@
             this.resourceEditorFormButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.stateSplitterFormButton = new System.Windows.Forms.Button();
+            this.sideBar = new System.Windows.Forms.Panel();
+            this.sideBarLogo = new System.Windows.Forms.Panel();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.dividerPanel = new System.Windows.Forms.Panel();
+            this.sideBar.SuspendLayout();
+            this.sideBarLogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // resourceEditorFormButton
             // 
+            this.resourceEditorFormButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.resourceEditorFormButton.FlatAppearance.BorderSize = 0;
+            this.resourceEditorFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.resourceEditorFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
             this.resourceEditorFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resourceEditorFormButton.Location = new System.Drawing.Point(13, 241);
+            this.resourceEditorFormButton.Location = new System.Drawing.Point(0, 0);
             this.resourceEditorFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.resourceEditorFormButton.Name = "resourceEditorFormButton";
-            this.resourceEditorFormButton.Size = new System.Drawing.Size(219, 99);
+            this.resourceEditorFormButton.Size = new System.Drawing.Size(196, 65);
             this.resourceEditorFormButton.TabIndex = 1;
             this.resourceEditorFormButton.Text = "Resource Editor";
             this.resourceEditorFormButton.UseVisualStyleBackColor = true;
@@ -47,49 +57,93 @@
             // 
             // titleLabel
             // 
-            this.titleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.titleLabel.Location = new System.Drawing.Point(174, 108);
+            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.titleLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.titleLabel.Location = new System.Drawing.Point(0, 0);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(271, 78);
+            this.titleLabel.Size = new System.Drawing.Size(196, 100);
             this.titleLabel.TabIndex = 2;
-            this.titleLabel.Text = "Hearts of Iron IV \r\nState Editor";
+            this.titleLabel.Text = "Hearts of Iron IV \r\nModding Interface";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // stateSplitterFormButton
             // 
+            this.stateSplitterFormButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.stateSplitterFormButton.FlatAppearance.BorderSize = 0;
+            this.stateSplitterFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.stateSplitterFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
             this.stateSplitterFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.stateSplitterFormButton.Location = new System.Drawing.Point(398, 213);
+            this.stateSplitterFormButton.Location = new System.Drawing.Point(0, 65);
             this.stateSplitterFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.stateSplitterFormButton.Name = "stateSplitterFormButton";
-            this.stateSplitterFormButton.Size = new System.Drawing.Size(219, 87);
+            this.stateSplitterFormButton.Size = new System.Drawing.Size(196, 65);
             this.stateSplitterFormButton.TabIndex = 3;
             this.stateSplitterFormButton.Text = "State Splitter";
             this.stateSplitterFormButton.UseVisualStyleBackColor = true;
             this.stateSplitterFormButton.Click += new System.EventHandler(this.stateSplitterFormButton_Click);
             // 
+            // sideBar
+            // 
+            this.sideBar.AutoScroll = true;
+            this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
+            this.sideBar.Controls.Add(this.sideBarLogo);
+            this.sideBar.Controls.Add(this.stateSplitterFormButton);
+            this.sideBar.Controls.Add(this.resourceEditorFormButton);
+            this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sideBar.ForeColor = System.Drawing.Color.White;
+            this.sideBar.Location = new System.Drawing.Point(0, 0);
+            this.sideBar.Name = "sideBar";
+            this.sideBar.Size = new System.Drawing.Size(196, 829);
+            this.sideBar.TabIndex = 4;
+            // 
+            // sideBarLogo
+            // 
+            this.sideBarLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.sideBarLogo.Controls.Add(this.titleLabel);
+            this.sideBarLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sideBarLogo.Location = new System.Drawing.Point(0, 729);
+            this.sideBarLogo.Name = "sideBarLogo";
+            this.sideBarLogo.Size = new System.Drawing.Size(196, 100);
+            this.sideBarLogo.TabIndex = 5;
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(212, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1303, 829);
+            this.mainPanel.TabIndex = 5;
+            // 
+            // dividerPanel
+            // 
+            this.dividerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.dividerPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dividerPanel.ForeColor = System.Drawing.Color.White;
+            this.dividerPanel.Location = new System.Drawing.Point(196, 0);
+            this.dividerPanel.Name = "dividerPanel";
+            this.dividerPanel.Size = new System.Drawing.Size(16, 829);
+            this.dividerPanel.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 512);
-            this.Controls.Add(this.stateSplitterFormButton);
-            this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.resourceEditorFormButton);
+            this.ClientSize = new System.Drawing.Size(1515, 829);
+            this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.dividerPanel);
+            this.Controls.Add(this.sideBar);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Form1";
-            this.Controls.SetChildIndex(this.resourceEditorFormButton, 0);
-            this.Controls.SetChildIndex(this.titleLabel, 0);
-            this.Controls.SetChildIndex(this.stateSplitterFormButton, 0);
+            this.Text = "Hearts of Iron IV Modding Interface";
+            this.sideBar.ResumeLayout(false);
+            this.sideBarLogo.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -98,5 +152,9 @@
         private System.Windows.Forms.Button resourceEditorFormButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button stateSplitterFormButton;
+        private System.Windows.Forms.Panel sideBar;
+        private System.Windows.Forms.Panel sideBarLogo;
+        private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Panel dividerPanel;
     }
 }

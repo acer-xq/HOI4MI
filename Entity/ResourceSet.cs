@@ -50,6 +50,13 @@ namespace StateEditor.Entity
             return true;
         }
 
+        public bool IsEmpty() {
+            foreach (double d in resources) {
+                if (d > 0) return false;
+            }
+            return true;
+        }
+
         public static ResourceSet operator +(ResourceSet a, ResourceSet b) {
             return new ResourceSet() {
                 resources = a.resources.Zip(b.resources, (x, y) => x + y).ToArray()

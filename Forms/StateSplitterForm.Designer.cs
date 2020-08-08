@@ -73,6 +73,7 @@
             this.newStateAntiairInput = new System.Windows.Forms.NumericUpDown();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.validLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.oldStateNameInput = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.oldStateManpowerInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newStateManpowerInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oldStateOilInput)).BeginInit();
@@ -123,7 +124,7 @@
             this.stateList.ItemHeight = 17;
             this.stateList.Location = new System.Drawing.Point(14, 39);
             this.stateList.Name = "stateList";
-            this.stateList.Size = new System.Drawing.Size(366, 663);
+            this.stateList.Size = new System.Drawing.Size(215, 476);
             this.stateList.TabIndex = 5;
             this.stateList.SelectedIndexChanged += new System.EventHandler(this.stateList_SelectedIndexChanged);
             // 
@@ -134,7 +135,7 @@
             this.debugButton.FlatAppearance.BorderSize = 0;
             this.debugButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.debugButton.ForeColor = System.Drawing.Color.White;
-            this.debugButton.Location = new System.Drawing.Point(1192, 39);
+            this.debugButton.Location = new System.Drawing.Point(663, 449);
             this.debugButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.debugButton.Name = "debugButton";
             this.debugButton.Size = new System.Drawing.Size(71, 32);
@@ -150,9 +151,9 @@
             this.provinceSelectList.CheckOnClick = true;
             this.provinceSelectList.ForeColor = System.Drawing.Color.White;
             this.provinceSelectList.FormattingEnabled = true;
-            this.provinceSelectList.Location = new System.Drawing.Point(386, 39);
+            this.provinceSelectList.Location = new System.Drawing.Point(630, 96);
             this.provinceSelectList.Name = "provinceSelectList";
-            this.provinceSelectList.Size = new System.Drawing.Size(240, 408);
+            this.provinceSelectList.Size = new System.Drawing.Size(104, 306);
             this.provinceSelectList.TabIndex = 7;
             // 
             // newStateNameInput
@@ -161,10 +162,10 @@
             this.newStateNameInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.newStateNameInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.newStateNameInput.ForeColor = System.Drawing.Color.White;
-            this.newStateNameInput.Location = new System.Drawing.Point(643, 39);
+            this.newStateNameInput.Location = new System.Drawing.Point(774, 39);
             this.newStateNameInput.MaxLength = 63;
             this.newStateNameInput.Name = "newStateNameInput";
-            this.newStateNameInput.Size = new System.Drawing.Size(253, 27);
+            this.newStateNameInput.Size = new System.Drawing.Size(317, 27);
             this.newStateNameInput.TabIndex = 8;
             this.newStateNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -172,11 +173,12 @@
             // 
             this.oldStateManpowerInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateManpowerInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateManpowerInput.Location = new System.Drawing.Point(642, 96);
+            this.oldStateManpowerInput.Location = new System.Drawing.Point(276, 96);
             this.oldStateManpowerInput.Name = "oldStateManpowerInput";
             this.oldStateManpowerInput.Size = new System.Drawing.Size(120, 22);
             this.oldStateManpowerInput.TabIndex = 9;
             this.oldStateManpowerInput.ThousandsSeparator = true;
+            this.oldStateManpowerInput.ValueChanged += new System.EventHandler(this.oldStateManpowerInput_ValueChanged);
             // 
             // oldStateCategoryInput
             // 
@@ -184,7 +186,7 @@
             this.oldStateCategoryInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.oldStateCategoryInput.ForeColor = System.Drawing.Color.White;
             this.oldStateCategoryInput.FormattingEnabled = true;
-            this.oldStateCategoryInput.Location = new System.Drawing.Point(642, 143);
+            this.oldStateCategoryInput.Location = new System.Drawing.Point(276, 155);
             this.oldStateCategoryInput.MaxDropDownItems = 31;
             this.oldStateCategoryInput.Name = "oldStateCategoryInput";
             this.oldStateCategoryInput.Size = new System.Drawing.Size(121, 25);
@@ -196,7 +198,7 @@
             this.newStateCategoryInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newStateCategoryInput.ForeColor = System.Drawing.Color.White;
             this.newStateCategoryInput.FormattingEnabled = true;
-            this.newStateCategoryInput.Location = new System.Drawing.Point(775, 143);
+            this.newStateCategoryInput.Location = new System.Drawing.Point(774, 124);
             this.newStateCategoryInput.MaxDropDownItems = 31;
             this.newStateCategoryInput.Name = "newStateCategoryInput";
             this.newStateCategoryInput.Size = new System.Drawing.Size(121, 25);
@@ -206,17 +208,18 @@
             // 
             this.newStateManpowerInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateManpowerInput.ForeColor = System.Drawing.Color.White;
-            this.newStateManpowerInput.Location = new System.Drawing.Point(775, 96);
+            this.newStateManpowerInput.Location = new System.Drawing.Point(774, 96);
             this.newStateManpowerInput.Name = "newStateManpowerInput";
             this.newStateManpowerInput.Size = new System.Drawing.Size(120, 22);
             this.newStateManpowerInput.TabIndex = 12;
             this.newStateManpowerInput.ThousandsSeparator = true;
+            this.newStateManpowerInput.ValueChanged += new System.EventHandler(this.newStateManpowerInput_ValueChanged);
             // 
             // oldStateOilInput
             // 
             this.oldStateOilInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateOilInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateOilInput.Location = new System.Drawing.Point(642, 189);
+            this.oldStateOilInput.Location = new System.Drawing.Point(432, 96);
             this.oldStateOilInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -231,7 +234,7 @@
             // 
             this.oldStateRubberInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateRubberInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateRubberInput.Location = new System.Drawing.Point(709, 189);
+            this.oldStateRubberInput.Location = new System.Drawing.Point(517, 96);
             this.oldStateRubberInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -246,7 +249,7 @@
             // 
             this.oldStateTungstenInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateTungstenInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateTungstenInput.Location = new System.Drawing.Point(709, 217);
+            this.oldStateTungstenInput.Location = new System.Drawing.Point(517, 124);
             this.oldStateTungstenInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -261,7 +264,7 @@
             // 
             this.oldStateSteelInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateSteelInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateSteelInput.Location = new System.Drawing.Point(642, 217);
+            this.oldStateSteelInput.Location = new System.Drawing.Point(432, 124);
             this.oldStateSteelInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -276,7 +279,7 @@
             // 
             this.oldStateChromiumInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateChromiumInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateChromiumInput.Location = new System.Drawing.Point(709, 245);
+            this.oldStateChromiumInput.Location = new System.Drawing.Point(517, 152);
             this.oldStateChromiumInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -291,7 +294,7 @@
             // 
             this.oldStateAluminiumInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateAluminiumInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateAluminiumInput.Location = new System.Drawing.Point(642, 245);
+            this.oldStateAluminiumInput.Location = new System.Drawing.Point(432, 152);
             this.oldStateAluminiumInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -306,7 +309,7 @@
             // 
             this.newStateChromiumInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateChromiumInput.ForeColor = System.Drawing.Color.White;
-            this.newStateChromiumInput.Location = new System.Drawing.Point(842, 245);
+            this.newStateChromiumInput.Location = new System.Drawing.Point(1037, 167);
             this.newStateChromiumInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -321,7 +324,7 @@
             // 
             this.newStateAluminiumInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateAluminiumInput.ForeColor = System.Drawing.Color.White;
-            this.newStateAluminiumInput.Location = new System.Drawing.Point(775, 245);
+            this.newStateAluminiumInput.Location = new System.Drawing.Point(952, 167);
             this.newStateAluminiumInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -336,7 +339,7 @@
             // 
             this.newStateTungstenInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateTungstenInput.ForeColor = System.Drawing.Color.White;
-            this.newStateTungstenInput.Location = new System.Drawing.Point(842, 217);
+            this.newStateTungstenInput.Location = new System.Drawing.Point(1037, 139);
             this.newStateTungstenInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -351,7 +354,7 @@
             // 
             this.newStateSteelInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateSteelInput.ForeColor = System.Drawing.Color.White;
-            this.newStateSteelInput.Location = new System.Drawing.Point(775, 217);
+            this.newStateSteelInput.Location = new System.Drawing.Point(952, 139);
             this.newStateSteelInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -366,7 +369,7 @@
             // 
             this.newStateRubberInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateRubberInput.ForeColor = System.Drawing.Color.White;
-            this.newStateRubberInput.Location = new System.Drawing.Point(842, 189);
+            this.newStateRubberInput.Location = new System.Drawing.Point(1037, 111);
             this.newStateRubberInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -381,7 +384,7 @@
             // 
             this.newStateOilInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateOilInput.ForeColor = System.Drawing.Color.White;
-            this.newStateOilInput.Location = new System.Drawing.Point(775, 189);
+            this.newStateOilInput.Location = new System.Drawing.Point(952, 111);
             this.newStateOilInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -398,7 +401,7 @@
             this.oldStateOwnerInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.oldStateOwnerInput.ForeColor = System.Drawing.Color.White;
             this.oldStateOwnerInput.FormattingEnabled = true;
-            this.oldStateOwnerInput.Location = new System.Drawing.Point(641, 289);
+            this.oldStateOwnerInput.Location = new System.Drawing.Point(276, 124);
             this.oldStateOwnerInput.MaxDropDownItems = 31;
             this.oldStateOwnerInput.Name = "oldStateOwnerInput";
             this.oldStateOwnerInput.Size = new System.Drawing.Size(121, 25);
@@ -410,7 +413,7 @@
             this.newStateOwnerInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newStateOwnerInput.ForeColor = System.Drawing.Color.White;
             this.newStateOwnerInput.FormattingEnabled = true;
-            this.newStateOwnerInput.Location = new System.Drawing.Point(775, 289);
+            this.newStateOwnerInput.Location = new System.Drawing.Point(774, 155);
             this.newStateOwnerInput.MaxDropDownItems = 31;
             this.newStateOwnerInput.Name = "newStateOwnerInput";
             this.newStateOwnerInput.Size = new System.Drawing.Size(121, 25);
@@ -420,14 +423,14 @@
             // 
             this.oldStateInfrastructureInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateInfrastructureInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateInfrastructureInput.Location = new System.Drawing.Point(642, 361);
+            this.oldStateInfrastructureInput.Location = new System.Drawing.Point(432, 207);
             this.oldStateInfrastructureInput.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.oldStateInfrastructureInput.Name = "oldStateInfrastructureInput";
-            this.oldStateInfrastructureInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateInfrastructureInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateInfrastructureInput.TabIndex = 27;
             this.oldStateInfrastructureInput.ThousandsSeparator = true;
             // 
@@ -435,9 +438,9 @@
             // 
             this.oldStateCivFactoriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateCivFactoriesInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateCivFactoriesInput.Location = new System.Drawing.Point(642, 389);
+            this.oldStateCivFactoriesInput.Location = new System.Drawing.Point(517, 207);
             this.oldStateCivFactoriesInput.Name = "oldStateCivFactoriesInput";
-            this.oldStateCivFactoriesInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateCivFactoriesInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateCivFactoriesInput.TabIndex = 28;
             this.oldStateCivFactoriesInput.ThousandsSeparator = true;
             // 
@@ -445,9 +448,9 @@
             // 
             this.oldStateMilFactoriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateMilFactoriesInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateMilFactoriesInput.Location = new System.Drawing.Point(642, 417);
+            this.oldStateMilFactoriesInput.Location = new System.Drawing.Point(432, 235);
             this.oldStateMilFactoriesInput.Name = "oldStateMilFactoriesInput";
-            this.oldStateMilFactoriesInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateMilFactoriesInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateMilFactoriesInput.TabIndex = 29;
             this.oldStateMilFactoriesInput.ThousandsSeparator = true;
             // 
@@ -455,9 +458,9 @@
             // 
             this.oldStateDockyardsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateDockyardsInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateDockyardsInput.Location = new System.Drawing.Point(642, 445);
+            this.oldStateDockyardsInput.Location = new System.Drawing.Point(517, 235);
             this.oldStateDockyardsInput.Name = "oldStateDockyardsInput";
-            this.oldStateDockyardsInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateDockyardsInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateDockyardsInput.TabIndex = 30;
             this.oldStateDockyardsInput.ThousandsSeparator = true;
             // 
@@ -465,9 +468,9 @@
             // 
             this.newStateDockyardsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateDockyardsInput.ForeColor = System.Drawing.Color.White;
-            this.newStateDockyardsInput.Location = new System.Drawing.Point(776, 445);
+            this.newStateDockyardsInput.Location = new System.Drawing.Point(1037, 235);
             this.newStateDockyardsInput.Name = "newStateDockyardsInput";
-            this.newStateDockyardsInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateDockyardsInput.Size = new System.Drawing.Size(54, 22);
             this.newStateDockyardsInput.TabIndex = 34;
             this.newStateDockyardsInput.ThousandsSeparator = true;
             // 
@@ -475,9 +478,9 @@
             // 
             this.newStateMilFactoriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateMilFactoriesInput.ForeColor = System.Drawing.Color.White;
-            this.newStateMilFactoriesInput.Location = new System.Drawing.Point(776, 417);
+            this.newStateMilFactoriesInput.Location = new System.Drawing.Point(952, 235);
             this.newStateMilFactoriesInput.Name = "newStateMilFactoriesInput";
-            this.newStateMilFactoriesInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateMilFactoriesInput.Size = new System.Drawing.Size(54, 22);
             this.newStateMilFactoriesInput.TabIndex = 33;
             this.newStateMilFactoriesInput.ThousandsSeparator = true;
             // 
@@ -485,9 +488,9 @@
             // 
             this.newStateCivFactoriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateCivFactoriesInput.ForeColor = System.Drawing.Color.White;
-            this.newStateCivFactoriesInput.Location = new System.Drawing.Point(776, 389);
+            this.newStateCivFactoriesInput.Location = new System.Drawing.Point(1037, 207);
             this.newStateCivFactoriesInput.Name = "newStateCivFactoriesInput";
-            this.newStateCivFactoriesInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateCivFactoriesInput.Size = new System.Drawing.Size(54, 22);
             this.newStateCivFactoriesInput.TabIndex = 32;
             this.newStateCivFactoriesInput.ThousandsSeparator = true;
             // 
@@ -495,14 +498,14 @@
             // 
             this.newStateInfrastructureInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateInfrastructureInput.ForeColor = System.Drawing.Color.White;
-            this.newStateInfrastructureInput.Location = new System.Drawing.Point(776, 361);
+            this.newStateInfrastructureInput.Location = new System.Drawing.Point(952, 207);
             this.newStateInfrastructureInput.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.newStateInfrastructureInput.Name = "newStateInfrastructureInput";
-            this.newStateInfrastructureInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateInfrastructureInput.Size = new System.Drawing.Size(54, 22);
             this.newStateInfrastructureInput.TabIndex = 31;
             this.newStateInfrastructureInput.ThousandsSeparator = true;
             // 
@@ -510,9 +513,9 @@
             // 
             this.oldStateRefineriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateRefineriesInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateRefineriesInput.Location = new System.Drawing.Point(642, 473);
+            this.oldStateRefineriesInput.Location = new System.Drawing.Point(432, 263);
             this.oldStateRefineriesInput.Name = "oldStateRefineriesInput";
-            this.oldStateRefineriesInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateRefineriesInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateRefineriesInput.TabIndex = 35;
             this.oldStateRefineriesInput.ThousandsSeparator = true;
             // 
@@ -520,9 +523,9 @@
             // 
             this.oldStateSilosInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateSilosInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateSilosInput.Location = new System.Drawing.Point(642, 501);
+            this.oldStateSilosInput.Location = new System.Drawing.Point(517, 263);
             this.oldStateSilosInput.Name = "oldStateSilosInput";
-            this.oldStateSilosInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateSilosInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateSilosInput.TabIndex = 36;
             this.oldStateSilosInput.ThousandsSeparator = true;
             // 
@@ -530,9 +533,9 @@
             // 
             this.newStateSilosInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateSilosInput.ForeColor = System.Drawing.Color.White;
-            this.newStateSilosInput.Location = new System.Drawing.Point(776, 501);
+            this.newStateSilosInput.Location = new System.Drawing.Point(1037, 263);
             this.newStateSilosInput.Name = "newStateSilosInput";
-            this.newStateSilosInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateSilosInput.Size = new System.Drawing.Size(54, 22);
             this.newStateSilosInput.TabIndex = 38;
             this.newStateSilosInput.ThousandsSeparator = true;
             // 
@@ -540,9 +543,9 @@
             // 
             this.newStateRefineriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateRefineriesInput.ForeColor = System.Drawing.Color.White;
-            this.newStateRefineriesInput.Location = new System.Drawing.Point(776, 473);
+            this.newStateRefineriesInput.Location = new System.Drawing.Point(952, 263);
             this.newStateRefineriesInput.Name = "newStateRefineriesInput";
-            this.newStateRefineriesInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateRefineriesInput.Size = new System.Drawing.Size(54, 22);
             this.newStateRefineriesInput.TabIndex = 37;
             this.newStateRefineriesInput.ThousandsSeparator = true;
             // 
@@ -550,9 +553,9 @@
             // 
             this.oldStateReactorsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateReactorsInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateReactorsInput.Location = new System.Drawing.Point(642, 529);
+            this.oldStateReactorsInput.Location = new System.Drawing.Point(432, 291);
             this.oldStateReactorsInput.Name = "oldStateReactorsInput";
-            this.oldStateReactorsInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateReactorsInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateReactorsInput.TabIndex = 39;
             this.oldStateReactorsInput.ThousandsSeparator = true;
             // 
@@ -560,9 +563,9 @@
             // 
             this.newStateReactorsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateReactorsInput.ForeColor = System.Drawing.Color.White;
-            this.newStateReactorsInput.Location = new System.Drawing.Point(776, 529);
+            this.newStateReactorsInput.Location = new System.Drawing.Point(952, 291);
             this.newStateReactorsInput.Name = "newStateReactorsInput";
-            this.newStateReactorsInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateReactorsInput.Size = new System.Drawing.Size(54, 22);
             this.newStateReactorsInput.TabIndex = 40;
             this.newStateReactorsInput.ThousandsSeparator = true;
             // 
@@ -570,9 +573,9 @@
             // 
             this.oldStateAirbaseInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateAirbaseInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateAirbaseInput.Location = new System.Drawing.Point(642, 578);
+            this.oldStateAirbaseInput.Location = new System.Drawing.Point(432, 319);
             this.oldStateAirbaseInput.Name = "oldStateAirbaseInput";
-            this.oldStateAirbaseInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateAirbaseInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateAirbaseInput.TabIndex = 41;
             this.oldStateAirbaseInput.ThousandsSeparator = true;
             // 
@@ -580,9 +583,9 @@
             // 
             this.oldStateRadarInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateRadarInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateRadarInput.Location = new System.Drawing.Point(642, 606);
+            this.oldStateRadarInput.Location = new System.Drawing.Point(432, 347);
             this.oldStateRadarInput.Name = "oldStateRadarInput";
-            this.oldStateRadarInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateRadarInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateRadarInput.TabIndex = 42;
             this.oldStateRadarInput.ThousandsSeparator = true;
             // 
@@ -590,9 +593,9 @@
             // 
             this.oldStateRocketsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateRocketsInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateRocketsInput.Location = new System.Drawing.Point(642, 634);
+            this.oldStateRocketsInput.Location = new System.Drawing.Point(517, 291);
             this.oldStateRocketsInput.Name = "oldStateRocketsInput";
-            this.oldStateRocketsInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateRocketsInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateRocketsInput.TabIndex = 43;
             this.oldStateRocketsInput.ThousandsSeparator = true;
             // 
@@ -600,9 +603,9 @@
             // 
             this.newStateRocketsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateRocketsInput.ForeColor = System.Drawing.Color.White;
-            this.newStateRocketsInput.Location = new System.Drawing.Point(777, 634);
+            this.newStateRocketsInput.Location = new System.Drawing.Point(1037, 291);
             this.newStateRocketsInput.Name = "newStateRocketsInput";
-            this.newStateRocketsInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateRocketsInput.Size = new System.Drawing.Size(54, 22);
             this.newStateRocketsInput.TabIndex = 46;
             this.newStateRocketsInput.ThousandsSeparator = true;
             // 
@@ -610,9 +613,9 @@
             // 
             this.newStateRadarInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateRadarInput.ForeColor = System.Drawing.Color.White;
-            this.newStateRadarInput.Location = new System.Drawing.Point(777, 606);
+            this.newStateRadarInput.Location = new System.Drawing.Point(952, 347);
             this.newStateRadarInput.Name = "newStateRadarInput";
-            this.newStateRadarInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateRadarInput.Size = new System.Drawing.Size(54, 22);
             this.newStateRadarInput.TabIndex = 45;
             this.newStateRadarInput.ThousandsSeparator = true;
             // 
@@ -620,9 +623,9 @@
             // 
             this.newStateAirbaseInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateAirbaseInput.ForeColor = System.Drawing.Color.White;
-            this.newStateAirbaseInput.Location = new System.Drawing.Point(777, 578);
+            this.newStateAirbaseInput.Location = new System.Drawing.Point(952, 319);
             this.newStateAirbaseInput.Name = "newStateAirbaseInput";
-            this.newStateAirbaseInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateAirbaseInput.Size = new System.Drawing.Size(54, 22);
             this.newStateAirbaseInput.TabIndex = 44;
             this.newStateAirbaseInput.ThousandsSeparator = true;
             // 
@@ -630,26 +633,30 @@
             // 
             this.oldStateCoreInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateCoreInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.oldStateCoreInput.ColumnWidth = 40;
             this.oldStateCoreInput.ForeColor = System.Drawing.Color.White;
             this.oldStateCoreInput.FormattingEnabled = true;
             this.oldStateCoreInput.ItemHeight = 17;
-            this.oldStateCoreInput.Location = new System.Drawing.Point(916, 167);
+            this.oldStateCoreInput.Location = new System.Drawing.Point(276, 189);
+            this.oldStateCoreInput.MultiColumn = true;
             this.oldStateCoreInput.Name = "oldStateCoreInput";
             this.oldStateCoreInput.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.oldStateCoreInput.Size = new System.Drawing.Size(80, 206);
+            this.oldStateCoreInput.Size = new System.Drawing.Size(121, 206);
             this.oldStateCoreInput.TabIndex = 48;
             // 
             // newStateCoreInput
             // 
             this.newStateCoreInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateCoreInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.newStateCoreInput.ColumnWidth = 40;
             this.newStateCoreInput.ForeColor = System.Drawing.Color.White;
             this.newStateCoreInput.FormattingEnabled = true;
             this.newStateCoreInput.ItemHeight = 17;
-            this.newStateCoreInput.Location = new System.Drawing.Point(916, 394);
+            this.newStateCoreInput.Location = new System.Drawing.Point(774, 191);
+            this.newStateCoreInput.MultiColumn = true;
             this.newStateCoreInput.Name = "newStateCoreInput";
             this.newStateCoreInput.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.newStateCoreInput.Size = new System.Drawing.Size(80, 206);
+            this.newStateCoreInput.Size = new System.Drawing.Size(121, 206);
             this.newStateCoreInput.TabIndex = 49;
             // 
             // stateSaveButton
@@ -659,7 +666,7 @@
             this.stateSaveButton.FlatAppearance.BorderSize = 0;
             this.stateSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stateSaveButton.ForeColor = System.Drawing.Color.White;
-            this.stateSaveButton.Location = new System.Drawing.Point(959, 653);
+            this.stateSaveButton.Location = new System.Drawing.Point(857, 449);
             this.stateSaveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stateSaveButton.Name = "stateSaveButton";
             this.stateSaveButton.Size = new System.Drawing.Size(99, 32);
@@ -674,7 +681,7 @@
             this.stateResetButton.FlatAppearance.BorderSize = 0;
             this.stateResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stateResetButton.ForeColor = System.Drawing.Color.White;
-            this.stateResetButton.Location = new System.Drawing.Point(1094, 653);
+            this.stateResetButton.Location = new System.Drawing.Point(992, 449);
             this.stateResetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stateResetButton.Name = "stateResetButton";
             this.stateResetButton.Size = new System.Drawing.Size(99, 32);
@@ -686,9 +693,9 @@
             // 
             this.oldStateAntiairInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.oldStateAntiairInput.ForeColor = System.Drawing.Color.White;
-            this.oldStateAntiairInput.Location = new System.Drawing.Point(641, 663);
+            this.oldStateAntiairInput.Location = new System.Drawing.Point(517, 319);
             this.oldStateAntiairInput.Name = "oldStateAntiairInput";
-            this.oldStateAntiairInput.Size = new System.Drawing.Size(120, 22);
+            this.oldStateAntiairInput.Size = new System.Drawing.Size(54, 22);
             this.oldStateAntiairInput.TabIndex = 52;
             this.oldStateAntiairInput.ThousandsSeparator = true;
             // 
@@ -696,9 +703,9 @@
             // 
             this.newStateAntiairInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.newStateAntiairInput.ForeColor = System.Drawing.Color.White;
-            this.newStateAntiairInput.Location = new System.Drawing.Point(777, 663);
+            this.newStateAntiairInput.Location = new System.Drawing.Point(1037, 319);
             this.newStateAntiairInput.Name = "newStateAntiairInput";
-            this.newStateAntiairInput.Size = new System.Drawing.Size(120, 22);
+            this.newStateAntiairInput.Size = new System.Drawing.Size(54, 22);
             this.newStateAntiairInput.TabIndex = 53;
             this.newStateAntiairInput.ThousandsSeparator = true;
             // 
@@ -707,9 +714,9 @@
             this.statusStrip.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.validLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 724);
+            this.statusStrip.Location = new System.Drawing.Point(0, 525);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1275, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1144, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 54;
             this.statusStrip.Text = "statusStrip1";
@@ -720,15 +727,30 @@
             this.validLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.validLabel.Margin = new System.Windows.Forms.Padding(0);
             this.validLabel.Name = "validLabel";
-            this.validLabel.Size = new System.Drawing.Size(1260, 22);
+            this.validLabel.Size = new System.Drawing.Size(1129, 22);
             this.validLabel.Spring = true;
             this.validLabel.Text = "toolStripStatusLabel1";
+            // 
+            // oldStateNameInput
+            // 
+            this.oldStateNameInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.oldStateNameInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.oldStateNameInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.oldStateNameInput.ForeColor = System.Drawing.Color.White;
+            this.oldStateNameInput.Location = new System.Drawing.Point(276, 39);
+            this.oldStateNameInput.MaxLength = 63;
+            this.oldStateNameInput.Name = "oldStateNameInput";
+            this.oldStateNameInput.Size = new System.Drawing.Size(317, 27);
+            this.oldStateNameInput.TabIndex = 8;
+            this.oldStateNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // StateSplitterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1275, 746);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(1144, 547);
+            this.Controls.Add(this.oldStateNameInput);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.newStateAntiairInput);
             this.Controls.Add(this.oldStateAntiairInput);
@@ -780,58 +802,10 @@
             this.Controls.Add(this.stateList);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "StateSplitterForm";
             this.Text = "StateSplitterForm";
-            this.Controls.SetChildIndex(this.stateList, 0);
-            this.Controls.SetChildIndex(this.debugButton, 0);
-            this.Controls.SetChildIndex(this.provinceSelectList, 0);
-            this.Controls.SetChildIndex(this.newStateNameInput, 0);
-            this.Controls.SetChildIndex(this.oldStateManpowerInput, 0);
-            this.Controls.SetChildIndex(this.oldStateCategoryInput, 0);
-            this.Controls.SetChildIndex(this.newStateCategoryInput, 0);
-            this.Controls.SetChildIndex(this.newStateManpowerInput, 0);
-            this.Controls.SetChildIndex(this.oldStateOilInput, 0);
-            this.Controls.SetChildIndex(this.oldStateRubberInput, 0);
-            this.Controls.SetChildIndex(this.oldStateSteelInput, 0);
-            this.Controls.SetChildIndex(this.oldStateTungstenInput, 0);
-            this.Controls.SetChildIndex(this.oldStateAluminiumInput, 0);
-            this.Controls.SetChildIndex(this.oldStateChromiumInput, 0);
-            this.Controls.SetChildIndex(this.newStateOilInput, 0);
-            this.Controls.SetChildIndex(this.newStateRubberInput, 0);
-            this.Controls.SetChildIndex(this.newStateSteelInput, 0);
-            this.Controls.SetChildIndex(this.newStateTungstenInput, 0);
-            this.Controls.SetChildIndex(this.newStateAluminiumInput, 0);
-            this.Controls.SetChildIndex(this.newStateChromiumInput, 0);
-            this.Controls.SetChildIndex(this.oldStateOwnerInput, 0);
-            this.Controls.SetChildIndex(this.newStateOwnerInput, 0);
-            this.Controls.SetChildIndex(this.oldStateInfrastructureInput, 0);
-            this.Controls.SetChildIndex(this.oldStateCivFactoriesInput, 0);
-            this.Controls.SetChildIndex(this.oldStateMilFactoriesInput, 0);
-            this.Controls.SetChildIndex(this.oldStateDockyardsInput, 0);
-            this.Controls.SetChildIndex(this.newStateInfrastructureInput, 0);
-            this.Controls.SetChildIndex(this.newStateCivFactoriesInput, 0);
-            this.Controls.SetChildIndex(this.newStateMilFactoriesInput, 0);
-            this.Controls.SetChildIndex(this.newStateDockyardsInput, 0);
-            this.Controls.SetChildIndex(this.oldStateRefineriesInput, 0);
-            this.Controls.SetChildIndex(this.oldStateSilosInput, 0);
-            this.Controls.SetChildIndex(this.newStateRefineriesInput, 0);
-            this.Controls.SetChildIndex(this.newStateSilosInput, 0);
-            this.Controls.SetChildIndex(this.oldStateReactorsInput, 0);
-            this.Controls.SetChildIndex(this.newStateReactorsInput, 0);
-            this.Controls.SetChildIndex(this.oldStateAirbaseInput, 0);
-            this.Controls.SetChildIndex(this.oldStateRadarInput, 0);
-            this.Controls.SetChildIndex(this.oldStateRocketsInput, 0);
-            this.Controls.SetChildIndex(this.newStateAirbaseInput, 0);
-            this.Controls.SetChildIndex(this.newStateRadarInput, 0);
-            this.Controls.SetChildIndex(this.newStateRocketsInput, 0);
-            this.Controls.SetChildIndex(this.oldStateCoreInput, 0);
-            this.Controls.SetChildIndex(this.newStateCoreInput, 0);
-            this.Controls.SetChildIndex(this.stateSaveButton, 0);
-            this.Controls.SetChildIndex(this.stateResetButton, 0);
-            this.Controls.SetChildIndex(this.oldStateAntiairInput, 0);
-            this.Controls.SetChildIndex(this.newStateAntiairInput, 0);
-            this.Controls.SetChildIndex(this.statusStrip, 0);
             ((System.ComponentModel.ISupportInitialize)(this.oldStateManpowerInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newStateManpowerInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oldStateOilInput)).EndInit();
@@ -927,5 +901,6 @@
         private System.Windows.Forms.NumericUpDown newStateAntiairInput;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel validLabel;
+        private System.Windows.Forms.TextBox oldStateNameInput;
     }
 }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace StateEditor.Forms
 {
-    public partial class MainForm : FormDark.FormDark
+    public partial class MainForm : Form
     {
         private string basePath = @"A:\Files\Documents\Paradox Interactive\Hearts of Iron IV\mod\thirdreich";
 
@@ -21,14 +21,24 @@ namespace StateEditor.Forms
             State.SetBasePath(basePath);
         }
 
+        private void OpenForm(Form f) {
+            mainPanel.Controls.Clear();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            mainPanel.Controls.Add(f);
+            mainPanel.Tag = f;
+            f.BringToFront();
+            f.Show();
+        }
+
         private void resourceEditorFormButton_Click(object sender, EventArgs e) {
             ResourceEditorForm f = new ResourceEditorForm();
-            f.Show();
+            OpenForm(f);
         }
 
         private void stateSplitterFormButton_Click(object sender, EventArgs e) {
             StateSplitterForm f = new StateSplitterForm();
-            f.Show();
+            OpenForm(f);
         }
     }
 }
