@@ -99,7 +99,7 @@ namespace StateEditor
 
             //get all the numbers in string form
             var provStrings = Regex.Matches(provinceString, @"\d+");
-            List<Province> provs = new List<Province>();
+            HashSet<Province> provs = new HashSet<Province>();
 
             foreach (Match m in provStrings) {
                 string s = m.Value;
@@ -171,7 +171,7 @@ namespace StateEditor
                 s.Resources = res;
 
                 s.Owner = FindKey("owner");
-                s.Cores = FindMultipleKey("add_core_of");
+                s.Cores = FindMultipleKey("add_core_of").ToHashSet();
                 s.Infrastructure = FindKeyInt("infrastructure");
                 s.CivillianFactories = FindKeyInt("industrial_complex");
                 s.MilitaryFactories = FindKeyInt("arms_factory");
@@ -184,6 +184,7 @@ namespace StateEditor
                 s.Reactors = FindKeyInt("nuclear_reactor");
                 s.Airbases = FindKeyInt("air_base");
                 s.Provinces = provs;
+                s.SetUnmodified();
             }
             //something went wrong when creating the state
             else {

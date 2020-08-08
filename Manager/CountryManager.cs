@@ -36,6 +36,7 @@ namespace StateEditor.Manager
         }
 
         public void ReloadCountries() {
+            countries.Clear();
             string[] countryFiles = GetCountryFiles();
             foreach (string s in countryFiles) {
                 Country temp = Parser.ParseCountry(File.ReadAllText(s), s.Replace(basePath, "").Replace(countryFileLocation, ""));

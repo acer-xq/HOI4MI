@@ -13,18 +13,20 @@ namespace StateEditor
 {
     public partial class ResourceEditorForm : Form
     {
-        public string baseDirectory = @"A:\Files\Documents\Paradox Interactive\Hearts of Iron IV\mod\thirdreich";
+        public string baseDirectory;
         private readonly LocalisationManager localeManager;
         private readonly CountryManager countryManager;
         private readonly ResourceManager resourceManager;
 
-        public ResourceEditorForm() {
+        public ResourceEditorForm(string baseDirectory, LocalisationManager lm, CountryManager cm, ResourceManager rm) {
             InitializeComponent();
 
-            localeManager = new LocalisationManager(baseDirectory);
-            countryManager = new CountryManager(baseDirectory, localeManager);
-            resourceManager = new ResourceManager(baseDirectory, countryManager);
-            Reload();
+            this.baseDirectory = baseDirectory;
+            localeManager = lm;
+            countryManager = cm;
+            resourceManager = rm;
+
+            stateList.DataSource = State.States;
             DisplayResources();
         }
 
@@ -36,7 +38,7 @@ namespace StateEditor
             countryManager.ReloadCountries();
             resourceManager.ReloadResourceMap(true, false);
 
-            stateList.DataSource = State.States;
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e) {

@@ -35,6 +35,7 @@
             this.sideBarLogo = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dividerPanel = new System.Windows.Forms.Panel();
+            this.writeButton = new System.Windows.Forms.Button();
             this.sideBar.SuspendLayout();
             this.sideBarLogo.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             this.sideBar.AutoScroll = true;
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
+            this.sideBar.Controls.Add(this.writeButton);
             this.sideBar.Controls.Add(this.sideBarLogo);
             this.sideBar.Controls.Add(this.stateSplitterFormButton);
             this.sideBar.Controls.Add(this.resourceEditorFormButton);
@@ -127,6 +129,23 @@
             this.dividerPanel.Size = new System.Drawing.Size(16, 829);
             this.dividerPanel.TabIndex = 6;
             // 
+            // writeButton
+            // 
+            this.writeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.writeButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.writeButton.FlatAppearance.BorderSize = 0;
+            this.writeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.writeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            this.writeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.writeButton.Location = new System.Drawing.Point(0, 664);
+            this.writeButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.writeButton.Name = "writeButton";
+            this.writeButton.Size = new System.Drawing.Size(196, 65);
+            this.writeButton.TabIndex = 3;
+            this.writeButton.Text = "Write States";
+            this.writeButton.UseVisualStyleBackColor = false;
+            this.writeButton.Click += new System.EventHandler(this.writeButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -156,5 +175,6 @@
         private System.Windows.Forms.Panel sideBarLogo;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel dividerPanel;
+        private System.Windows.Forms.Button writeButton;
     }
 }

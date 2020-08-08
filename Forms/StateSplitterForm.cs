@@ -14,21 +14,23 @@ using System.Windows.Forms;
 namespace StateEditor.Forms {
     public partial class StateSplitterForm : Form {
 
-        public string baseDirectory = @"A:\Files\Documents\Paradox Interactive\Hearts of Iron IV\mod\thirdreich";
+        public string baseDirectory;
         private readonly LocalisationManager localeManager;
         private readonly CountryManager countryManager;
         private readonly ResourceManager resourceManager;
 
         private State currentState;
 
-        public StateSplitterForm() {
+        public StateSplitterForm(string baseDirectory, LocalisationManager lm, CountryManager cm, ResourceManager rm) {
             InitializeComponent();
 
-            localeManager = new LocalisationManager(baseDirectory);
-            countryManager = new CountryManager(baseDirectory, localeManager);
-            resourceManager = new ResourceManager(baseDirectory, countryManager);
+            this.baseDirectory = baseDirectory;
+            localeManager = lm;
+            countryManager = cm;
+            resourceManager = rm;
 
-            Reload();
+            SetDataSources();
+
         }
 
         private void Reload() {
@@ -38,7 +40,7 @@ namespace StateEditor.Forms {
             State.ReloadAll();
             countryManager.ReloadCountries();
             resourceManager.ReloadResourceMap(true, false);
-            SetDataSources();
+            
         }
 
         private void SetDataSources() {
@@ -64,8 +66,7 @@ namespace StateEditor.Forms {
                 provinceSelectList.Items.Add(p);
             }
 
-            validLabel.Text = $"Current Valid: {currentState.IsValid()}";
-
+            oldStateNameInput.Text = $"{currentState.LocalisedName}";
             newStateNameInput.Text = $"STATE {State.Count+1}";
 
             oldStateManpowerInput.Maximum = currentState.Manpower;
@@ -86,6 +87,7 @@ namespace StateEditor.Forms {
             newStateOwnerInput.SelectedItem = countryManager.GetCountry(currentState.Owner);
 
             oldStateCoreInput.SelectedItems.Clear();
+            newStateCoreInput.SelectedItems.Clear();
             foreach (string s in currentState.Cores) {
                 Country c = countryManager.GetCountry(s);
                 oldStateCoreInput.SelectedItems.Add(c);
@@ -112,6 +114,89 @@ namespace StateEditor.Forms {
 
         private void newStateManpowerInput_ValueChanged(object sender, EventArgs e) {
             oldStateManpowerInput.Value = currentState.Manpower - newStateManpowerInput.Value;
+
+        }
+
+        private void stateSaveButton_Click(object sender, EventArgs e) {
+
+            //TODO error checking
+
+            int newId = State.Count + 1;
+            if (!State.Create(newId)) return;
+            State newState = State.Get(newId);
+
+            //new state
+
+            newState.Name = $"STATE_{newId}";
+            newState.LocalisedName = newStateNameInput.Text;
+            newState.FileName = $"{newId}-{newState.LocalisedName}.txt";
+            newState.Manpower = (int)newStateManpowerInput.Value;
+            newState.Category = (StateCategory)newStateCategoryInput.SelectedItem;
+            newState.Resources.Oil = (double)newStateOilInput.Value;
+            newState.Resources.Rubber = (double)newStateRubberInput.Value;
+            newState.Resources.Steel = (double)newStateSteelInput.Value;
+            newState.Resources.Tungsten = (double)newStateTungstenInput.Value;
+            newState.Resources.Aluminium = (double)newStateAluminiumInput.Value;
+            newState.Resources.Chromium = (double)newStateChromiumInput.Value;
+
+            newState.Owner = newStateOwnerInput.SelectedItem.ToString();
+            foreach (object o in newStateCoreInput.SelectedItems) {
+                newState.Cores.Add(o.ToString());
+            }
+
+            newState.Infrastructure = (int)newStateInfrastructureInput.Value;
+            newState.CivillianFactories = (int)newStateCivFactoriesInput.Value;
+            newState.MilitaryFactories = (int)newStateMilFactoriesInput.Value;
+            newState.Dockyards = (int)newStateDockyardsInput.Value;
+            newState.Refineries = (int)newStateRefineriesInput.Value;
+            newState.Silos = (int)newStateSilosInput.Value;
+            newState.Reactors = (int)newStateReactorsInput.Value;
+            newState.Airbases = (int)newStateAirbaseInput.Value;
+            newState.Radar = (int)newStateRadarInput.Value;
+            newState.Rockets = (int)newStateRocketsInput.Value;
+            newState.Antiair = (int)newStateAntiairInput.Value;
+
+
+            //old state
+            currentState.LocalisedName = oldStateNameInput.Text;
+            currentState.Manpower = (int)oldStateManpowerInput.Value;
+            currentState.Category = (StateCategory)oldStateCategoryInput.SelectedItem;
+            currentState.Resources.Oil = (double)oldStateOilInput.Value;
+            currentState.Resources.Rubber = (double)oldStateRubberInput.Value;
+            currentState.Resources.Steel = (double)oldStateSteelInput.Value;
+            currentState.Resources.Tungsten = (double)oldStateTungstenInput.Value;
+            currentState.Resources.Aluminium = (double)oldStateAluminiumInput.Value;
+            currentState.Resources.Chromium = (double)oldStateChromiumInput.Value;
+
+            currentState.Owner = oldStateOwnerInput.SelectedItem.ToString();
+            foreach (object o in oldStateCoreInput.SelectedItems) {
+                currentState.Cores.Add(o.ToString());
+            }
+
+            currentState.Infrastructure = (int)oldStateInfrastructureInput.Value;
+            currentState.CivillianFactories = (int)oldStateCivFactoriesInput.Value;
+            currentState.MilitaryFactories = (int)oldStateMilFactoriesInput.Value;
+            currentState.Dockyards = (int)oldStateDockyardsInput.Value;
+            currentState.Refineries = (int)oldStateRefineriesInput.Value;
+            currentState.Silos = (int)oldStateSilosInput.Value;
+            currentState.Reactors = (int)oldStateReactorsInput.Value;
+            currentState.Airbases = (int)oldStateAirbaseInput.Value;
+            currentState.Radar = (int)oldStateRadarInput.Value;
+            currentState.Rockets = (int)oldStateRocketsInput.Value;
+            currentState.Antiair = (int)oldStateAntiairInput.Value;
+
+            //transfer provinces
+            foreach (object o in provinceSelectList.CheckedItems) {
+                Province p = (Province)o;
+                State.TransferProvince(currentState, newState, p);
+            }
+
+
+            SetDataSources();
+            stateList.SelectedIndex = stateList.Items.Count-1;
+
+
+            validLabel.Text = $"New Valid: {newState.IsValid()}";
 
         }
     }

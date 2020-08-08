@@ -19,13 +19,12 @@ namespace StateEditor.Entity
         private static Dictionary<int, State> states = new Dictionary<int, State>();
         private static string basePath = "";
         private static string stateFileLocation = @"\history\states\";
-
-
+        public static string Status { get; private set; }
 
         public readonly int id;
-        public bool Modified {
-            get { return modified; }
-        }
+        public bool Modified { get; private set; }
+
+        #region FIELDS
         public string FileName {
             get { return fileName; }
             set {
@@ -82,14 +81,14 @@ namespace StateEditor.Entity
                 owner = value;
             }
         }
-        public List<string> Cores {
+        public HashSet<string> Cores {
             get { return cores; }
             set {
                 SetModified(this);
                 cores = value;
             }
         }
-        public List<Province> Provinces {
+        public HashSet<Province> Provinces {
             get { return provinces; }
             set {
                 SetModified(this);
@@ -174,10 +173,9 @@ namespace StateEditor.Entity
             }
         }
 
-        private bool modified;
         private string owner;
-        private List<string> cores;
-        private List<Province> provinces;
+        private HashSet<string> cores;
+        private HashSet<Province> provinces;
         private int infrastructure;
         private int militaryFactories;
         private int civillianFactories;
@@ -197,6 +195,8 @@ namespace StateEditor.Entity
         private StateCategory category;
         private ResourceSet resources;
 
+        #endregion
+
         private State(int id) {
             this.id = id;
             fileName = "";
@@ -207,8 +207,8 @@ namespace StateEditor.Entity
             manpower = 0;
             resources = new ResourceSet();
             owner = "";
-            cores = new List<string>();
-            provinces = new List<Province>();
+            cores = new HashSet<string>();
+            provinces = new HashSet<Province>();
             infrastructure = 0;
             militaryFactories = 0;
             civillianFactories = 0;
@@ -243,10 +243,12 @@ namespace StateEditor.Entity
         }
 
         public static bool ReloadAll() {
+            states.Clear();
             string[] stateFiles = Directory.GetFiles($@"{basePath}{stateFileLocation}");
             foreach (string s in stateFiles) {
+                if (!s.EndsWith(".txt")) continue;
                 if (!Parser.ParseState(s)) {
-                    Console.WriteLine(Parser.GetError());
+                    Debug.WriteLine(Parser.GetError());
                     return false; 
                 }
             }
@@ -269,11 +271,19 @@ namespace StateEditor.Entity
         }
 
         public static bool Save() {
-            if (!IsAllValid()) return false;
-            foreach (State s in states.Values) {
-                if (!s.modified) continue;
-                if (!Write(s)) return false;
+            if (!IsAllValid()) {
+                Status = "Not all states valid";
+                return false; 
             }
+            foreach (State s in states.Values) {
+                if (!s.Modified) continue;
+                if (!Write(s)) {
+                    Status = $"Could not write state {s}";
+                    return false; 
+                }
+                Debug.WriteLine($"State {s} written");
+            }
+            Status = "All states successfully written to file";
             return true;
         }
 
@@ -341,26 +351,33 @@ namespace StateEditor.Entity
             sb.Append($"}}\n");
 
             Debug.WriteLine($"{s.fileName}");
-            File.WriteAllText($"{basePath}{stateFileLocation}TEST{s.fileName}.txt", sb.ToString());
+            string path = $"{basePath}{stateFileLocation}{s.fileName}";
+            if (File.Exists(path)) File.Copy(path, $"{path}.old");
+            File.WriteAllText(path, sb.ToString());
             return true;
         }
+
 
         public static bool TransferProvince(State s1, State s2, Province p) {
             if (s1 == null || s2 == null) return false;
             if (!s1.provinces.Contains(p)) return false;
 
             s1.provinces.Remove(p);
-            s1.provinces.Add(p);
+            s2.provinces.Add(p);
             return true;
         }
 
         private static void SetModified(State s) {
-            s.modified = true;
+            s.Modified = true;
         }
 
         public static bool SetBasePath(string path) {
             basePath = path;
             return true;
+        }
+
+        public void SetUnmodified() {
+            Modified = false;
         }
 
         public bool IsValid() {
@@ -399,17 +416,15 @@ namespace StateEditor.Entity
 
         public string ToStringVerbose() {
             List<string> psl = new List<string>();
-            provinces.ForEach(p => psl.Add(p.ToString()));
+            foreach (Province p in provinces) {
+                psl.Add(p.ToString());
+            }
             string provincesString = $"{{{string.Join(", ", psl) }}}";
             string coresString = $"{{{string.Join(", ", cores)}}}";
 
             return $"State {id}: {{name: {name}, localisedname: {localisedName}, category: {category}, manpower: {manpower}, factor: {buildFactor}, resources: {resources.ToString()}, " + 
                    $"owner: {owner}, cores: {coresString}, inf: {infrastructure}, mils: {militaryFactories}, civs: {civillianFactories}, docks: {dockyards}, " +
                    $"refineries: {refineries}, silos: {silos}, antiair: {antiair}, reactors: {reactors}, airbases: {airbases}, rockets: {rockets}, radar: {radar}, provinces: {provincesString}}}";
-        }
-
-        public string ToFileFormat() {
-            return "";
         }
 
     }

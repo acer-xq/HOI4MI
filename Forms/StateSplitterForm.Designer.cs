@@ -673,6 +673,7 @@
             this.stateSaveButton.TabIndex = 50;
             this.stateSaveButton.Text = "Save";
             this.stateSaveButton.UseVisualStyleBackColor = false;
+            this.stateSaveButton.Click += new System.EventHandler(this.stateSaveButton_Click);
             // 
             // stateResetButton
             // 
@@ -719,7 +720,6 @@
             this.statusStrip.Size = new System.Drawing.Size(1144, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 54;
-            this.statusStrip.Text = "statusStrip1";
             // 
             // validLabel
             // 
@@ -748,7 +748,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1144, 547);
             this.Controls.Add(this.oldStateNameInput);
             this.Controls.Add(this.statusStrip);
