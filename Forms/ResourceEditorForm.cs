@@ -13,15 +13,13 @@ namespace StateEditor
 {
     public partial class ResourceEditorForm : Form
     {
-        public string baseDirectory;
         private readonly LocalisationManager localeManager;
         private readonly CountryManager countryManager;
         private readonly ResourceManager resourceManager;
 
-        public ResourceEditorForm(string baseDirectory, LocalisationManager lm, CountryManager cm, ResourceManager rm) {
+        public ResourceEditorForm(LocalisationManager lm, CountryManager cm, ResourceManager rm) {
             InitializeComponent();
 
-            this.baseDirectory = baseDirectory;
             localeManager = lm;
             countryManager = cm;
             resourceManager = rm;

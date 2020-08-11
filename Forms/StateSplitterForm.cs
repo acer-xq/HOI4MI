@@ -14,17 +14,14 @@ using System.Windows.Forms;
 namespace StateEditor.Forms {
     public partial class StateSplitterForm : Form {
 
-        public string baseDirectory;
         private readonly LocalisationManager localeManager;
         private readonly CountryManager countryManager;
         private readonly ResourceManager resourceManager;
 
         private State currentState;
 
-        public StateSplitterForm(string baseDirectory, LocalisationManager lm, CountryManager cm, ResourceManager rm) {
+        public StateSplitterForm(LocalisationManager lm, CountryManager cm, ResourceManager rm) {
             InitializeComponent();
-
-            this.baseDirectory = baseDirectory;
             localeManager = lm;
             countryManager = cm;
             resourceManager = rm;

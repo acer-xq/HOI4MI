@@ -32,15 +32,16 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.stateSplitterFormButton = new System.Windows.Forms.Button();
             this.sideBar = new System.Windows.Forms.Panel();
+            this.sideBarBottom = new System.Windows.Forms.Panel();
+            this.reloadButton = new System.Windows.Forms.Button();
             this.writeButton = new System.Windows.Forms.Button();
             this.sideBarLogo = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dividerPanel = new System.Windows.Forms.Panel();
-            this.sideBarBottom = new System.Windows.Forms.Panel();
-            this.reloadButton = new System.Windows.Forms.Button();
+            this.stateEditorFormButton = new System.Windows.Forms.Button();
             this.sideBar.SuspendLayout();
-            this.sideBarLogo.SuspendLayout();
             this.sideBarBottom.SuspendLayout();
+            this.sideBarLogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // resourceEditorFormButton
@@ -92,6 +93,7 @@
             // 
             this.sideBar.AutoScroll = true;
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
+            this.sideBar.Controls.Add(this.stateEditorFormButton);
             this.sideBar.Controls.Add(this.sideBarBottom);
             this.sideBar.Controls.Add(this.sideBarLogo);
             this.sideBar.Controls.Add(this.stateSplitterFormButton);
@@ -102,6 +104,34 @@
             this.sideBar.Name = "sideBar";
             this.sideBar.Size = new System.Drawing.Size(196, 829);
             this.sideBar.TabIndex = 4;
+            // 
+            // sideBarBottom
+            // 
+            this.sideBarBottom.BackColor = System.Drawing.Color.White;
+            this.sideBarBottom.Controls.Add(this.reloadButton);
+            this.sideBarBottom.Controls.Add(this.writeButton);
+            this.sideBarBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sideBarBottom.Location = new System.Drawing.Point(0, 629);
+            this.sideBarBottom.Name = "sideBarBottom";
+            this.sideBarBottom.Size = new System.Drawing.Size(196, 100);
+            this.sideBarBottom.TabIndex = 6;
+            // 
+            // reloadButton
+            // 
+            this.reloadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.reloadButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.reloadButton.FlatAppearance.BorderSize = 0;
+            this.reloadButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.reloadButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            this.reloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reloadButton.Location = new System.Drawing.Point(98, 0);
+            this.reloadButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.reloadButton.Name = "reloadButton";
+            this.reloadButton.Size = new System.Drawing.Size(98, 100);
+            this.reloadButton.TabIndex = 3;
+            this.reloadButton.Text = "Reload";
+            this.reloadButton.UseVisualStyleBackColor = false;
+            this.reloadButton.Click += new System.EventHandler(this.reloadButton_Click);
             // 
             // writeButton
             // 
@@ -149,33 +179,21 @@
             this.dividerPanel.Size = new System.Drawing.Size(16, 829);
             this.dividerPanel.TabIndex = 6;
             // 
-            // sideBarBottom
+            // stateEditorFormButton
             // 
-            this.sideBarBottom.BackColor = System.Drawing.Color.White;
-            this.sideBarBottom.Controls.Add(this.reloadButton);
-            this.sideBarBottom.Controls.Add(this.writeButton);
-            this.sideBarBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.sideBarBottom.Location = new System.Drawing.Point(0, 629);
-            this.sideBarBottom.Name = "sideBarBottom";
-            this.sideBarBottom.Size = new System.Drawing.Size(196, 100);
-            this.sideBarBottom.TabIndex = 6;
-            // 
-            // reloadButton
-            // 
-            this.reloadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.reloadButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.reloadButton.FlatAppearance.BorderSize = 0;
-            this.reloadButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.reloadButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
-            this.reloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reloadButton.Location = new System.Drawing.Point(98, 0);
-            this.reloadButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.reloadButton.Name = "reloadButton";
-            this.reloadButton.Size = new System.Drawing.Size(98, 100);
-            this.reloadButton.TabIndex = 3;
-            this.reloadButton.Text = "Reload";
-            this.reloadButton.UseVisualStyleBackColor = false;
-            this.reloadButton.Click += new System.EventHandler(this.reloadButton_Click);
+            this.stateEditorFormButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.stateEditorFormButton.FlatAppearance.BorderSize = 0;
+            this.stateEditorFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.stateEditorFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            this.stateEditorFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stateEditorFormButton.Location = new System.Drawing.Point(0, 130);
+            this.stateEditorFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.stateEditorFormButton.Name = "stateEditorFormButton";
+            this.stateEditorFormButton.Size = new System.Drawing.Size(196, 65);
+            this.stateEditorFormButton.TabIndex = 3;
+            this.stateEditorFormButton.Text = "State Editor";
+            this.stateEditorFormButton.UseVisualStyleBackColor = true;
+            this.stateEditorFormButton.Click += new System.EventHandler(this.stateEditorFormButton_Click);
             // 
             // MainForm
             // 
@@ -192,8 +210,8 @@
             this.Name = "MainForm";
             this.Text = "Hearts of Iron IV Modding Interface";
             this.sideBar.ResumeLayout(false);
-            this.sideBarLogo.ResumeLayout(false);
             this.sideBarBottom.ResumeLayout(false);
+            this.sideBarLogo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -210,5 +228,6 @@
         private System.Windows.Forms.Button writeButton;
         private System.Windows.Forms.Panel sideBarBottom;
         private System.Windows.Forms.Button reloadButton;
+        private System.Windows.Forms.Button stateEditorFormButton;
     }
 }

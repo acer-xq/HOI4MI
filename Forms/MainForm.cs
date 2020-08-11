@@ -17,9 +17,10 @@ namespace StateEditor.Forms
     {
         private string basePath = @"A:\Files\Documents\Paradox Interactive\Hearts of Iron IV\mod\thirdreich";
 
+        private ResultDialog resultDialog;
         private ResourceEditorForm resourceEditor;
         private StateSplitterForm stateSplitter;
-        private ResultDialog resultDialog;
+        private StateEditorForm stateEditor;
 
         private readonly LocalisationManager localeManager;
         private readonly CountryManager countryManager;
@@ -46,14 +47,6 @@ namespace StateEditor.Forms
             f.Show();
         }
 
-        private void resourceEditorFormButton_Click(object sender, EventArgs e) {
-            OpenForm(resourceEditor);
-        }
-
-        private void stateSplitterFormButton_Click(object sender, EventArgs e) {
-            OpenForm(stateSplitter);
-        }
-
         private void Reload() {
             localeManager.ReloadLocalisation();
             Parser.SetLocalisationManager(localeManager);
@@ -63,8 +56,9 @@ namespace StateEditor.Forms
             resourceManager.ReloadResourceMap(true, false);
 
 
-            stateSplitter = new StateSplitterForm(basePath, localeManager, countryManager, resourceManager);
-            resourceEditor = new ResourceEditorForm(basePath, localeManager, countryManager, resourceManager);
+            stateSplitter = new StateSplitterForm(localeManager, countryManager, resourceManager);
+            resourceEditor = new ResourceEditorForm(localeManager, countryManager, resourceManager);
+            stateEditor = new StateEditorForm(localeManager, countryManager, resourceManager);
             resultDialog = new ResultDialog();
             resultDialog.Location = new Point(Location.X + Width / 2, Location.Y + Height / 2);
         }
@@ -81,5 +75,18 @@ namespace StateEditor.Forms
             mainPanel.Controls.Clear();
             Reload();
         }
+
+        #region forms
+        private void resourceEditorFormButton_Click(object sender, EventArgs e) {
+            OpenForm(resourceEditor);
+        }
+        private void stateSplitterFormButton_Click(object sender, EventArgs e) {
+            OpenForm(stateSplitter);
+        }
+
+        private void stateEditorFormButton_Click(object sender, EventArgs e) {
+
+        }
+        #endregion
     }
 }
