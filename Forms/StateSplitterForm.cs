@@ -15,15 +15,13 @@ namespace StateEditor.Forms {
     public partial class StateSplitterForm : Form {
 
         private readonly LocalisationManager localeManager;
-        private readonly CountryManager countryManager;
         private readonly ResourceManager resourceManager;
 
         private State currentState;
 
-        public StateSplitterForm(LocalisationManager lm, CountryManager cm, ResourceManager rm) {
+        public StateSplitterForm(LocalisationManager lm, ResourceManager rm) {
             InitializeComponent();
             localeManager = lm;
-            countryManager = cm;
             resourceManager = rm;
 
             SetDataSources();
@@ -35,7 +33,7 @@ namespace StateEditor.Forms {
             Parser.SetLocalisationManager(localeManager);
             Province.ReloadAll();
             State.ReloadAll();
-            countryManager.ReloadCountries();
+            Country.ReloadAll();
             resourceManager.ReloadResourceMap(true, false);
             
         }
@@ -44,10 +42,10 @@ namespace StateEditor.Forms {
             stateList.DataSource = State.States;
             oldStateCategoryInput.DataSource = Enum.GetValues(typeof(StateCategory));
             newStateCategoryInput.DataSource = Enum.GetValues(typeof(StateCategory));
-            oldStateOwnerInput.DataSource = countryManager.Countries;
-            newStateOwnerInput.DataSource = countryManager.Countries;
-            oldStateCoreInput.DataSource = countryManager.Countries;
-            newStateCoreInput.DataSource = countryManager.Countries;
+            oldStateOwnerInput.DataSource = Country.Countries;
+            newStateOwnerInput.DataSource = Country.Countries;
+            oldStateCoreInput.DataSource = Country.Countries;
+            newStateCoreInput.DataSource = Country.Countries;
         }
 
         private void debugButton_Click(object sender, EventArgs e) {
@@ -80,13 +78,13 @@ namespace StateEditor.Forms {
             oldStateAluminiumInput.Value = (decimal)currentState.Resources.Aluminium;
             oldStateChromiumInput.Value = (decimal)currentState.Resources.Chromium;
 
-            oldStateOwnerInput.SelectedItem = countryManager.GetCountry(currentState.Owner);
-            newStateOwnerInput.SelectedItem = countryManager.GetCountry(currentState.Owner);
+            oldStateOwnerInput.SelectedItem = Country.Get(currentState.Owner);
+            newStateOwnerInput.SelectedItem = Country.Get(currentState.Owner);
 
             oldStateCoreInput.SelectedItems.Clear();
             newStateCoreInput.SelectedItems.Clear();
             foreach (string s in currentState.Cores) {
-                Country c = countryManager.GetCountry(s);
+                Country c = Country.Get(s);
                 oldStateCoreInput.SelectedItems.Add(c);
                 newStateCoreInput.SelectedItems.Add(c);
             }

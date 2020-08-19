@@ -14,14 +14,12 @@ namespace StateEditor
     public partial class ResourceEditorForm : Form
     {
         private readonly LocalisationManager localeManager;
-        private readonly CountryManager countryManager;
         private readonly ResourceManager resourceManager;
 
-        public ResourceEditorForm(LocalisationManager lm, CountryManager cm, ResourceManager rm) {
+        public ResourceEditorForm(LocalisationManager lm, ResourceManager rm) {
             InitializeComponent();
 
             localeManager = lm;
-            countryManager = cm;
             resourceManager = rm;
 
             stateList.DataSource = State.States;
@@ -33,7 +31,7 @@ namespace StateEditor
             Parser.SetLocalisationManager(localeManager);
             Province.ReloadAll();
             State.ReloadAll();
-            countryManager.ReloadCountries();
+            Country.ReloadAll();
             resourceManager.ReloadResourceMap(true, false);
 
             

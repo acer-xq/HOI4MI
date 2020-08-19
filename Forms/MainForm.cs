@@ -23,16 +23,15 @@ namespace StateEditor.Forms
         private StateEditorForm stateEditor;
 
         private readonly LocalisationManager localeManager;
-        private readonly CountryManager countryManager;
         private readonly ResourceManager resourceManager;
 
         public MainForm() {
             InitializeComponent();
             Province.SetBasePath(basePath);
             State.SetBasePath(basePath);
+            Country.SetBasePath(basePath);
             localeManager = new LocalisationManager(basePath);
-            countryManager = new CountryManager(basePath, localeManager);
-            resourceManager = new ResourceManager(basePath, countryManager);
+            resourceManager = new ResourceManager(basePath);
 
             Reload();
         }
@@ -52,13 +51,13 @@ namespace StateEditor.Forms
             Parser.SetLocalisationManager(localeManager);
             Province.ReloadAll();
             State.ReloadAll();
-            countryManager.ReloadCountries();
+            Country.ReloadAll();
             resourceManager.ReloadResourceMap(true, false);
 
 
-            stateSplitter = new StateSplitterForm(localeManager, countryManager, resourceManager);
-            resourceEditor = new ResourceEditorForm(localeManager, countryManager, resourceManager);
-            stateEditor = new StateEditorForm(localeManager, countryManager, resourceManager);
+            stateSplitter = new StateSplitterForm(localeManager, resourceManager);
+            resourceEditor = new ResourceEditorForm(localeManager, resourceManager);
+            stateEditor = new StateEditorForm(localeManager, resourceManager);
             resultDialog = new ResultDialog();
             resultDialog.Location = new Point(Location.X + Width / 2, Location.Y + Height / 2);
         }
@@ -85,7 +84,7 @@ namespace StateEditor.Forms
         }
 
         private void stateEditorFormButton_Click(object sender, EventArgs e) {
-
+            OpenForm(stateEditor);
         }
         #endregion
     }

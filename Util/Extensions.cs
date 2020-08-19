@@ -12,6 +12,7 @@ namespace StateEditor.Util {
         }
 
         public static void AddOrSet<TKey, TValue>(this Dictionary<TKey, TValue> d, TKey key, TValue val, bool overwrite) {
+            if (key == null) return;
             if (d.ContainsKey(key)) {
                 if (overwrite) d[key] = val;
             }

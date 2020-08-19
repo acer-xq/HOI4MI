@@ -15,11 +15,11 @@ namespace StateEditor.Entity
 
         public static List<State> States { get { return states.Values.OrderBy(x => x.id).ToList(); } }
         public static int Count { get { return states.Count; } }
+        public static string Status { get; private set; }
 
         private static Dictionary<int, State> states = new Dictionary<int, State>();
         private static string basePath = "";
         private static string stateFileLocation = @"\history\states\";
-        public static string Status { get; private set; }
 
         public readonly int id;
         public bool Modified { get; private set; }
@@ -173,6 +173,14 @@ namespace StateEditor.Entity
             }
         }
 
+        public bool Impassable {
+            get { return impassable; }
+            set {
+                SetModified();
+                impassable = value;
+            }
+        }
+
         private string owner;
         private HashSet<string> cores;
         private HashSet<Province> provinces;
@@ -194,6 +202,7 @@ namespace StateEditor.Entity
         private int buildFactor;
         private StateCategory category;
         private ResourceSet resources;
+        private bool impassable;
 
         #endregion
 
@@ -220,7 +229,7 @@ namespace StateEditor.Entity
             airbases = 0;
             rockets = 0;
             radar = 0;
-
+            impassable = false;
         }
 
         // STATIC METHODS //
@@ -270,7 +279,6 @@ namespace StateEditor.Entity
             foreach (string s in stateFiles) {
                 if (!s.EndsWith(".txt")) continue;
                 if (!Parser.ParseState(s)) {
-                    Debug.WriteLine(Parser.Status);
                     return false; 
                 }
             }
@@ -312,6 +320,7 @@ namespace StateEditor.Entity
             sb.Append($"\tname=\"{s.name}\"\n");
             sb.Append($"\tstate_category={s.category.ConvertStateCategory()}\n");
             sb.Append($"\tmanpower={s.manpower}\n");
+            sb.Append(s.impassable ? $"\timpassable=yes\n" : "");
             if (!s.resources.IsEmpty()) { 
                 sb.Append($"\tresources={{\n");
                 sb.Append(s.resources.Steel > 0 ? $"\t\tsteel={s.resources.Steel}\n" : "");

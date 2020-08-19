@@ -10,12 +10,10 @@ namespace StateEditor.Manager
 {
     public class ResourceManager {
 
-        private CountryManager countryManager;
         private Dictionary<Country, ResourceSet> resourceMap;
 
-        public ResourceManager(string p, CountryManager c) {
+        public ResourceManager(string p) {
             resourceMap = new Dictionary<Country, ResourceSet>();
-            countryManager = c;
         }
 
         public void ReloadResourceMap(bool infrastructure, bool useCore) {
@@ -31,10 +29,10 @@ namespace StateEditor.Manager
 
                 Country[] c = new Country[] { };
                 if (useCore) {
-                    c = countryManager.GetCountries(x => s.Cores.Contains(x.tag)).ToArray();
+                    c = Country.Find(x => s.Cores.Contains(x.tag)).ToArray();
                 }
                 else {
-                    c = countryManager.GetCountries(x => x.tag == s.Owner).ToArray();
+                    c = Country.Find(x => x.tag == s.Owner).ToArray();
                 }
 
                 foreach (Country d in c) {          
@@ -55,13 +53,13 @@ namespace StateEditor.Manager
         public Dictionary<Country, ResourceSet> EmptyResourceMap(bool includeEmpty) {
             Dictionary<Country, ResourceSet> map = new Dictionary<Country, ResourceSet>();
             if (includeEmpty) {
-                foreach (Country c in countryManager.Countries) {
+                foreach (Country c in Country.Countries) {
                     map.Add(c, new ResourceSet());
                 }
             }
             else {
                 foreach (State s in State.States) {
-                    Country c = countryManager.GetCountry(s.Owner);
+                    Country c = Country.Get(s.Owner);
                     map.AddOrSet(c, new ResourceSet(), false);
                 }
             }

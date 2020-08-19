@@ -183,6 +183,7 @@ namespace StateEditor
                 s.Rockets = FindKeyInt("rocket_site");
                 s.Reactors = FindKeyInt("nuclear_reactor");
                 s.Airbases = FindKeyInt("air_base");
+                s.Impassable = FindKey("impassable") == "yes";
                 s.Provinces = provs;
                 s.SetUnmodified();
             }
@@ -195,8 +196,17 @@ namespace StateEditor
             return true;
         }
 
-        public static Country ParseCountry(string f, string n) {
+        public static bool ParseCountry(string path) {
+            string f = File.ReadAllText(path);
             currentFile = RemoveWhiteSpace(f);
+            string tag = Regex.Match(path.Split(@"\").Last(), @"([A-Z]+) - .+").Groups[1].Value.ToUpper();
+            
+            //string tag = path.Split(@"\").Last().Substring(1, 3).ToUpper();
+
+            if (!Regex.IsMatch(tag, @"[A-Z]+")) {
+                Status = $"Country tag {tag} is not valid for {path}.";
+                return false;
+            }
 
             string pol = FindKey("set_politics");
             string pop = FindKey("set_popularities");
@@ -216,24 +226,26 @@ namespace StateEditor
             
             }
 
-            string tag = n.Substring(1, 3).ToUpper();
+            if (Country.Create(tag)) {
+                Country c = Country.Get(tag);
+                c.Name = lm.GetLocalisationItem($"{tag}_{p.rulingParty.ToString().ToLower()}");
+                c.Oob = FindKey("oob");
+                c.ResearchSlots = FindKeyInt("set_research_slots");
+                c.Convoys = FindKeyInt("set_convoys");
+                c.Stability = FindKeyDouble("set_stability");
+                c.WarSupport = FindKeyDouble("set_war_support");
+                c.Politics = p;
+                c.FactionName = FindKey("create_faction");
+                c.FactionMembers = FindMultipleKey("add_to_faction");
+                c.Capital = FindKeyInt("capital");
+                c.SetUnmodified();
+            }
+            else {
+                Status = $"Error creating country {tag} for {path}.";
+                return false;
+            }
 
-            Country result = new Country(tag) {
-                name = lm.GetLocalisationItem($"{tag}_{p.rulingParty.ToString().ToLower()}"),
-                oob = FindKey("oob"),
-                researchSlots = FindKeyInt("set_research_slots"),
-                convoys = FindKeyInt("set_convoys"),
-                stability = FindKeyDouble("set_stability"),
-                warSupport = FindKeyDouble("set_war_support"),
-                politics = p,
-                factionName = FindKey("create_faction"),
-                factionMembers = FindMultipleKey("add_to_faction"),
-                capital = FindKeyInt("capital"),
-
-            };
-
-
-            return result;
+            return true;
         }
 
         public static void SetLocalisationManager(LocalisationManager l) {
