@@ -50,6 +50,8 @@
             this.stateAntiairInput = new System.Windows.Forms.NumericUpDown();
             this.stateCategoryInput = new System.Windows.Forms.ComboBox();
             this.stateNameInput = new System.Windows.Forms.TextBox();
+            this.resetButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stateManpowerInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stateOilInput)).BeginInit();
@@ -400,12 +402,46 @@
             this.stateNameInput.TabIndex = 8;
             this.stateNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // resetButton
+            // 
+            this.resetButton.BackColor = System.Drawing.Color.Transparent;
+            this.resetButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.resetButton.FlatAppearance.BorderSize = 0;
+            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.resetButton.ForeColor = System.Drawing.Color.White;
+            this.resetButton.Location = new System.Drawing.Point(509, 567);
+            this.resetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(99, 32);
+            this.resetButton.TabIndex = 51;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = false;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.Transparent;
+            this.saveButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(374, 567);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(99, 32);
+            this.saveButton.TabIndex = 50;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.stateSaveButton_Click);
+            // 
             // StateEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1113, 647);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.stateNameInput);
             this.Controls.Add(this.stateCategoryInput);
             this.Controls.Add(this.stateAntiairInput);
@@ -488,5 +524,7 @@
         private System.Windows.Forms.ComboBox stateCategoryInput;
         private System.Windows.Forms.TextBox stateNameInput;
         private System.Windows.Forms.NumericUpDown stateCivFactoriesInput;
+        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button saveButton;
     }
 }
