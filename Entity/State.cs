@@ -374,6 +374,7 @@ namespace StateEditor.Entity
             string path = $"{basePath}{stateFileLocation}{s.fileName}";
             //if (File.Exists(path)) File.Copy(path, $"{path}.old");
             File.WriteAllText(path, sb.ToString());
+            s.SetUnmodified();
             return true;
         }
 
@@ -409,7 +410,7 @@ namespace StateEditor.Entity
             return true;
         }
 
-        private void SetModified() {
+        public void SetModified() {
             Modified = true;
         }
 

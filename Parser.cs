@@ -76,6 +76,7 @@ namespace StateEditor
                         return false;
                     }
                     p.Continent = (Continent)continent;
+                    p.SetUnmodified();
                 }
 
                 else {
@@ -122,6 +123,7 @@ namespace StateEditor
                     p.NavalBase = FindKeyInt("naval_base", temp);
                 }
                 provs.Add(p);
+                p.SetUnmodified();
             }
 
             //check if there's any vps specified in the file
@@ -137,6 +139,7 @@ namespace StateEditor
                         return false;
                     }
                     p.VictoryPoints = int.Parse(m.Groups[2].Value);
+                    p.SetUnmodified();
                 }
             }
 

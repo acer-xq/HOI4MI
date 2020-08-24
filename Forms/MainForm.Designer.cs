@@ -32,13 +32,14 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.stateSplitterFormButton = new System.Windows.Forms.Button();
             this.sideBar = new System.Windows.Forms.Panel();
+            this.stateEditorFormButton = new System.Windows.Forms.Button();
             this.sideBarBottom = new System.Windows.Forms.Panel();
             this.reloadButton = new System.Windows.Forms.Button();
             this.writeButton = new System.Windows.Forms.Button();
             this.sideBarLogo = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dividerPanel = new System.Windows.Forms.Panel();
-            this.stateEditorFormButton = new System.Windows.Forms.Button();
+            this.provinceCreatorFormButton = new System.Windows.Forms.Button();
             this.sideBar.SuspendLayout();
             this.sideBarBottom.SuspendLayout();
             this.sideBarLogo.SuspendLayout();
@@ -93,6 +94,7 @@
             // 
             this.sideBar.AutoScroll = true;
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
+            this.sideBar.Controls.Add(this.provinceCreatorFormButton);
             this.sideBar.Controls.Add(this.stateEditorFormButton);
             this.sideBar.Controls.Add(this.sideBarBottom);
             this.sideBar.Controls.Add(this.sideBarLogo);
@@ -104,6 +106,22 @@
             this.sideBar.Name = "sideBar";
             this.sideBar.Size = new System.Drawing.Size(196, 829);
             this.sideBar.TabIndex = 4;
+            // 
+            // stateEditorFormButton
+            // 
+            this.stateEditorFormButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.stateEditorFormButton.FlatAppearance.BorderSize = 0;
+            this.stateEditorFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.stateEditorFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            this.stateEditorFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stateEditorFormButton.Location = new System.Drawing.Point(0, 130);
+            this.stateEditorFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.stateEditorFormButton.Name = "stateEditorFormButton";
+            this.stateEditorFormButton.Size = new System.Drawing.Size(196, 65);
+            this.stateEditorFormButton.TabIndex = 3;
+            this.stateEditorFormButton.Text = "State Editor";
+            this.stateEditorFormButton.UseVisualStyleBackColor = true;
+            this.stateEditorFormButton.Click += new System.EventHandler(this.stateEditorFormButton_Click);
             // 
             // sideBarBottom
             // 
@@ -179,21 +197,21 @@
             this.dividerPanel.Size = new System.Drawing.Size(16, 829);
             this.dividerPanel.TabIndex = 6;
             // 
-            // stateEditorFormButton
+            // provinceCreatorFormButton
             // 
-            this.stateEditorFormButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.stateEditorFormButton.FlatAppearance.BorderSize = 0;
-            this.stateEditorFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.stateEditorFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
-            this.stateEditorFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.stateEditorFormButton.Location = new System.Drawing.Point(0, 130);
-            this.stateEditorFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.stateEditorFormButton.Name = "stateEditorFormButton";
-            this.stateEditorFormButton.Size = new System.Drawing.Size(196, 65);
-            this.stateEditorFormButton.TabIndex = 3;
-            this.stateEditorFormButton.Text = "State Editor";
-            this.stateEditorFormButton.UseVisualStyleBackColor = true;
-            this.stateEditorFormButton.Click += new System.EventHandler(this.stateEditorFormButton_Click);
+            this.provinceCreatorFormButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.provinceCreatorFormButton.FlatAppearance.BorderSize = 0;
+            this.provinceCreatorFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.provinceCreatorFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            this.provinceCreatorFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.provinceCreatorFormButton.Location = new System.Drawing.Point(0, 195);
+            this.provinceCreatorFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.provinceCreatorFormButton.Name = "provinceCreatorFormButton";
+            this.provinceCreatorFormButton.Size = new System.Drawing.Size(196, 65);
+            this.provinceCreatorFormButton.TabIndex = 3;
+            this.provinceCreatorFormButton.Text = "Province Creator";
+            this.provinceCreatorFormButton.UseVisualStyleBackColor = true;
+            this.provinceCreatorFormButton.Click += new System.EventHandler(this.provinceCreatorFormButton_Click);
             // 
             // MainForm
             // 
@@ -229,5 +247,6 @@
         private System.Windows.Forms.Panel sideBarBottom;
         private System.Windows.Forms.Button reloadButton;
         private System.Windows.Forms.Button stateEditorFormButton;
+        private System.Windows.Forms.Button provinceCreatorFormButton;
     }
 }

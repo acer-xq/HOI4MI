@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StateEditor.Manager;
 using HOI4MI.Forms;
+using System.Diagnostics;
 
 namespace StateEditor.Forms
 {
@@ -21,6 +22,7 @@ namespace StateEditor.Forms
         private ResourceEditorForm resourceEditor;
         private StateSplitterForm stateSplitter;
         private StateEditorForm stateEditor;
+        private ProvinceCreatorForm provinceCreator;
 
         private readonly LocalisationManager localeManager;
         private readonly ResourceManager resourceManager;
@@ -32,6 +34,7 @@ namespace StateEditor.Forms
             Country.SetBasePath(basePath);
             localeManager = new LocalisationManager(basePath);
             resourceManager = new ResourceManager(basePath);
+            resultDialog = new ResultDialog();
 
             Reload();
         }
@@ -47,26 +50,37 @@ namespace StateEditor.Forms
         }
 
         private void Reload() {
+
             localeManager.ReloadLocalisation();
             Parser.SetLocalisationManager(localeManager);
-            Province.ReloadAll();
-            State.ReloadAll();
-            Country.ReloadAll();
+            if (!Province.ReloadAll()) {
+                ShowMessage($"Error loading provinces:\n{Province.Status}\n{Parser.Status}");
+            }
+            if (!State.ReloadAll()) {
+                ShowMessage($"Error loading states:\n{State.Status}\n{Parser.Status}");
+            }
+            if (!Country.ReloadAll()) { 
+                ShowMessage($"Error loading countries:\n{Parser.Status}");
+            }
             resourceManager.ReloadResourceMap(true, false);
 
 
             stateSplitter = new StateSplitterForm(localeManager, resourceManager);
             resourceEditor = new ResourceEditorForm(localeManager, resourceManager);
             stateEditor = new StateEditorForm(localeManager, resourceManager);
-            resultDialog = new ResultDialog();
-            resultDialog.Location = new Point(Location.X + Width / 2, Location.Y + Height / 2);
+            provinceCreator = new ProvinceCreatorForm();
+            
         }
 
         private void writeButton_Click(object sender, EventArgs e) {
 
             State.Save();
 
-            resultDialog.SetMessage(State.Status);
+            ShowMessage(State.Status);
+        }
+
+        private void ShowMessage(string s) {
+            resultDialog.SetMessage(s);
             resultDialog.ShowDialog();
         }
 
@@ -85,6 +99,10 @@ namespace StateEditor.Forms
 
         private void stateEditorFormButton_Click(object sender, EventArgs e) {
             OpenForm(stateEditor);
+        }
+
+        private void provinceCreatorFormButton_Click(object sender, EventArgs e) {
+            OpenForm(provinceCreator);
         }
         #endregion
     }
