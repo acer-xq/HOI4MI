@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StateEditor.Entity
+namespace HOI4MI.Entity
 {
     public class ResourceSet {
         public static readonly string[] ResourceStrings = { "oil", "steel", "tungsten", "chromium", "aluminium", "rubber" };

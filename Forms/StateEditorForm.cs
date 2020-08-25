@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-using StateEditor;
-using StateEditor.Entity;
-using StateEditor.Manager;
-using StateEditor.Util;
+using HOI4MI;
+using HOI4MI.Entity;
+using HOI4MI.Manager;
+using HOI4MI.Util;
 
 namespace HOI4MI.Forms {
     public partial class StateEditorForm : Form {

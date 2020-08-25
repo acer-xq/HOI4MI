@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-using StateEditor.Util;
+using HOI4MI.Util;
 using System.Drawing;
 using System.Diagnostics;
 using System.IO;
 
-namespace StateEditor.Entity
+namespace HOI4MI.Entity
 {
     public class Province {
         public static List<Province> Provinces { get { return provinces.Values.OrderBy(x => x.id).ToList(); } }
@@ -64,7 +64,7 @@ namespace StateEditor.Entity
             //Province with id already exists
             if (provinces.ContainsKey(id)) return false;
             //Province with colour already exists
-            if (!provinces.Values.All(p => p.Rgb != colour)) return false;
+            if (!IsColourUnique(colour)) return false;
 
             Province s = new Province(id);
             s.rgb = colour;
@@ -90,7 +90,7 @@ namespace StateEditor.Entity
             foreach (Province p in provinces.Values) {
                 if (!p.Modified) continue;
                 if (!Write(p)) {
-                    //Status = $"Could not write province {p}";
+                    Status = $"Could not write province {p}";
                     return false;
                 }
                 else {
@@ -121,6 +121,11 @@ namespace StateEditor.Entity
 
         public static bool IsAllValid() {
             return provinces.Values.All(p => p != null || p.IsValid());
+        }
+
+        public static bool IsColourUnique(int[] rgb) {
+            if (rgb == null) return false;
+            return provinces.Values.All(p => p.Rgb != rgb);
         }
 
         public static void SetBasePath(string path) {

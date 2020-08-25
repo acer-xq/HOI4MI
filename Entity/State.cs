@@ -5,10 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StateEditor.Entity;
-using StateEditor.Util;
+using HOI4MI.Entity;
+using HOI4MI.Util;
 
-namespace StateEditor.Entity
+namespace HOI4MI.Entity
 {
     
     public sealed class State : IComparable<State> {

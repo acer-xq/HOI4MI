@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using StateEditor.Manager;
-using StateEditor.Entity;
-using StateEditor.Util;
+using HOI4MI.Manager;
+using HOI4MI.Entity;
+using HOI4MI.Util;
 using System.Collections;
 using System.Reflection;
 
-namespace StateEditor
+namespace HOI4MI
 {
     public partial class ResourceEditorForm : Form
     {

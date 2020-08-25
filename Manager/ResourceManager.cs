@@ -1,12 +1,12 @@
-﻿using StateEditor.Entity;
-using StateEditor.Util;
+﻿using HOI4MI.Entity;
+using HOI4MI.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StateEditor.Manager
+namespace HOI4MI.Manager
 {
     public class ResourceManager {
 

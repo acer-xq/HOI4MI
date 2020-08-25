@@ -1,11 +1,11 @@
-﻿using StateEditor.Forms;
+﻿using HOI4MI.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StateEditor
+namespace HOI4MI
 {
     static class Program
     {

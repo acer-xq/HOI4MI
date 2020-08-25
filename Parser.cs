@@ -7,11 +7,11 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
-using StateEditor.Manager;
-using StateEditor.Entity;
-using StateEditor.Util;
+using HOI4MI.Manager;
+using HOI4MI.Entity;
+using HOI4MI.Util;
 
-namespace StateEditor
+namespace HOI4MI
 {
     public static class Parser {
 

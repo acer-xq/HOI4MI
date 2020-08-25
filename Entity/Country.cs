@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StateEditor.Entity
+namespace HOI4MI.Entity
 {
     public class Country : IComparable<Country> {
 

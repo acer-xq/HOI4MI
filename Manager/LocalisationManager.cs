@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
-using StateEditor.Util;
+using HOI4MI.Util;
 
-namespace StateEditor.Manager
+namespace HOI4MI.Manager
 {
     public class LocalisationManager {
 

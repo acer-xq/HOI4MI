@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StateEditor.Util
+namespace HOI4MI.Util
 {
     class IntComparer : IComparer<int>
     {

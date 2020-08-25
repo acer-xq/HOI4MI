@@ -1,5 +1,5 @@
 ﻿using System;
-using StateEditor.Entity;
+using HOI4MI.Entity;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using StateEditor.Manager;
+using HOI4MI.Manager;
 using HOI4MI.Forms;
 using System.Diagnostics;
 
-namespace StateEditor.Forms
+namespace HOI4MI.Forms
 {
     public partial class MainForm : Form
     {

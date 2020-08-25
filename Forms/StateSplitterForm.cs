@@ -1,6 +1,6 @@
-﻿using StateEditor.Entity;
-using StateEditor.Manager;
-using StateEditor.Util;
+﻿using HOI4MI.Entity;
+using HOI4MI.Manager;
+using HOI4MI.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StateEditor.Forms {
+namespace HOI4MI.Forms {
     public partial class StateSplitterForm : Form {
 
         private readonly LocalisationManager localeManager;

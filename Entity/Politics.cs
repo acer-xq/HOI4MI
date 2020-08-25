@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StateEditor.Util;
+using HOI4MI.Util;
 
-namespace StateEditor.Entity
+namespace HOI4MI.Entity
 {
     public class Politics {
         public Ideology rulingParty;

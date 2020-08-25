@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StateEditor.Util
+namespace HOI4MI.Util
 {
     public enum StateCategory { Wasteland, Tiny_Island, Enclave, Pastoral, Small_Island, Rural, Town, Large_Town, City, Large_City, Metropolis, Megalopolis };
     public enum Ideology { Neutrality, Democratic, Fascism, Communism };

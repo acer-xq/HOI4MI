@@ -1,4 +1,4 @@
-﻿namespace StateEditor.Forms {
+﻿namespace HOI4MI.Forms {
     partial class StateSplitterForm {
         /// <summary>
         /// Required designer variable.
