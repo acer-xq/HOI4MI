@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StateEditor.Util {
+namespace HOI4MI.Util {
     public static class Extensions {
 
         public static void AddOrSet<TKey, TValue>(this Dictionary<TKey, TValue> d, TKey key, TValue val) {
@@ -57,6 +58,19 @@ namespace StateEditor.Util {
                 "megalopolis" => StateCategory.Megalopolis,
                 _ => null,
             };
+        }
+    }
+
+    public static class Utils {
+
+        public static int[] RandomColour() {
+            int[] result = new int[3];
+
+            for (int i = 0; i < 3; i++)
+                result[i] = new Random().Next(0, 256);
+
+            return result;
+            
         }
     }
 }

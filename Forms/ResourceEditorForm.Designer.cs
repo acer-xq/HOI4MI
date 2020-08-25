@@ -1,4 +1,4 @@
-﻿namespace StateEditor
+﻿namespace HOI4MI
 {
     partial class ResourceEditorForm
     {
