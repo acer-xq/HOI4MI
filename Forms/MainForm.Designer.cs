@@ -32,6 +32,7 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.stateSplitterFormButton = new System.Windows.Forms.Button();
             this.sideBar = new System.Windows.Forms.Panel();
+            this.provinceCreatorFormButton = new System.Windows.Forms.Button();
             this.stateEditorFormButton = new System.Windows.Forms.Button();
             this.sideBarBottom = new System.Windows.Forms.Panel();
             this.reloadButton = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.sideBarLogo = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dividerPanel = new System.Windows.Forms.Panel();
-            this.provinceCreatorFormButton = new System.Windows.Forms.Button();
             this.sideBar.SuspendLayout();
             this.sideBarBottom.SuspendLayout();
             this.sideBarLogo.SuspendLayout();
@@ -93,7 +93,7 @@
             // sideBar
             // 
             this.sideBar.AutoScroll = true;
-            this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(26)))));
+            this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.sideBar.Controls.Add(this.provinceCreatorFormButton);
             this.sideBar.Controls.Add(this.stateEditorFormButton);
             this.sideBar.Controls.Add(this.sideBarBottom);
@@ -106,6 +106,22 @@
             this.sideBar.Name = "sideBar";
             this.sideBar.Size = new System.Drawing.Size(196, 829);
             this.sideBar.TabIndex = 4;
+            // 
+            // provinceCreatorFormButton
+            // 
+            this.provinceCreatorFormButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.provinceCreatorFormButton.FlatAppearance.BorderSize = 0;
+            this.provinceCreatorFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.provinceCreatorFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            this.provinceCreatorFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.provinceCreatorFormButton.Location = new System.Drawing.Point(0, 195);
+            this.provinceCreatorFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.provinceCreatorFormButton.Name = "provinceCreatorFormButton";
+            this.provinceCreatorFormButton.Size = new System.Drawing.Size(196, 65);
+            this.provinceCreatorFormButton.TabIndex = 3;
+            this.provinceCreatorFormButton.Text = "Province Creator";
+            this.provinceCreatorFormButton.UseVisualStyleBackColor = true;
+            this.provinceCreatorFormButton.Click += new System.EventHandler(this.provinceCreatorFormButton_Click);
             // 
             // stateEditorFormButton
             // 
@@ -196,22 +212,6 @@
             this.dividerPanel.Name = "dividerPanel";
             this.dividerPanel.Size = new System.Drawing.Size(16, 829);
             this.dividerPanel.TabIndex = 6;
-            // 
-            // provinceCreatorFormButton
-            // 
-            this.provinceCreatorFormButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.provinceCreatorFormButton.FlatAppearance.BorderSize = 0;
-            this.provinceCreatorFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.provinceCreatorFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
-            this.provinceCreatorFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.provinceCreatorFormButton.Location = new System.Drawing.Point(0, 195);
-            this.provinceCreatorFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.provinceCreatorFormButton.Name = "provinceCreatorFormButton";
-            this.provinceCreatorFormButton.Size = new System.Drawing.Size(196, 65);
-            this.provinceCreatorFormButton.TabIndex = 3;
-            this.provinceCreatorFormButton.Text = "Province Creator";
-            this.provinceCreatorFormButton.UseVisualStyleBackColor = true;
-            this.provinceCreatorFormButton.Click += new System.EventHandler(this.provinceCreatorFormButton_Click);
             // 
             // MainForm
             // 

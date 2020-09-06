@@ -63,6 +63,8 @@ namespace HOI4MI.Util {
 
     public static class Utils {
 
+        private static bool[] bools = { true, false };
+
         public static int[] RandomColour() {
             int[] result = new int[3];
 
@@ -71,6 +73,10 @@ namespace HOI4MI.Util {
 
             return result;
             
+        }
+
+        public static bool[] BoolValues() {
+            return bools;
         }
     }
 }
