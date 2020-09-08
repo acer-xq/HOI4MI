@@ -17,14 +17,13 @@ namespace HOI4MI
 
         public static string Status { get; private set; }
 
-        private static LocalisationManager lm;
         private static NumberStyles valueFormat = NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingWhite | NumberStyles.AllowTrailingWhite;
 
         private static string currentFile;
 
         public static bool ParseProvinceDef(string path) {
             string[] lines = File.ReadAllLines(path);
-            string[] data = { "" };
+            string[] data;
             foreach (string l in lines) {
                 data = l.Split(';');
                 int id = -1;
@@ -70,8 +69,7 @@ namespace HOI4MI
                         "water_deep_ocean" => Terrain.Water_Deep_Ocean,
                         _ => Terrain.Unknown,
                     };
-                    int continent = 0;
-                    if (!int.TryParse(data[7], out continent)) {
+                    if (!int.TryParse(data[7], out int continent)) {
                         Status = $"malformed continent for province {id}";
                         return false;
                     }
@@ -139,6 +137,7 @@ namespace HOI4MI
                         return false;
                     }
                     p.VictoryPoints = int.Parse(m.Groups[2].Value);
+                    p.Name = Localisation.GetSafe($"VICTORY_POINTS_{pid}");
                     p.SetUnmodified();
                 }
             }
@@ -167,7 +166,7 @@ namespace HOI4MI
                 State s = State.Get(stateId);
                 s.Name = stateName;
                 s.FileName = path.Split('\\').Last();
-                s.LocalisedName = lm.GetLocalisationItem(stateName);
+                s.LocalisedName = Localisation.GetSafe(stateName);
                 s.Manpower = FindKeyInt("manpower");
                 s.BuildFactor = buildingFactor == 0 ? 1 : buildingFactor;
                 s.Category = (StateCategory)c;
@@ -231,7 +230,7 @@ namespace HOI4MI
 
             if (Country.Create(tag)) {
                 Country c = Country.Get(tag);
-                c.Name = lm.GetLocalisationItem($"{tag}_{p.rulingParty.ToString().ToLower()}");
+                c.Name = Localisation.Get($"{tag}_{p.rulingParty.ToString().ToLower()}");
                 c.Oob = FindKey("oob");
                 c.ResearchSlots = FindKeyInt("set_research_slots");
                 c.Convoys = FindKeyInt("set_convoys");
@@ -249,10 +248,6 @@ namespace HOI4MI
             }
 
             return true;
-        }
-
-        public static void SetLocalisationManager(LocalisationManager l) {
-            lm = l;
         }
 
         public static string FindKey(string k) {

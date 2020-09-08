@@ -76,6 +76,20 @@
             this.silosImage = new System.Windows.Forms.PictureBox();
             this.antiairImage = new System.Windows.Forms.PictureBox();
             this.airbaseImage = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.victoryPointsInput = new System.Windows.Forms.NumericUpDown();
+            this.fortInput = new System.Windows.Forms.NumericUpDown();
+            this.coastalFortInput = new System.Windows.Forms.NumericUpDown();
+            this.navalBaseInput = new System.Windows.Forms.NumericUpDown();
+            this.navalBaseImage = new System.Windows.Forms.PictureBox();
+            this.coastalFortImage = new System.Windows.Forms.PictureBox();
+            this.fortImage = new System.Windows.Forms.PictureBox();
+            this.vpImage = new System.Windows.Forms.PictureBox();
+            this.provinceNameInput = new System.Windows.Forms.TextBox();
+            this.provinceList = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stateManpowerInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stateOilInput)).BeginInit();
@@ -112,6 +126,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.silosImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.antiairImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.airbaseImage)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.victoryPointsInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fortInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coastalFortInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navalBaseInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navalBaseImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coastalFortImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fortImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vpImage)).BeginInit();
             this.SuspendLayout();
             // 
             // selectList
@@ -131,9 +154,9 @@
             // 
             // testBox
             // 
-            this.testBox.Location = new System.Drawing.Point(712, 481);
+            this.testBox.Location = new System.Drawing.Point(710, 527);
             this.testBox.Name = "testBox";
-            this.testBox.Size = new System.Drawing.Size(389, 154);
+            this.testBox.Size = new System.Drawing.Size(263, 82);
             this.testBox.TabIndex = 6;
             this.testBox.Text = "";
             this.testBox.TextChanged += new System.EventHandler(this.testBox_TextChanged);
@@ -187,7 +210,7 @@
             // 
             this.stateManpowerInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateManpowerInput.ForeColor = System.Drawing.Color.White;
-            this.stateManpowerInput.Location = new System.Drawing.Point(324, 70);
+            this.stateManpowerInput.Location = new System.Drawing.Point(159, 141);
             this.stateManpowerInput.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -202,7 +225,7 @@
             // 
             this.stateOilInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateOilInput.ForeColor = System.Drawing.Color.White;
-            this.stateOilInput.Location = new System.Drawing.Point(497, 72);
+            this.stateOilInput.Location = new System.Drawing.Point(332, 143);
             this.stateOilInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -217,7 +240,7 @@
             // 
             this.stateRubberInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateRubberInput.ForeColor = System.Drawing.Color.White;
-            this.stateRubberInput.Location = new System.Drawing.Point(497, 100);
+            this.stateRubberInput.Location = new System.Drawing.Point(332, 171);
             this.stateRubberInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -232,7 +255,7 @@
             // 
             this.stateSteelInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateSteelInput.ForeColor = System.Drawing.Color.White;
-            this.stateSteelInput.Location = new System.Drawing.Point(497, 128);
+            this.stateSteelInput.Location = new System.Drawing.Point(332, 199);
             this.stateSteelInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -247,7 +270,7 @@
             // 
             this.stateTungstenInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateTungstenInput.ForeColor = System.Drawing.Color.White;
-            this.stateTungstenInput.Location = new System.Drawing.Point(497, 156);
+            this.stateTungstenInput.Location = new System.Drawing.Point(332, 227);
             this.stateTungstenInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -262,7 +285,7 @@
             // 
             this.stateAluminiumInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateAluminiumInput.ForeColor = System.Drawing.Color.White;
-            this.stateAluminiumInput.Location = new System.Drawing.Point(497, 212);
+            this.stateAluminiumInput.Location = new System.Drawing.Point(332, 283);
             this.stateAluminiumInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -277,7 +300,7 @@
             // 
             this.stateChromiumInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateChromiumInput.ForeColor = System.Drawing.Color.White;
-            this.stateChromiumInput.Location = new System.Drawing.Point(497, 184);
+            this.stateChromiumInput.Location = new System.Drawing.Point(332, 255);
             this.stateChromiumInput.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -294,7 +317,7 @@
             this.stateOwnerInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateOwnerInput.ForeColor = System.Drawing.Color.White;
             this.stateOwnerInput.FormattingEnabled = true;
-            this.stateOwnerInput.Location = new System.Drawing.Point(324, 98);
+            this.stateOwnerInput.Location = new System.Drawing.Point(159, 169);
             this.stateOwnerInput.MaxDropDownItems = 31;
             this.stateOwnerInput.Name = "stateOwnerInput";
             this.stateOwnerInput.Size = new System.Drawing.Size(121, 25);
@@ -304,7 +327,7 @@
             // 
             this.stateInfrastructureInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateInfrastructureInput.ForeColor = System.Drawing.Color.White;
-            this.stateInfrastructureInput.Location = new System.Drawing.Point(497, 266);
+            this.stateInfrastructureInput.Location = new System.Drawing.Point(439, 143);
             this.stateInfrastructureInput.Maximum = new decimal(new int[] {
             10,
             0,
@@ -319,7 +342,7 @@
             // 
             this.stateCivFactoriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateCivFactoriesInput.ForeColor = System.Drawing.Color.White;
-            this.stateCivFactoriesInput.Location = new System.Drawing.Point(497, 294);
+            this.stateCivFactoriesInput.Location = new System.Drawing.Point(439, 171);
             this.stateCivFactoriesInput.Name = "stateCivFactoriesInput";
             this.stateCivFactoriesInput.Size = new System.Drawing.Size(54, 22);
             this.stateCivFactoriesInput.TabIndex = 28;
@@ -329,7 +352,7 @@
             // 
             this.stateMilFactoriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateMilFactoriesInput.ForeColor = System.Drawing.Color.White;
-            this.stateMilFactoriesInput.Location = new System.Drawing.Point(497, 322);
+            this.stateMilFactoriesInput.Location = new System.Drawing.Point(439, 199);
             this.stateMilFactoriesInput.Name = "stateMilFactoriesInput";
             this.stateMilFactoriesInput.Size = new System.Drawing.Size(54, 22);
             this.stateMilFactoriesInput.TabIndex = 29;
@@ -339,7 +362,7 @@
             // 
             this.stateDockyardsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateDockyardsInput.ForeColor = System.Drawing.Color.White;
-            this.stateDockyardsInput.Location = new System.Drawing.Point(497, 350);
+            this.stateDockyardsInput.Location = new System.Drawing.Point(439, 227);
             this.stateDockyardsInput.Name = "stateDockyardsInput";
             this.stateDockyardsInput.Size = new System.Drawing.Size(54, 22);
             this.stateDockyardsInput.TabIndex = 30;
@@ -349,7 +372,7 @@
             // 
             this.stateSilosInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateSilosInput.ForeColor = System.Drawing.Color.White;
-            this.stateSilosInput.Location = new System.Drawing.Point(604, 294);
+            this.stateSilosInput.Location = new System.Drawing.Point(332, 372);
             this.stateSilosInput.Name = "stateSilosInput";
             this.stateSilosInput.Size = new System.Drawing.Size(54, 22);
             this.stateSilosInput.TabIndex = 35;
@@ -359,7 +382,7 @@
             // 
             this.stateRefineriesInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateRefineriesInput.ForeColor = System.Drawing.Color.White;
-            this.stateRefineriesInput.Location = new System.Drawing.Point(497, 378);
+            this.stateRefineriesInput.Location = new System.Drawing.Point(439, 255);
             this.stateRefineriesInput.Name = "stateRefineriesInput";
             this.stateRefineriesInput.Size = new System.Drawing.Size(54, 22);
             this.stateRefineriesInput.TabIndex = 36;
@@ -369,7 +392,7 @@
             // 
             this.stateReactorsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateReactorsInput.ForeColor = System.Drawing.Color.White;
-            this.stateReactorsInput.Location = new System.Drawing.Point(604, 322);
+            this.stateReactorsInput.Location = new System.Drawing.Point(332, 400);
             this.stateReactorsInput.Name = "stateReactorsInput";
             this.stateReactorsInput.Size = new System.Drawing.Size(54, 22);
             this.stateReactorsInput.TabIndex = 39;
@@ -379,7 +402,7 @@
             // 
             this.stateAirbaseInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateAirbaseInput.ForeColor = System.Drawing.Color.White;
-            this.stateAirbaseInput.Location = new System.Drawing.Point(497, 406);
+            this.stateAirbaseInput.Location = new System.Drawing.Point(439, 283);
             this.stateAirbaseInput.Name = "stateAirbaseInput";
             this.stateAirbaseInput.Size = new System.Drawing.Size(54, 22);
             this.stateAirbaseInput.TabIndex = 41;
@@ -389,7 +412,7 @@
             // 
             this.stateRadarInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateRadarInput.ForeColor = System.Drawing.Color.White;
-            this.stateRadarInput.Location = new System.Drawing.Point(604, 350);
+            this.stateRadarInput.Location = new System.Drawing.Point(332, 428);
             this.stateRadarInput.Name = "stateRadarInput";
             this.stateRadarInput.Size = new System.Drawing.Size(54, 22);
             this.stateRadarInput.TabIndex = 42;
@@ -399,7 +422,7 @@
             // 
             this.stateRocketsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateRocketsInput.ForeColor = System.Drawing.Color.White;
-            this.stateRocketsInput.Location = new System.Drawing.Point(604, 378);
+            this.stateRocketsInput.Location = new System.Drawing.Point(332, 456);
             this.stateRocketsInput.Name = "stateRocketsInput";
             this.stateRocketsInput.Size = new System.Drawing.Size(54, 22);
             this.stateRocketsInput.TabIndex = 43;
@@ -413,7 +436,7 @@
             this.stateCoreInput.ForeColor = System.Drawing.Color.White;
             this.stateCoreInput.FormattingEnabled = true;
             this.stateCoreInput.ItemHeight = 17;
-            this.stateCoreInput.Location = new System.Drawing.Point(324, 163);
+            this.stateCoreInput.Location = new System.Drawing.Point(159, 234);
             this.stateCoreInput.MultiColumn = true;
             this.stateCoreInput.Name = "stateCoreInput";
             this.stateCoreInput.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
@@ -424,7 +447,7 @@
             // 
             this.stateAntiairInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.stateAntiairInput.ForeColor = System.Drawing.Color.White;
-            this.stateAntiairInput.Location = new System.Drawing.Point(604, 266);
+            this.stateAntiairInput.Location = new System.Drawing.Point(332, 344);
             this.stateAntiairInput.Name = "stateAntiairInput";
             this.stateAntiairInput.Size = new System.Drawing.Size(54, 22);
             this.stateAntiairInput.TabIndex = 52;
@@ -436,7 +459,7 @@
             this.stateCategoryInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateCategoryInput.ForeColor = System.Drawing.Color.White;
             this.stateCategoryInput.FormattingEnabled = true;
-            this.stateCategoryInput.Location = new System.Drawing.Point(324, 129);
+            this.stateCategoryInput.Location = new System.Drawing.Point(159, 200);
             this.stateCategoryInput.MaxDropDownItems = 31;
             this.stateCategoryInput.Name = "stateCategoryInput";
             this.stateCategoryInput.Size = new System.Drawing.Size(121, 25);
@@ -448,7 +471,7 @@
             this.stateNameInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.stateNameInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.stateNameInput.ForeColor = System.Drawing.Color.White;
-            this.stateNameInput.Location = new System.Drawing.Point(302, 18);
+            this.stateNameInput.Location = new System.Drawing.Point(137, 89);
             this.stateNameInput.MaxLength = 63;
             this.stateNameInput.Name = "stateNameInput";
             this.stateNameInput.Size = new System.Drawing.Size(317, 27);
@@ -462,7 +485,7 @@
             this.resetButton.FlatAppearance.BorderSize = 0;
             this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.resetButton.ForeColor = System.Drawing.Color.White;
-            this.resetButton.Location = new System.Drawing.Point(509, 567);
+            this.resetButton.Location = new System.Drawing.Point(486, 604);
             this.resetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(99, 32);
@@ -478,7 +501,7 @@
             this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(374, 567);
+            this.saveButton.Location = new System.Drawing.Point(351, 604);
             this.saveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(99, 32);
@@ -491,7 +514,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(231, 70);
+            this.label1.Location = new System.Drawing.Point(66, 141);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 20);
             this.label1.TabIndex = 0;
@@ -501,7 +524,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(231, 99);
+            this.label2.Location = new System.Drawing.Point(66, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 0;
@@ -511,7 +534,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(231, 128);
+            this.label3.Location = new System.Drawing.Point(66, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 0;
@@ -521,7 +544,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(231, 163);
+            this.label4.Location = new System.Drawing.Point(66, 234);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 20);
             this.label4.TabIndex = 0;
@@ -529,7 +552,8 @@
             // 
             // oilImage
             // 
-            this.oilImage.Location = new System.Drawing.Point(465, 70);
+            this.oilImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.oilImage.Location = new System.Drawing.Point(300, 141);
             this.oilImage.Name = "oilImage";
             this.oilImage.Size = new System.Drawing.Size(26, 26);
             this.oilImage.TabIndex = 53;
@@ -537,7 +561,8 @@
             // 
             // rubberImage
             // 
-            this.rubberImage.Location = new System.Drawing.Point(465, 98);
+            this.rubberImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.rubberImage.Location = new System.Drawing.Point(300, 169);
             this.rubberImage.Name = "rubberImage";
             this.rubberImage.Size = new System.Drawing.Size(26, 26);
             this.rubberImage.TabIndex = 53;
@@ -545,7 +570,8 @@
             // 
             // steelImage
             // 
-            this.steelImage.Location = new System.Drawing.Point(465, 126);
+            this.steelImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.steelImage.Location = new System.Drawing.Point(300, 197);
             this.steelImage.Name = "steelImage";
             this.steelImage.Size = new System.Drawing.Size(26, 26);
             this.steelImage.TabIndex = 53;
@@ -553,7 +579,8 @@
             // 
             // tungstenImage
             // 
-            this.tungstenImage.Location = new System.Drawing.Point(465, 154);
+            this.tungstenImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tungstenImage.Location = new System.Drawing.Point(300, 225);
             this.tungstenImage.Name = "tungstenImage";
             this.tungstenImage.Size = new System.Drawing.Size(26, 26);
             this.tungstenImage.TabIndex = 53;
@@ -561,7 +588,8 @@
             // 
             // chromiumImage
             // 
-            this.chromiumImage.Location = new System.Drawing.Point(465, 182);
+            this.chromiumImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chromiumImage.Location = new System.Drawing.Point(300, 253);
             this.chromiumImage.Name = "chromiumImage";
             this.chromiumImage.Size = new System.Drawing.Size(26, 26);
             this.chromiumImage.TabIndex = 53;
@@ -569,7 +597,8 @@
             // 
             // aluminiumImage
             // 
-            this.aluminiumImage.Location = new System.Drawing.Point(465, 210);
+            this.aluminiumImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.aluminiumImage.Location = new System.Drawing.Point(300, 281);
             this.aluminiumImage.Name = "aluminiumImage";
             this.aluminiumImage.Size = new System.Drawing.Size(26, 26);
             this.aluminiumImage.TabIndex = 53;
@@ -579,7 +608,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(231, 383);
+            this.label5.Location = new System.Drawing.Point(66, 454);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 20);
             this.label5.TabIndex = 54;
@@ -591,7 +620,7 @@
             this.stateImpassableInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateImpassableInput.ForeColor = System.Drawing.Color.White;
             this.stateImpassableInput.FormattingEnabled = true;
-            this.stateImpassableInput.Location = new System.Drawing.Point(324, 383);
+            this.stateImpassableInput.Location = new System.Drawing.Point(159, 454);
             this.stateImpassableInput.MaxDropDownItems = 31;
             this.stateImpassableInput.Name = "stateImpassableInput";
             this.stateImpassableInput.Size = new System.Drawing.Size(121, 25);
@@ -600,7 +629,7 @@
             // refineryImage
             // 
             this.refineryImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.refineryImage.Location = new System.Drawing.Point(465, 376);
+            this.refineryImage.Location = new System.Drawing.Point(407, 253);
             this.refineryImage.Name = "refineryImage";
             this.refineryImage.Size = new System.Drawing.Size(26, 26);
             this.refineryImage.TabIndex = 57;
@@ -609,7 +638,7 @@
             // dockyardImage
             // 
             this.dockyardImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dockyardImage.Location = new System.Drawing.Point(465, 348);
+            this.dockyardImage.Location = new System.Drawing.Point(407, 225);
             this.dockyardImage.Name = "dockyardImage";
             this.dockyardImage.Size = new System.Drawing.Size(26, 26);
             this.dockyardImage.TabIndex = 58;
@@ -618,7 +647,7 @@
             // militaryImage
             // 
             this.militaryImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.militaryImage.Location = new System.Drawing.Point(465, 320);
+            this.militaryImage.Location = new System.Drawing.Point(407, 197);
             this.militaryImage.Name = "militaryImage";
             this.militaryImage.Size = new System.Drawing.Size(26, 26);
             this.militaryImage.TabIndex = 59;
@@ -627,7 +656,7 @@
             // civillianImage
             // 
             this.civillianImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.civillianImage.Location = new System.Drawing.Point(465, 292);
+            this.civillianImage.Location = new System.Drawing.Point(407, 169);
             this.civillianImage.Name = "civillianImage";
             this.civillianImage.Size = new System.Drawing.Size(26, 26);
             this.civillianImage.TabIndex = 60;
@@ -636,7 +665,7 @@
             // infrastructureImage
             // 
             this.infrastructureImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.infrastructureImage.Location = new System.Drawing.Point(465, 264);
+            this.infrastructureImage.Location = new System.Drawing.Point(407, 141);
             this.infrastructureImage.Name = "infrastructureImage";
             this.infrastructureImage.Size = new System.Drawing.Size(26, 26);
             this.infrastructureImage.TabIndex = 61;
@@ -645,7 +674,7 @@
             // rocketImage
             // 
             this.rocketImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.rocketImage.Location = new System.Drawing.Point(572, 376);
+            this.rocketImage.Location = new System.Drawing.Point(300, 454);
             this.rocketImage.Name = "rocketImage";
             this.rocketImage.Size = new System.Drawing.Size(26, 26);
             this.rocketImage.TabIndex = 62;
@@ -654,7 +683,7 @@
             // radarImage
             // 
             this.radarImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.radarImage.Location = new System.Drawing.Point(572, 348);
+            this.radarImage.Location = new System.Drawing.Point(300, 426);
             this.radarImage.Name = "radarImage";
             this.radarImage.Size = new System.Drawing.Size(26, 26);
             this.radarImage.TabIndex = 63;
@@ -663,7 +692,7 @@
             // reactorImage
             // 
             this.reactorImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.reactorImage.Location = new System.Drawing.Point(572, 320);
+            this.reactorImage.Location = new System.Drawing.Point(300, 398);
             this.reactorImage.Name = "reactorImage";
             this.reactorImage.Size = new System.Drawing.Size(26, 26);
             this.reactorImage.TabIndex = 64;
@@ -672,7 +701,7 @@
             // silosImage
             // 
             this.silosImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.silosImage.Location = new System.Drawing.Point(572, 292);
+            this.silosImage.Location = new System.Drawing.Point(300, 370);
             this.silosImage.Name = "silosImage";
             this.silosImage.Size = new System.Drawing.Size(26, 26);
             this.silosImage.TabIndex = 65;
@@ -681,7 +710,7 @@
             // antiairImage
             // 
             this.antiairImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.antiairImage.Location = new System.Drawing.Point(572, 264);
+            this.antiairImage.Location = new System.Drawing.Point(300, 342);
             this.antiairImage.Name = "antiairImage";
             this.antiairImage.Size = new System.Drawing.Size(26, 26);
             this.antiairImage.TabIndex = 66;
@@ -690,11 +719,234 @@
             // airbaseImage
             // 
             this.airbaseImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.airbaseImage.Location = new System.Drawing.Point(465, 404);
+            this.airbaseImage.Location = new System.Drawing.Point(407, 281);
             this.airbaseImage.Name = "airbaseImage";
             this.airbaseImage.Size = new System.Drawing.Size(26, 26);
             this.airbaseImage.TabIndex = 67;
             this.airbaseImage.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.victoryPointsInput);
+            this.panel1.Controls.Add(this.fortInput);
+            this.panel1.Controls.Add(this.coastalFortInput);
+            this.panel1.Controls.Add(this.navalBaseInput);
+            this.panel1.Controls.Add(this.navalBaseImage);
+            this.panel1.Controls.Add(this.coastalFortImage);
+            this.panel1.Controls.Add(this.fortImage);
+            this.panel1.Controls.Add(this.vpImage);
+            this.panel1.Controls.Add(this.provinceNameInput);
+            this.panel1.Controls.Add(this.provinceList);
+            this.panel1.Controls.Add(this.testBox);
+            this.panel1.Controls.Add(this.rocketImage);
+            this.panel1.Controls.Add(this.resetButton);
+            this.panel1.Controls.Add(this.radarImage);
+            this.panel1.Controls.Add(this.saveButton);
+            this.panel1.Controls.Add(this.reactorImage);
+            this.panel1.Controls.Add(this.stateNameInput);
+            this.panel1.Controls.Add(this.silosImage);
+            this.panel1.Controls.Add(this.stateManpowerInput);
+            this.panel1.Controls.Add(this.antiairImage);
+            this.panel1.Controls.Add(this.stateOilInput);
+            this.panel1.Controls.Add(this.airbaseImage);
+            this.panel1.Controls.Add(this.stateRubberInput);
+            this.panel1.Controls.Add(this.refineryImage);
+            this.panel1.Controls.Add(this.stateSteelInput);
+            this.panel1.Controls.Add(this.dockyardImage);
+            this.panel1.Controls.Add(this.stateTungstenInput);
+            this.panel1.Controls.Add(this.militaryImage);
+            this.panel1.Controls.Add(this.stateAluminiumInput);
+            this.panel1.Controls.Add(this.civillianImage);
+            this.panel1.Controls.Add(this.stateChromiumInput);
+            this.panel1.Controls.Add(this.infrastructureImage);
+            this.panel1.Controls.Add(this.stateOwnerInput);
+            this.panel1.Controls.Add(this.stateImpassableInput);
+            this.panel1.Controls.Add(this.stateInfrastructureInput);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.stateCivFactoriesInput);
+            this.panel1.Controls.Add(this.aluminiumImage);
+            this.panel1.Controls.Add(this.stateMilFactoriesInput);
+            this.panel1.Controls.Add(this.chromiumImage);
+            this.panel1.Controls.Add(this.stateDockyardsInput);
+            this.panel1.Controls.Add(this.tungstenImage);
+            this.panel1.Controls.Add(this.stateSilosInput);
+            this.panel1.Controls.Add(this.steelImage);
+            this.panel1.Controls.Add(this.stateRefineriesInput);
+            this.panel1.Controls.Add(this.rubberImage);
+            this.panel1.Controls.Add(this.stateReactorsInput);
+            this.panel1.Controls.Add(this.oilImage);
+            this.panel1.Controls.Add(this.stateAirbaseInput);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.stateRadarInput);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.stateRocketsInput);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.stateCoreInput);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.stateAntiairInput);
+            this.panel1.Controls.Add(this.stateCategoryInput);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(214, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1010, 647);
+            this.panel1.TabIndex = 68;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(710, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 21);
+            this.label7.TabIndex = 79;
+            this.label7.Text = "Victory Point Name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(237, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 21);
+            this.label6.TabIndex = 78;
+            this.label6.Text = "State Name";
+            // 
+            // victoryPointsInput
+            // 
+            this.victoryPointsInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.victoryPointsInput.ForeColor = System.Drawing.Color.White;
+            this.victoryPointsInput.Location = new System.Drawing.Point(688, 143);
+            this.victoryPointsInput.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.victoryPointsInput.Name = "victoryPointsInput";
+            this.victoryPointsInput.Size = new System.Drawing.Size(54, 22);
+            this.victoryPointsInput.TabIndex = 70;
+            this.victoryPointsInput.ThousandsSeparator = true;
+            // 
+            // fortInput
+            // 
+            this.fortInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.fortInput.ForeColor = System.Drawing.Color.White;
+            this.fortInput.Location = new System.Drawing.Point(688, 171);
+            this.fortInput.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.fortInput.Name = "fortInput";
+            this.fortInput.Size = new System.Drawing.Size(54, 22);
+            this.fortInput.TabIndex = 71;
+            this.fortInput.ThousandsSeparator = true;
+            // 
+            // coastalFortInput
+            // 
+            this.coastalFortInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.coastalFortInput.ForeColor = System.Drawing.Color.White;
+            this.coastalFortInput.Location = new System.Drawing.Point(688, 199);
+            this.coastalFortInput.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.coastalFortInput.Name = "coastalFortInput";
+            this.coastalFortInput.Size = new System.Drawing.Size(54, 22);
+            this.coastalFortInput.TabIndex = 72;
+            this.coastalFortInput.ThousandsSeparator = true;
+            // 
+            // navalBaseInput
+            // 
+            this.navalBaseInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.navalBaseInput.ForeColor = System.Drawing.Color.White;
+            this.navalBaseInput.Location = new System.Drawing.Point(688, 227);
+            this.navalBaseInput.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.navalBaseInput.Name = "navalBaseInput";
+            this.navalBaseInput.Size = new System.Drawing.Size(54, 22);
+            this.navalBaseInput.TabIndex = 73;
+            this.navalBaseInput.ThousandsSeparator = true;
+            // 
+            // navalBaseImage
+            // 
+            this.navalBaseImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.navalBaseImage.Location = new System.Drawing.Point(656, 225);
+            this.navalBaseImage.Name = "navalBaseImage";
+            this.navalBaseImage.Size = new System.Drawing.Size(26, 26);
+            this.navalBaseImage.TabIndex = 74;
+            this.navalBaseImage.TabStop = false;
+            // 
+            // coastalFortImage
+            // 
+            this.coastalFortImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.coastalFortImage.Location = new System.Drawing.Point(656, 197);
+            this.coastalFortImage.Name = "coastalFortImage";
+            this.coastalFortImage.Size = new System.Drawing.Size(26, 26);
+            this.coastalFortImage.TabIndex = 75;
+            this.coastalFortImage.TabStop = false;
+            // 
+            // fortImage
+            // 
+            this.fortImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fortImage.Location = new System.Drawing.Point(656, 169);
+            this.fortImage.Name = "fortImage";
+            this.fortImage.Size = new System.Drawing.Size(26, 26);
+            this.fortImage.TabIndex = 76;
+            this.fortImage.TabStop = false;
+            // 
+            // vpImage
+            // 
+            this.vpImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.vpImage.Location = new System.Drawing.Point(656, 141);
+            this.vpImage.Name = "vpImage";
+            this.vpImage.Size = new System.Drawing.Size(26, 26);
+            this.vpImage.TabIndex = 77;
+            this.vpImage.TabStop = false;
+            // 
+            // provinceNameInput
+            // 
+            this.provinceNameInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.provinceNameInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.provinceNameInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.provinceNameInput.ForeColor = System.Drawing.Color.White;
+            this.provinceNameInput.Location = new System.Drawing.Point(656, 89);
+            this.provinceNameInput.MaxLength = 63;
+            this.provinceNameInput.Name = "provinceNameInput";
+            this.provinceNameInput.Size = new System.Drawing.Size(270, 27);
+            this.provinceNameInput.TabIndex = 69;
+            this.provinceNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // provinceList
+            // 
+            this.provinceList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.provinceList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.provinceList.ForeColor = System.Drawing.Color.White;
+            this.provinceList.FormattingEnabled = true;
+            this.provinceList.IntegralHeight = false;
+            this.provinceList.ItemHeight = 17;
+            this.provinceList.Location = new System.Drawing.Point(524, 143);
+            this.provinceList.Name = "provinceList";
+            this.provinceList.Size = new System.Drawing.Size(110, 337);
+            this.provinceList.TabIndex = 68;
+            this.provinceList.SelectedIndexChanged += new System.EventHandler(this.provinceList_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(524, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 20);
+            this.label8.TabIndex = 80;
+            this.label8.Text = "Provinces";
             // 
             // StateEditorForm
             // 
@@ -702,56 +954,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1113, 647);
-            this.Controls.Add(this.rocketImage);
-            this.Controls.Add(this.radarImage);
-            this.Controls.Add(this.reactorImage);
-            this.Controls.Add(this.silosImage);
-            this.Controls.Add(this.antiairImage);
-            this.Controls.Add(this.airbaseImage);
-            this.Controls.Add(this.refineryImage);
-            this.Controls.Add(this.dockyardImage);
-            this.Controls.Add(this.militaryImage);
-            this.Controls.Add(this.civillianImage);
-            this.Controls.Add(this.infrastructureImage);
-            this.Controls.Add(this.stateImpassableInput);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.aluminiumImage);
-            this.Controls.Add(this.chromiumImage);
-            this.Controls.Add(this.tungstenImage);
-            this.Controls.Add(this.steelImage);
-            this.Controls.Add(this.rubberImage);
-            this.Controls.Add(this.oilImage);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.resetButton);
-            this.Controls.Add(this.stateNameInput);
-            this.Controls.Add(this.stateCategoryInput);
-            this.Controls.Add(this.stateAntiairInput);
-            this.Controls.Add(this.stateCoreInput);
-            this.Controls.Add(this.stateRocketsInput);
-            this.Controls.Add(this.stateRadarInput);
-            this.Controls.Add(this.stateAirbaseInput);
-            this.Controls.Add(this.stateReactorsInput);
-            this.Controls.Add(this.stateRefineriesInput);
-            this.Controls.Add(this.stateSilosInput);
-            this.Controls.Add(this.stateDockyardsInput);
-            this.Controls.Add(this.stateMilFactoriesInput);
-            this.Controls.Add(this.stateCivFactoriesInput);
-            this.Controls.Add(this.stateInfrastructureInput);
-            this.Controls.Add(this.stateOwnerInput);
-            this.Controls.Add(this.stateChromiumInput);
-            this.Controls.Add(this.stateAluminiumInput);
-            this.Controls.Add(this.stateTungstenInput);
-            this.Controls.Add(this.stateSteelInput);
-            this.Controls.Add(this.stateRubberInput);
-            this.Controls.Add(this.stateOilInput);
-            this.Controls.Add(this.stateManpowerInput);
+            this.ClientSize = new System.Drawing.Size(1224, 647);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.sideBar);
-            this.Controls.Add(this.testBox);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -794,8 +999,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.silosImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.antiairImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.airbaseImage)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.victoryPointsInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fortInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coastalFortInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navalBaseInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navalBaseImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coastalFortImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fortImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vpImage)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -854,5 +1068,19 @@
         private System.Windows.Forms.PictureBox antiairImage;
         private System.Windows.Forms.PictureBox airbaseImage;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox provinceList;
+        private System.Windows.Forms.TextBox provinceNameInput;
+        private System.Windows.Forms.NumericUpDown victoryPointsInput;
+        private System.Windows.Forms.NumericUpDown fortInput;
+        private System.Windows.Forms.NumericUpDown coastalFortInput;
+        private System.Windows.Forms.NumericUpDown navalBaseInput;
+        private System.Windows.Forms.PictureBox navalBaseImage;
+        private System.Windows.Forms.PictureBox coastalFortImage;
+        private System.Windows.Forms.PictureBox fortImage;
+        private System.Windows.Forms.PictureBox vpImage;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

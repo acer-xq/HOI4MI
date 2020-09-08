@@ -24,6 +24,7 @@ namespace HOI4MI.Entity
 
         public int[] Rgb { get => rgb; set { rgb = value; SetModified(); } }
         public int VictoryPoints { get => victoryPoints; set { victoryPoints = value; SetModified(); } }
+        public string Name { get => name; set { name = value; SetModified(); } }
         public int LandForts { get => landForts; set { landForts = value; SetModified(); } }
         public int CoastalForts { get => coastalForts; set { coastalForts = value; SetModified(); } }
         public int NavalBase { get => navalBase; set { navalBase = value; SetModified(); } }
@@ -35,6 +36,7 @@ namespace HOI4MI.Entity
         public readonly int id;
         private int[] rgb;
         private int victoryPoints;
+        private string name;
         private int landForts;
         private int coastalForts;
         private int navalBase;
@@ -47,6 +49,7 @@ namespace HOI4MI.Entity
             this.id = id;
             rgb = new int[] { 0, 0, 0 };
             victoryPoints = 0;
+            name = "";
             landForts = 0;
             coastalForts = 0;
             navalBase = 0;
@@ -62,12 +65,19 @@ namespace HOI4MI.Entity
 
         public static bool Create(int id, int[] colour) {
             //Province with id already exists
-            if (provinces.ContainsKey(id)) return false;
+            if (provinces.ContainsKey(id)) {
+                Status = $"Province with id {id} already exists";    
+                return false; 
+            }
             //Province with colour already exists
-            if (!IsColourUnique(colour)) return false;
+            if (!IsColourUnique(colour)) { 
+                Status = $"Province with colour {colour[0]},{colour[1]},{colour[2]} already exists on creating province {id}";    
+                return false; 
+            }
 
-            Province s = new Province(id);
-            s.rgb = colour;
+            Province s = new Province(id) {
+                rgb = colour
+            };
             provinces.Add(id, s);
             s.SetModified();
             return true;

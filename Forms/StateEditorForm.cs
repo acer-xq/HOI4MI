@@ -14,15 +14,14 @@ using HOI4MI.Util;
 namespace HOI4MI.Forms {
     public partial class StateEditorForm : Form {
 
-        private readonly LocalisationManager localeManager;
         private readonly ResourceManager resourceManager;
 
         private State currentState;
+        private Province currentProvince;
 
-        public StateEditorForm(LocalisationManager lm, ResourceManager rm) {
+        public StateEditorForm(ResourceManager rm) {
             InitializeComponent();
 
-            localeManager = lm;
             resourceManager = rm;
 
             SetDataSources();
@@ -30,8 +29,7 @@ namespace HOI4MI.Forms {
         }
 
         private void Reload() {
-            localeManager.ReloadLocalisation();
-            Parser.SetLocalisationManager(localeManager);
+            Localisation.Reload();
             Province.ReloadAll();
             State.ReloadAll();
             Country.ReloadAll();
@@ -57,6 +55,11 @@ namespace HOI4MI.Forms {
             reactorImage.BackgroundImage = Properties.Resources.reactor;
             radarImage.BackgroundImage = Properties.Resources.radar;
             rocketImage.BackgroundImage = Properties.Resources.rocket;
+
+            vpImage.BackgroundImage = Properties.Resources.vp;
+            fortImage.BackgroundImage = Properties.Resources.fort;
+            coastalFortImage.BackgroundImage = Properties.Resources.coastalfort;
+            navalBaseImage.BackgroundImage = Properties.Resources.navalbase;
         }
 
         private void SetDataSources() {
@@ -108,6 +111,22 @@ namespace HOI4MI.Forms {
             stateRadarInput.Value = currentState.Radar;
             stateRocketsInput.Value = currentState.Rockets;
             stateAntiairInput.Value = currentState.Antiair;
+
+            provinceList.Items.Clear();
+            foreach (Province p in currentState.Provinces) {
+                provinceList.Items.Add(p);
+            }
+            provinceList.SelectedIndex = 0;
+        }
+
+        private void provinceList_SelectedIndexChanged(object sender, EventArgs e) {
+            currentProvince = (Province)provinceList.SelectedItem;
+
+            provinceNameInput.Text = currentProvince.HasVictoryPoints() ? $"{currentProvince.Name}" : "N/A";
+            victoryPointsInput.Value = currentProvince.VictoryPoints;
+            fortInput.Value = currentProvince.LandForts;
+            coastalFortInput.Value = currentProvince.CoastalForts;
+            navalBaseInput.Value = currentProvince.NavalBase;
         }
 
         private void stateSaveButton_Click(object sender, EventArgs e) {
@@ -140,6 +159,11 @@ namespace HOI4MI.Forms {
             currentState.Rockets = (int)stateRocketsInput.Value;
             currentState.Antiair = (int)stateAntiairInput.Value;
 
+            if (provinceNameInput.Text != "N/A") currentProvince.Name = provinceNameInput.Text;
+            currentProvince.VictoryPoints = (int)victoryPointsInput.Value;
+            currentProvince.LandForts = (int)fortInput.Value;
+            currentProvince.CoastalForts = (int)coastalFortInput.Value;
+            currentProvince.NavalBase = (int)navalBaseInput.Value;
         }
 
         private void resetButton_Click(object sender, EventArgs e) {
@@ -184,5 +208,7 @@ namespace HOI4MI.Forms {
         private void testBox_TextChanged(object sender, EventArgs e) {
 
         }
+
+
     }
 }

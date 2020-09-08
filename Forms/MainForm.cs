@@ -24,7 +24,6 @@ namespace HOI4MI.Forms
         private StateEditorForm stateEditor;
         private ProvinceCreatorForm provinceCreator;
 
-        private readonly LocalisationManager localeManager;
         private readonly ResourceManager resourceManager;
 
         public MainForm() {
@@ -32,7 +31,7 @@ namespace HOI4MI.Forms
             Province.SetBasePath(basePath);
             State.SetBasePath(basePath);
             Country.SetBasePath(basePath);
-            localeManager = new LocalisationManager(basePath);
+            Localisation.SetBasePath(basePath);
             resourceManager = new ResourceManager(basePath);
             resultDialog = new ResultDialog();
 
@@ -51,8 +50,7 @@ namespace HOI4MI.Forms
 
         private void Reload() {
 
-            localeManager.ReloadLocalisation();
-            Parser.SetLocalisationManager(localeManager);
+            Localisation.Reload();
             if (!Province.ReloadAll()) {
                 ShowMessage($"Error loading provinces:\n{Province.Status}\n{Parser.Status}");
             }
@@ -65,9 +63,9 @@ namespace HOI4MI.Forms
             resourceManager.ReloadResourceMap(true, false);
 
 
-            stateSplitter = new StateSplitterForm(localeManager, resourceManager);
-            resourceEditor = new ResourceEditorForm(localeManager, resourceManager);
-            stateEditor = new StateEditorForm(localeManager, resourceManager);
+            stateSplitter = new StateSplitterForm(resourceManager);
+            resourceEditor = new ResourceEditorForm(resourceManager);
+            stateEditor = new StateEditorForm(resourceManager);
             provinceCreator = new ProvinceCreatorForm();
             
         }

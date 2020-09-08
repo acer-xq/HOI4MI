@@ -504,31 +504,9 @@
         BaeA/kPnf59EJrKRUVjnzPkfaNSNAtHVxDoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="oil" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAABJNJREFUSEt9lWtsU2Ucxns/vV/WtevZ2h66de22rmzQXQjIZHVsRIpkMZkig4h8
-        MamQIYkGI8YwMAECY5Ko8YuXD/ti1Bj5QjBhRIwxiApGvCciXqISRUVg3B6fdw1b/hn6JL9sT895n/f6
-        f48JwAz/I43ESAtpIwniIbeVyBTmvxUmxfb2tp2t+dxL/H+QzCNmMkciU5jby0KayejwurXfLFrSdd5s
-        Nr9KXyRqZnMkMoW5vdykZLVaJ8vlh883tWav+v3+D/jbVlJD5sxCZAozV2r0ar2f7u7uPjk4dO/VaF0M
-        8WT8W/52iHQQBxESmcLMlRp90WazTZYfKZ9b2NmJYHUYiWTiosvleo/PNhK1P0IiUxgpNfok2V4oFE5s
-        eXTL1fpMBoGqECLRajWLL/lsgqhTZSMzEpnCSKlj2E+Obn9q+0+l0iokUw3wBwMIhYPIZNN/ORz2d/l8
-        HQmRGYlMYWZlJfXkmb6+vo9HR0evLezsRtyYB6/Xi0DAh1TDvJtJI/kF33mZ5MnMLESmMLPykRLX+dj+
-        fft+GR4eRnOuFXXxBFxODR6vC7VJHbl87oKmaWoWD5CgaqgkMoWpSK29Gv2eYm/vJ/v37rmxbFkvGjPN
-        0PU6OOxWODU7YnURZHMZbnj8DN99kahaUTOXmcJUpE7OCovFMrlr547fHtqwAR0dXUg3ZBGN1MBmNcNh
-        s6ImFkZDOon583N/sEaOsY2qbq8KEJnCVFRLnujpWfrRswfGrq8cWIH2tgVIcYNDoSCsFtN0J5FwAOlU
-        HPmWzA09Fj3NNruIQcwiU5jKRhXI23v37D53cGwMfVyettY2JBIG/Nxgi9kECzsJ+j3IsIPmbD2Xr+ln
-        tjlKFhO7yBSmsjyDuq4ff+fIkT+fOzCO5T29aG9tRyKehNvlrHRAPC6NR7UZCzvvQLoxz8LzvM+2a4lP
-        ZApjMlWRzf39/Sd/OPf9tVeefwGlpUV0zi/AqE3C6XDMdKA5ncg0F3BX30ruRfZmMFR1im23kajIFMZk
-        0smOcrn82eVLl3D4tUN4sLQGxe4eGLoBjSfoVgdOlxuNjS24szgAI1WPqnBEVfZ+khCZwlQ62DkyMvL5
-        lctX8OHkaTy2cRcGl9+H+niam2uCleFqoz1uL5emBYWupTyqKR6A8NdsO04MkSlM5eIaGRoaOjU1deXG
-        qRM/4smtExhavRkNRtP0yCunyMIO3IgnUsi0tE//9fr8qh52EF1kClPZ5FU1sdjxNw8fu3Bw4gw2bnoD
-        /QOPI23kuUQ21oCFe6HB7fbD5yOBMFwe35TN7jjBthtIUGQKUzmmTWR3vmPx6fXbxq6v2TSO4j0jaM2t
-        RDRUC6/Lw9H7eF0E4PF44dCc4BfuLNu8ThYRTWQKU5GfLCMTcSPz6fLV6//puXsYLQtKMBJdqAmnEQzF
-        4A9F4fWHr9vs9u/4rqrk+4n6wllEpjAVqfukmvSScU1zHdfrUl/VGo2/RvTs3+FI9mKwWv/d7Qudtdqm
-        l+UtosJVFU9/3USmMLNSnQSIuoZV8ajjd5ioar2FuqY3kSVEjdxOpjWbCdO/X7MNKyc2ejoAAAAASUVO
-        RK5CYII=
-</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\resource\oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="coastalfort" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1048,8 +1026,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="oil" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resource\resource\oil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="vp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resource\state\vp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

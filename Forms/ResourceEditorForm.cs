@@ -13,13 +13,11 @@ namespace HOI4MI
 {
     public partial class ResourceEditorForm : Form
     {
-        private readonly LocalisationManager localeManager;
         private readonly ResourceManager resourceManager;
 
-        public ResourceEditorForm(LocalisationManager lm, ResourceManager rm) {
+        public ResourceEditorForm(ResourceManager rm) {
             InitializeComponent();
 
-            localeManager = lm;
             resourceManager = rm;
 
             stateList.DataSource = State.States;
@@ -27,8 +25,7 @@ namespace HOI4MI
         }
 
         private void Reload() { 
-            localeManager.ReloadLocalisation();
-            Parser.SetLocalisationManager(localeManager);
+            Localisation.Reload();
             Province.ReloadAll();
             State.ReloadAll();
             Country.ReloadAll();

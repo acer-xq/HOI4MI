@@ -14,14 +14,12 @@ using System.Windows.Forms;
 namespace HOI4MI.Forms {
     public partial class StateSplitterForm : Form {
 
-        private readonly LocalisationManager localeManager;
         private readonly ResourceManager resourceManager;
 
         private State currentState;
 
-        public StateSplitterForm(LocalisationManager lm, ResourceManager rm) {
+        public StateSplitterForm(ResourceManager rm) {
             InitializeComponent();
-            localeManager = lm;
             resourceManager = rm;
 
             SetDataSources();
@@ -29,8 +27,7 @@ namespace HOI4MI.Forms {
         }
 
         private void Reload() {
-            localeManager.ReloadLocalisation();
-            Parser.SetLocalisationManager(localeManager);
+            Localisation.Reload();
             Province.ReloadAll();
             State.ReloadAll();
             Country.ReloadAll();

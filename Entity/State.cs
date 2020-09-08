@@ -435,7 +435,7 @@ namespace HOI4MI.Entity
             string provincesString = $"{{{string.Join(", ", psl) }}}";
             string coresString = $"{{{string.Join(", ", cores)}}}";
 
-            return $"State {id}: {{name: {name}, localisedname: {localisedName}, category: {category}, manpower: {manpower}, factor: {buildFactor}, resources: {resources.ToString()}, " + 
+            return $"State {id}: {{name: {name}, localisedname: {localisedName}, category: {category}, manpower: {manpower}, factor: {buildFactor}, resources: {resources}, " + 
                    $"owner: {owner}, cores: {coresString}, inf: {infrastructure}, mils: {militaryFactories}, civs: {civillianFactories}, docks: {dockyards}, " +
                    $"refineries: {refineries}, silos: {silos}, antiair: {antiair}, reactors: {reactors}, airbases: {airbases}, rockets: {rockets}, radar: {radar}, provinces: {provincesString}}}";
         }
