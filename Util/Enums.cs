@@ -11,5 +11,6 @@ namespace HOI4MI.Util
     public enum Resource { Oil, Steel, Tungsten, Chromium, Aluminium, Rubber };
     public enum ProvinceType { Land, Sea, Lake };
     public enum Terrain { Unknown, Ocean, Lake, Forest, Hills, Mountain, Plains, Urban, Jungle, Marsh, Desert, Water_Fjords, Water_Shallow_Sea, Water_Deep_Ocean };
-    public enum Continent { None = 0, Europe = 1, NorthAmerica = 2, SouthAmerica = 3, Africa = 5, Asia = 6, MiddleEast = 7, Oceania = 4};
+    public enum Continent { None = 0, Europe = 1, NorthAmerica = 2, SouthAmerica = 3, Africa = 5, Asia = 6, MiddleEast = 7, Oceania = 4 };
+    public enum LocaleType { VictoryPointName, StateName };
 }
