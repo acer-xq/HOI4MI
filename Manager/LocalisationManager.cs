@@ -9,6 +9,7 @@ using HOI4MI.Util;
 using System.Data;
 using System.CodeDom.Compiler;
 using System.Diagnostics;
+using System.Net.NetworkInformation;
 
 namespace HOI4MI.Manager
 {
@@ -53,7 +54,7 @@ namespace HOI4MI.Manager
             LocaleItem li;
 
             if (!Exists(key)) {
-                string path = "";
+                string path;
                 switch (type) {
                     case LocaleType.VictoryPointName: {
                         path = @$"{basePath}{localeFileLocation}\ttr_victory_points_l_english.yml";
@@ -74,7 +75,7 @@ namespace HOI4MI.Manager
             }
 
             if (IsLocaleVanilla(dict[key])) {
-                string path = "";
+                string path;
                 switch (type) {
                     case LocaleType.VictoryPointName: {
                         path = @$"{basePath}{localeFileLocation}\replace\ttr_victory_points_replace_l_english.yml";
@@ -102,7 +103,7 @@ namespace HOI4MI.Manager
         public static bool Save() {
 
             //extract all modified locale items and group them by their source file
-            var modified = dict.GroupBy(
+            var modified = dict.Where(i => i.Value.Modified).GroupBy(
                 item => item.Value.Source,
                 item => (item.Key, item.Value.Content),
                 (source, vars) => new {
@@ -112,14 +113,26 @@ namespace HOI4MI.Manager
 
             //group represents all the locale items with a certain source file
             foreach (var group in modified) {
+                string[] file = File.ReadAllLines(group.Source);
+                
+                
                 foreach (var item in group.Vars) {
-                    //create a dictionary from each file, indexed by the key on each line of the file
-                    Dictionary<string, string> file = File.ReadAllLines(group.Source).ToDictionary(l => l.Split(':')[0].Trim());
-                    file.AddOrSet(item.Key, item.Content);
-                    File.WriteAllLines(group.Source, file.Values.ToArray());
+                    //determine if the key is new or already existed
+                    int x = Array.FindIndex(file, x => Regex.IsMatch(x, $@" {item.Key}"));
+                    //key is new
+                    if (x == -1) {
+                        Array.Resize(ref file, file.Length);
+                        file[file.Length - 1] = $" {item.Key}:0 \"{item.Content}\"";
+                    }
+                    //key isn't new
+                    else {
+                        file[x] = $" {item.Key}:0 \"{item.Content}\"";
+                    }
                 }
+                File.WriteAllLines(group.Source, file, Encoding.UTF8);
             }
 
+            Status = $"All locale successfully written to file";
             return true;
             
         }
@@ -146,7 +159,7 @@ namespace HOI4MI.Manager
                     string key = m.Groups[1].Value;
                     string val = m.Groups[2].Value;
 
-                    LocaleItem l = new LocaleItem(val, fileName);
+                    LocaleItem l = new LocaleItem(val, fileName, false);
 
                     dict.AddOrSet(key, l);
                 }
@@ -155,7 +168,7 @@ namespace HOI4MI.Manager
         }
 
         public static bool IsLocaleVanilla(LocaleItem li) {
-            return li.Content.Contains(vanillaLocaleFileLocation); ;
+            return li.Source.Contains(vanillaLocaleFileLocation);
         }
 
         public static void SetBasePath(string p) {

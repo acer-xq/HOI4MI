@@ -24,6 +24,8 @@ namespace HOI4MI.Forms
         private StateEditorForm stateEditor;
         private ProvinceCreatorForm provinceCreator;
 
+        private DebugForm debugForm;
+
         private readonly ResourceManager resourceManager;
 
         public MainForm() {
@@ -53,12 +55,15 @@ namespace HOI4MI.Forms
             Localisation.Reload();
             if (!Province.ReloadAll()) {
                 ShowMessage($"Error loading provinces:\n{Province.Status}\n{Parser.Status}");
+                Close();
             }
             if (!State.ReloadAll()) {
                 ShowMessage($"Error loading states:\n{State.Status}\n{Parser.Status}");
+                Close();
             }
             if (!Country.ReloadAll()) { 
                 ShowMessage($"Error loading countries:\n{Parser.Status}");
+                Close();
             }
             resourceManager.ReloadResourceMap(true, false);
 
@@ -67,14 +72,19 @@ namespace HOI4MI.Forms
             resourceEditor = new ResourceEditorForm(resourceManager);
             stateEditor = new StateEditorForm(resourceManager);
             provinceCreator = new ProvinceCreatorForm();
+
+            debugForm = new DebugForm();
             
         }
 
         private void writeButton_Click(object sender, EventArgs e) {
 
+            Localisation.Save();
+            Province.Save();
             State.Save();
 
-            ShowMessage(State.Status);
+
+            ShowMessage($"{Localisation.Status}\n{Province.Status}\n{State.Status}");
         }
 
         private void ShowMessage(string s) {
@@ -101,6 +111,10 @@ namespace HOI4MI.Forms
 
         private void provinceCreatorFormButton_Click(object sender, EventArgs e) {
             OpenForm(provinceCreator);
+        }
+
+        private void debugFormButton_Click(object sender, EventArgs e) {
+            OpenForm(debugForm);
         }
         #endregion
     }

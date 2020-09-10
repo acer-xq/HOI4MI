@@ -56,5 +56,9 @@ namespace HOI4MI.Forms {
             KeyValuePair<string, LocaleItem> k = (KeyValuePair<string, LocaleItem>)modifiedLocaleList.SelectedItem;
             localeInfoList.Text = $"{k.Key}\n{k.Value.Source}\n{k.Value.Content}";
         }
+
+        private void reloadButton_Click(object sender, EventArgs e) {
+            Reload();
+        }
     }
 }

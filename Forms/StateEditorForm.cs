@@ -122,7 +122,7 @@ namespace HOI4MI.Forms {
         private void provinceList_SelectedIndexChanged(object sender, EventArgs e) {
             currentProvince = (Province)provinceList.SelectedItem;
 
-            provinceNameInput.Text = currentProvince.HasVictoryPoints() ? $"{currentProvince.Name}" : "N/A";
+            provinceNameInput.Text = currentProvince.LocalisedName;
             victoryPointsInput.Value = currentProvince.VictoryPoints;
             fortInput.Value = currentProvince.LandForts;
             coastalFortInput.Value = currentProvince.CoastalForts;
@@ -131,7 +131,7 @@ namespace HOI4MI.Forms {
 
         private void stateSaveButton_Click(object sender, EventArgs e) {
             //old state
-            currentState.LocalisedName = stateNameInput.Text;
+            Localisation.Update(currentState.LocaleKey, stateNameInput.Text, LocaleType.StateName);
             currentState.Manpower = (int)stateManpowerInput.Value;
             currentState.Category = (StateCategory)stateCategoryInput.SelectedItem;
             currentState.Impassable = (bool)stateImpassableInput.SelectedItem;
@@ -159,7 +159,8 @@ namespace HOI4MI.Forms {
             currentState.Rockets = (int)stateRocketsInput.Value;
             currentState.Antiair = (int)stateAntiairInput.Value;
 
-            if (provinceNameInput.Text != "N/A") currentProvince.Name = provinceNameInput.Text;
+            if (currentProvince.LocaleKey != provinceNameInput.Text)
+                Localisation.Update(currentProvince.LocaleKey, provinceNameInput.Text, LocaleType.VictoryPointName);
             currentProvince.VictoryPoints = (int)victoryPointsInput.Value;
             currentProvince.LandForts = (int)fortInput.Value;
             currentProvince.CoastalForts = (int)coastalFortInput.Value;

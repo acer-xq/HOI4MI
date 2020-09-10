@@ -120,7 +120,7 @@ namespace HOI4MI.Forms {
             //new state
 
             newState.Name = $"STATE_{newId}";
-            newState.LocalisedName = newStateNameInput.Text;
+            Localisation.Update(newState.LocaleKey, newStateNameInput.Text, LocaleType.StateName);
             newState.FileName = $"{newId}-{newState.LocalisedName}.txt";
             newState.Manpower = (int)newStateManpowerInput.Value;
             newState.Category = (StateCategory)newStateCategoryInput.SelectedItem;
@@ -150,7 +150,7 @@ namespace HOI4MI.Forms {
 
 
             //old state
-            currentState.LocalisedName = oldStateNameInput.Text;
+            Localisation.Update(currentState.LocaleKey, oldStateNameInput.Text, LocaleType.StateName);
             currentState.Manpower = (int)oldStateManpowerInput.Value;
             currentState.Category = (StateCategory)oldStateCategoryInput.SelectedItem;
             currentState.Resources.Oil = (double)oldStateOilInput.Value;

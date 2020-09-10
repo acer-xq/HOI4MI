@@ -38,6 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.reloadButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // stateList
@@ -202,12 +203,29 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Mod. Locale";
             // 
+            // reloadButton
+            // 
+            this.reloadButton.BackColor = System.Drawing.Color.Transparent;
+            this.reloadButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.reloadButton.FlatAppearance.BorderSize = 0;
+            this.reloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.reloadButton.ForeColor = System.Drawing.Color.White;
+            this.reloadButton.Location = new System.Drawing.Point(975, 655);
+            this.reloadButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.reloadButton.Name = "reloadButton";
+            this.reloadButton.Size = new System.Drawing.Size(99, 32);
+            this.reloadButton.TabIndex = 52;
+            this.reloadButton.Text = "Reload";
+            this.reloadButton.UseVisualStyleBackColor = false;
+            this.reloadButton.Click += new System.EventHandler(this.reloadButton_Click);
+            // 
             // DebugForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(1387, 724);
+            this.Controls.Add(this.reloadButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -250,5 +268,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button reloadButton;
     }
 }

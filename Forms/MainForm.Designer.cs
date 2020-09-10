@@ -32,12 +32,14 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.stateSplitterFormButton = new System.Windows.Forms.Button();
             this.sideBar = new System.Windows.Forms.Panel();
+            this.debugFormButton = new System.Windows.Forms.Button();
             this.provinceCreatorFormButton = new System.Windows.Forms.Button();
             this.stateEditorFormButton = new System.Windows.Forms.Button();
             this.sideBarBottom = new System.Windows.Forms.Panel();
             this.reloadButton = new System.Windows.Forms.Button();
             this.writeButton = new System.Windows.Forms.Button();
             this.sideBarLogo = new System.Windows.Forms.Panel();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dividerPanel = new System.Windows.Forms.Panel();
             this.sideBar.SuspendLayout();
@@ -66,10 +68,10 @@
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Location = new System.Drawing.Point(0, 17);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(196, 100);
+            this.titleLabel.Size = new System.Drawing.Size(196, 83);
             this.titleLabel.TabIndex = 2;
             this.titleLabel.Text = "Hearts of Iron IV \r\nModding Interface";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -94,6 +96,7 @@
             // 
             this.sideBar.AutoScroll = true;
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.sideBar.Controls.Add(this.debugFormButton);
             this.sideBar.Controls.Add(this.provinceCreatorFormButton);
             this.sideBar.Controls.Add(this.stateEditorFormButton);
             this.sideBar.Controls.Add(this.sideBarBottom);
@@ -106,6 +109,24 @@
             this.sideBar.Name = "sideBar";
             this.sideBar.Size = new System.Drawing.Size(196, 829);
             this.sideBar.TabIndex = 4;
+            // 
+            // debugFormButton
+            // 
+            this.debugFormButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(28)))), ((int)(((byte)(27)))));
+            this.debugFormButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.debugFormButton.FlatAppearance.BorderSize = 0;
+            this.debugFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.debugFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            this.debugFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.debugFormButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.debugFormButton.Location = new System.Drawing.Point(0, 582);
+            this.debugFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.debugFormButton.Name = "debugFormButton";
+            this.debugFormButton.Size = new System.Drawing.Size(196, 47);
+            this.debugFormButton.TabIndex = 7;
+            this.debugFormButton.Text = "Debug";
+            this.debugFormButton.UseVisualStyleBackColor = false;
+            this.debugFormButton.Click += new System.EventHandler(this.debugFormButton_Click);
             // 
             // provinceCreatorFormButton
             // 
@@ -188,11 +209,22 @@
             // 
             this.sideBarLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.sideBarLogo.Controls.Add(this.titleLabel);
+            this.sideBarLogo.Controls.Add(this.statusLabel);
             this.sideBarLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.sideBarLogo.Location = new System.Drawing.Point(0, 729);
             this.sideBarLogo.Name = "sideBarLogo";
             this.sideBarLogo.Size = new System.Drawing.Size(196, 100);
             this.sideBarLogo.TabIndex = 5;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.statusLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusLabel.Location = new System.Drawing.Point(0, 0);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(196, 17);
+            this.statusLabel.TabIndex = 0;
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mainPanel
             // 
@@ -248,5 +280,7 @@
         private System.Windows.Forms.Button reloadButton;
         private System.Windows.Forms.Button stateEditorFormButton;
         private System.Windows.Forms.Button provinceCreatorFormButton;
+        private System.Windows.Forms.Button debugFormButton;
+        private System.Windows.Forms.Label statusLabel;
     }
 }

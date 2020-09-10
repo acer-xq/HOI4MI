@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HOI4MI.Entity;
+using HOI4MI.Manager;
 using HOI4MI.Util;
 
 namespace HOI4MI.Entity
@@ -22,6 +23,7 @@ namespace HOI4MI.Entity
         private static string stateFileLocation = @"\history\states\";
 
         public readonly int id;
+        public readonly string LocaleKey;
         public bool Modified { get; private set; }
 
         #region FIELDS
@@ -40,11 +42,7 @@ namespace HOI4MI.Entity
             }
         }
         public string LocalisedName {
-            get { return localisedName; }
-            set {
-                SetModified();
-                localisedName = value;
-            }
+            get { return Localisation.GetSafe(LocaleKey); }
         }
         public int Manpower {
             get { return manpower; }
@@ -197,7 +195,6 @@ namespace HOI4MI.Entity
         private int radar;
         private string fileName;
         private string name;
-        private string localisedName;
         private int manpower;
         private int buildFactor;
         private StateCategory category;
@@ -208,9 +205,9 @@ namespace HOI4MI.Entity
 
         private State(int id) {
             this.id = id;
+            LocaleKey = $"STATE_{id}";
             fileName = "";
             name = "";
-            localisedName = "";
             buildFactor = 1;
             category = StateCategory.Wasteland;
             manpower = 0;
@@ -411,6 +408,7 @@ namespace HOI4MI.Entity
         }
 
         public void SetModified() {
+            //Debug.WriteLine($"State {id} set modified");
             Modified = true;
         }
 
@@ -424,7 +422,7 @@ namespace HOI4MI.Entity
 
         public override string ToString() {
 
-            return $"{localisedName} ({id}) ({owner})";
+            return $"{LocalisedName} ({id}) ({owner})";
         }
 
         public string ToStringVerbose() {
@@ -435,7 +433,7 @@ namespace HOI4MI.Entity
             string provincesString = $"{{{string.Join(", ", psl) }}}";
             string coresString = $"{{{string.Join(", ", cores)}}}";
 
-            return $"State {id}: {{name: {name}, localisedname: {localisedName}, category: {category}, manpower: {manpower}, factor: {buildFactor}, resources: {resources}, " + 
+            return $"State {id}: {{name: {name}, localisedname: {LocalisedName}, category: {category}, manpower: {manpower}, factor: {buildFactor}, resources: {resources}, " + 
                    $"owner: {owner}, cores: {coresString}, inf: {infrastructure}, mils: {militaryFactories}, civs: {civillianFactories}, docks: {dockyards}, " +
                    $"refineries: {refineries}, silos: {silos}, antiair: {antiair}, reactors: {reactors}, airbases: {airbases}, rockets: {rockets}, radar: {radar}, provinces: {provincesString}}}";
         }

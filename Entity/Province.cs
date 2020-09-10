@@ -8,6 +8,7 @@ using HOI4MI.Util;
 using System.Drawing;
 using System.Diagnostics;
 using System.IO;
+using HOI4MI.Manager;
 
 namespace HOI4MI.Entity
 {
@@ -20,11 +21,12 @@ namespace HOI4MI.Entity
         private static string basePath = "";
         private static string provinceDefLocation = @"\map\definition.csv";
 
-        public bool Modified { get; private set; }
+        public readonly int id;
+        public readonly string LocaleKey;
 
         public int[] Rgb { get => rgb; set { rgb = value; SetModified(); } }
         public int VictoryPoints { get => victoryPoints; set { victoryPoints = value; SetModified(); } }
-        public string Name { get => name; set { name = value; SetModified(); } }
+        public string LocalisedName { get => Localisation.GetSafe(LocaleKey); }
         public int LandForts { get => landForts; set { landForts = value; SetModified(); } }
         public int CoastalForts { get => coastalForts; set { coastalForts = value; SetModified(); } }
         public int NavalBase { get => navalBase; set { navalBase = value; SetModified(); } }
@@ -32,11 +34,10 @@ namespace HOI4MI.Entity
         public ProvinceType Type { get => type; set { type = value; SetModified(); } }
         public Continent Continent { get => continent; set { continent = value; SetModified(); } }
         public Terrain Terrain { get => terrain; set { terrain = value; SetModified(); } }
+        public bool Modified { get; private set; }
 
-        public readonly int id;
         private int[] rgb;
         private int victoryPoints;
-        private string name;
         private int landForts;
         private int coastalForts;
         private int navalBase;
@@ -47,9 +48,9 @@ namespace HOI4MI.Entity
 
         private Province(int id) {
             this.id = id;
+            LocaleKey = $"VICTORY_POINTS_{id}";
             rgb = new int[] { 0, 0, 0 };
             victoryPoints = 0;
-            name = "";
             landForts = 0;
             coastalForts = 0;
             navalBase = 0;
@@ -85,6 +86,7 @@ namespace HOI4MI.Entity
 
         public static bool ReloadAll() {
             string provinceDefFile = $"{basePath}{provinceDefLocation}";
+            provinces.Clear();
             if (!Parser.ParseProvinceDef(provinceDefFile)) {
                 Status = "Could not reload provinces";
                 return false;
@@ -97,35 +99,28 @@ namespace HOI4MI.Entity
                 Status = "Not all provinces valid";
                 return false;
             }
-            foreach (Province p in provinces.Values) {
-                if (!p.Modified) continue;
-                if (!Write(p)) {
-                    Status = $"Could not write province {p}";
-                    return false;
-                }
-                else {
-                    State.Save();
-                }
-            }
-            Status = "All provinces successfully written to file";
-            return true;
-        }
 
-        public static bool Write(Province p) {
-            //s is the state containing p
-            State s = State.Find(s => s.Provinces.Contains(p)).First();
-            s.SetModified();
-
-            StringBuilder sb = new StringBuilder();
-            sb.Append($"{p.id};{p.rgb[0]};{p.rgb[1]};{p.rgb[2]};{p.type};{p.coastal};{p.terrain};{(int)p.continent}");
+            //get all modified provinces
+            var modified = provinces.Values.Where(p => p.Modified);
+            HashSet<State> modifiedStates = new HashSet<State>();
+            //load definition.csv into array
             string path = $"{basePath}{provinceDefLocation}";
-            string[] def = File.ReadAllLines(path);
-            if (def.Length < p.id+1) Array.Resize(ref def, p.id+1);
-            def[p.id] = sb.ToString().ToLower();
-            File.WriteAllLines(path, def);
+            string[] provinceFile = File.ReadAllLines(path);
+            //resize array if new provinces were made
+            if (provinceFile.Length < provinces.Count-1) Array.Resize(ref provinceFile, provinces.Count-1);
+            foreach (Province p in modified) {
+                provinceFile[p.id] = $"{p.id};{p.rgb[0]};{p.rgb[1]};{p.rgb[2]};{p.type};{p.coastal};{p.terrain};{(int)p.continent}".ToLower();
+                //might have to rewrite the state containing the province
+                modifiedStates.Add(State.Find(s => s.Provinces.Contains(p)).First());
+                p.SetUnmodified();
+            }
 
-            //TODO write province to strategic region
-            p.SetUnmodified();
+            foreach (State s in modifiedStates) {
+                s.SetModified();
+            }
+
+            File.WriteAllLines(path, provinceFile);
+            Status = "All provinces successfully written to file";
             return true;
         }
 
@@ -184,6 +179,7 @@ namespace HOI4MI.Entity
             if (HasVictoryPoints() || !IsEmpty()) {
                 result.Append($": {{");
                 result.Append(HasVictoryPoints() ? $"vp: {VictoryPoints}, " : "");
+                result.Append(HasVictoryPoints() ? $"name: {LocalisedName}, " : "");
                 result.Append(LandForts != 0 ? $"landForts: {LandForts}, " : "");
                 result.Append(CoastalForts != 0 ? $"coastalForts: {CoastalForts}, " : "");
                 result.Append(NavalBase != 0 ? $"navalBases: {NavalBase}, " : "");

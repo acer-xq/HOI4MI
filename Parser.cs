@@ -78,7 +78,7 @@ namespace HOI4MI
                 }
 
                 else {
-                    Status = $"Error creating province {id}.";
+                    Status = $"Error creating province {id}.\n{Province.Status}";
                     return false;
                 }
             }
@@ -137,7 +137,6 @@ namespace HOI4MI
                         return false;
                     }
                     p.VictoryPoints = int.Parse(m.Groups[2].Value);
-                    p.Name = Localisation.GetSafe($"VICTORY_POINTS_{pid}");
                     p.SetUnmodified();
                 }
             }
@@ -166,7 +165,6 @@ namespace HOI4MI
                 State s = State.Get(stateId);
                 s.Name = stateName;
                 s.FileName = path.Split('\\').Last();
-                s.LocalisedName = Localisation.GetSafe(stateName);
                 s.Manpower = FindKeyInt("manpower");
                 s.BuildFactor = buildingFactor == 0 ? 1 : buildingFactor;
                 s.Category = (StateCategory)c;
