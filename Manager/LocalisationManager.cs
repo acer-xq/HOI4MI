@@ -121,7 +121,7 @@ namespace HOI4MI.Manager
                     int x = Array.FindIndex(file, x => Regex.IsMatch(x, $@" {item.Key}"));
                     //key is new
                     if (x == -1) {
-                        Array.Resize(ref file, file.Length);
+                        Array.Resize(ref file, file.Length+1);
                         file[file.Length - 1] = $" {item.Key}:0 \"{item.Content}\"";
                     }
                     //key isn't new
