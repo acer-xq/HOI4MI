@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="FormDark">
-      <HintPath>..\..\..\Coding\C#\FormDark\FormDark\bin\Release\FormDark.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -54,11 +54,11 @@ namespace HOI4MI.Forms {
             greenInput.Value = newColour[1];
             blueInput.Value = newColour[2];
 
-            provinceIdLabel.Text = Province.Provinces.Count.ToString();
+            provinceIdLabel.Text = Province.ProvincesUnordered.Count.ToString();
         }
 
         private void writeButton_Click(object sender, EventArgs e) {
-            int id = Province.Provinces.Count;
+            int id = Province.ProvincesUnordered.Count;
             int[] colour = { (int)redInput.Value, (int)greenInput.Value, (int)blueInput.Value };
             if (!Province.Create(id, colour)) return;
             Province p = Province.Get(id);

@@ -15,6 +15,7 @@ namespace HOI4MI.Entity
     public sealed class State : IComparable<State> {
 
         public static List<State> States { get { return states.Values.OrderBy(x => x.id).ToList(); } }
+        public static List<State> StatesUnordered { get { return states.Values.ToList(); } }
         public static int Count { get { return states.Count; } }
         public static string Status { get; private set; }
 
@@ -283,7 +284,7 @@ namespace HOI4MI.Entity
         }
 
         public static bool IsAllValid() {
-            return states.Values.All(s => s != null || s.IsValid());
+            return states.Values.All(s => s != null && s.IsValid());
         }
 
         public static bool Save() {

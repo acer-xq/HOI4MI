@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -18,6 +19,8 @@ namespace HOI4MI.Forms {
 
         private State currentState;
         private Province currentProvince;
+
+        private List<List<State>> stateGroups;
 
         public StateEditorForm(ResourceManager rm) {
             InitializeComponent();
@@ -63,19 +66,99 @@ namespace HOI4MI.Forms {
         }
 
         private void SetDataSources() {
+            stateGroups = new List<List<State>>();
             selectList.Items.Clear();
-            for (int i = 0; i < State.Count; i += 100) {
-                selectList.Items.Add(i);
-            }
             stateCategoryInput.DataSource = Enum.GetValues(typeof(StateCategory));
             stateOwnerInput.DataSource = Country.Countries;
             stateCoreInput.DataSource = Country.Countries;
             stateImpassableInput.DataSource = Utils.BoolValues();
         }
 
+        private void groupByInput_SelectedIndexChanged(object sender, EventArgs e) {
+            stateGroups = new List<List<State>>();
+            switch (groupByInput.SelectedIndex) {
+                case 0: { //ID
+                    int numGrps = (State.StatesUnordered.Count / 100)+1;
+                    for (int i = 0; i < numGrps; i++) {
+                        stateGroups.Add(State.Find(s => s.id >= i*100 && s.id < (i+1)*100).ToList());
+                    }
+                    selectList.DataSource = Enumerable.Range(0, numGrps).ToList();
+                    break;
+                }
+                case 1: { //Owner
+                    var statesByOwner = State.StatesUnordered.GroupBy(s => Country.Get(s.Owner));
+                    List<Country> countries = new List<Country>();
+                    foreach (IGrouping<Country, State> a in statesByOwner) {
+                        stateGroups.Add(a.ToList());
+                        countries.Add(a.Key);
+                    }
+                    selectList.DataSource = countries;
+                    break;
+                }
+                case 2: { //Cores
+                    var statesByCore = new Dictionary<Country, List<State>>();
+
+
+                    foreach (State s in State.StatesUnordered) {
+                        if (s.Cores.Count == 0) continue;
+                        foreach (string t in s.Cores) {
+                            Country c = Country.Get(t);
+                            if (c == null) continue;
+
+                            if (!statesByCore.ContainsKey(c)) {
+                                statesByCore.Add(c, new List<State> { s });
+                            }
+                            else {
+                                statesByCore[c].Add(s);
+                            }
+                        }
+                    }
+
+                    foreach (var v in statesByCore) {
+                        stateGroups.Add(v.Value);
+                    }
+                    selectList.DataSource = statesByCore.Keys.ToList();
+                    break;
+                }
+                case 3: { //Category
+                    var statesByCategory = State.StatesUnordered.GroupBy(s => s.Category).ToList();
+                    statesByCategory.OrderBy(x => x.Key);
+                    List<StateCategory> categories = new List<StateCategory>();
+                    foreach (IGrouping<StateCategory, State> a in statesByCategory) {
+                        stateGroups.Add(a.ToList());
+                        categories.Add(a.Key);
+                    }
+                    selectList.DataSource = categories;
+                    break;
+                }
+                case 4: { //Infrastructure
+                    var statesByInfrastructure = State.StatesUnordered.GroupBy(s => s.Infrastructure).ToList();
+                    statesByInfrastructure.OrderBy(x => x.Key);
+                    List<int> inf = new List<int>();
+                    foreach (IGrouping<int, State> a in statesByInfrastructure) {
+                        stateGroups.Add(a.ToList());
+                        inf.Add(a.Key);
+                    }
+                    selectList.DataSource = inf;
+                    break;
+                }
+                case 5: { //Population
+                    int[] popGrps = { 0, 100000, 500000, 1000000, 2000000, 5000000, 10000000, 30000000, 50000000};
+                    int numGrps = popGrps.Length;
+                    for (int i = 0; i < numGrps; i++) {
+                        int min = popGrps[i];
+                        int max = i+1 < numGrps ? popGrps[i + 1] : int.MaxValue;
+                        stateGroups.Add(State.Find(s => s.Manpower >= min && s.Manpower < max).ToList());
+                    }
+                    selectList.DataSource = popGrps;
+                    break;
+                }
+            }
+        }
+
         private void selectList_SelectedIndexChanged(object sender, EventArgs e) {
-            int startId = (int)selectList.SelectedItem;
-            stateList.DataSource = State.Find(s => s.id >= startId && s.id < startId+100);
+            //int startId = (int)selectList.SelectedItem;
+            stateList.DataSource = stateGroups[selectList.SelectedIndex];
         }
 
         private void stateList_SelectedIndexChanged(object sender, EventArgs e) {
@@ -209,7 +292,5 @@ namespace HOI4MI.Forms {
         private void testBox_TextChanged(object sender, EventArgs e) {
 
         }
-
-
     }
 }

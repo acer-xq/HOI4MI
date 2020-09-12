@@ -23,7 +23,7 @@ namespace HOI4MI.Manager
         public void ReloadResourceMap(bool infrastructure, double excavation, bool useCore) {
             resourceMap.Clear();
             foreach (var v in EmptyResourceMap(false)) { resourceMap.Add(v.Key, v.Value); }
-            foreach (State s in State.States) {
+            foreach (State s in State.StatesUnordered) {
                 double multiplier = 1 + excavation * 0.1;
                 if (infrastructure) multiplier += s.Infrastructure * 0.1;
 
@@ -58,7 +58,7 @@ namespace HOI4MI.Manager
                 }
             }
             else {
-                foreach (State s in State.States) {
+                foreach (State s in State.StatesUnordered) {
                     Country c = Country.Get(s.Owner);
                     map.AddOrSet(c, new ResourceSet(), false);
                 }

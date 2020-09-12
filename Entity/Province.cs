@@ -14,6 +14,7 @@ namespace HOI4MI.Entity
 {
     public class Province {
         public static List<Province> Provinces { get { return provinces.Values.OrderBy(x => x.id).ToList(); } }
+        public static List<Province> ProvincesUnordered { get { return provinces.Values.ToList(); } }
         public static string Status { get; private set; }
 
         private static Dictionary<int, Province> provinces = new Dictionary<int, Province>();
@@ -107,11 +108,15 @@ namespace HOI4MI.Entity
             string path = $"{basePath}{provinceDefLocation}";
             string[] provinceFile = File.ReadAllLines(path);
             //resize array if new provinces were made
-            if (provinceFile.Length < provinces.Count-1) Array.Resize(ref provinceFile, provinces.Count-1);
+            if (provinceFile.Length < provinces.Count) Array.Resize(ref provinceFile, provinces.Count);
             foreach (Province p in modified) {
                 provinceFile[p.id] = $"{p.id};{p.rgb[0]};{p.rgb[1]};{p.rgb[2]};{p.type};{p.coastal};{p.terrain};{(int)p.continent}".ToLower();
                 //might have to rewrite the state containing the province
-                modifiedStates.Add(State.Find(s => s.Provinces.Contains(p)).First());
+                Func<State, bool> x = (s) => s.Provinces.Contains(p);
+                var a = State.Find(x);
+                var b = a.First();
+
+                modifiedStates.Add(b);
                 p.SetUnmodified();
             }
 

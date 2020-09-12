@@ -29,6 +29,8 @@
             this.sideBar = new System.Windows.Forms.Panel();
             this.divider1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupByInput = new System.Windows.Forms.ComboBox();
             this.stateManpowerInput = new System.Windows.Forms.NumericUpDown();
             this.stateOilInput = new System.Windows.Forms.NumericUpDown();
             this.stateRubberInput = new System.Windows.Forms.NumericUpDown();
@@ -77,6 +79,7 @@
             this.antiairImage = new System.Windows.Forms.PictureBox();
             this.airbaseImage = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.victoryPointsInput = new System.Windows.Forms.NumericUpDown();
@@ -89,8 +92,8 @@
             this.vpImage = new System.Windows.Forms.PictureBox();
             this.provinceNameInput = new System.Windows.Forms.TextBox();
             this.provinceList = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.sideBar.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stateManpowerInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stateOilInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stateRubberInput)).BeginInit();
@@ -200,11 +203,44 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.groupByInput);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(214, 24);
             this.panel2.TabIndex = 68;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(12, 2);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 19);
+            this.label9.TabIndex = 81;
+            this.label9.Text = "Group By";
+            // 
+            // groupByInput
+            // 
+            this.groupByInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.groupByInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.groupByInput.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupByInput.ForeColor = System.Drawing.Color.White;
+            this.groupByInput.FormattingEnabled = true;
+            this.groupByInput.Items.AddRange(new object[] {
+            "ID",
+            "Owner",
+            "Cores",
+            "Category",
+            "Infrastructure",
+            "Population"});
+            this.groupByInput.Location = new System.Drawing.Point(87, 0);
+            this.groupByInput.MaxDropDownItems = 31;
+            this.groupByInput.Name = "groupByInput";
+            this.groupByInput.Size = new System.Drawing.Size(121, 24);
+            this.groupByInput.TabIndex = 81;
+            this.groupByInput.SelectedIndexChanged += new System.EventHandler(this.groupByInput_SelectedIndexChanged);
             // 
             // stateManpowerInput
             // 
@@ -795,6 +831,16 @@
             this.panel1.Size = new System.Drawing.Size(1010, 647);
             this.panel1.TabIndex = 68;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(524, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 20);
+            this.label8.TabIndex = 80;
+            this.label8.Text = "Provinces";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -938,16 +984,6 @@
             this.provinceList.TabIndex = 68;
             this.provinceList.SelectedIndexChanged += new System.EventHandler(this.provinceList_SelectedIndexChanged);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(524, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 20);
-            this.label8.TabIndex = 80;
-            this.label8.Text = "Provinces";
-            // 
             // StateEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -964,6 +1000,8 @@
             this.Text = "StateEditorForm";
             this.Load += new System.EventHandler(this.StateEditorForm_Load);
             this.sideBar.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stateManpowerInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stateOilInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stateRubberInput)).EndInit();
@@ -1082,5 +1120,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox groupByInput;
+        private System.Windows.Forms.Label label9;
     }
 }
