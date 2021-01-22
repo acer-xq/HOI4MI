@@ -25,17 +25,17 @@
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
             this.localeItemSelectBox = new System.Windows.Forms.ListBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.localeFileSelectBox = new System.Windows.Forms.ListBox();
             this.divider1 = new System.Windows.Forms.Panel();
+            this.localeFileSelectBox = new System.Windows.Forms.ListBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.newButton = new System.Windows.Forms.Button();
-            this.localeKeyInput = new System.Windows.Forms.TextBox();
-            this.localeValueInput = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.localeValueInput = new System.Windows.Forms.TextBox();
+            this.localeKeyInput = new System.Windows.Forms.TextBox();
+            this.newButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -67,14 +67,14 @@
             this.localeItemSelectBox.TabIndex = 6;
             this.localeItemSelectBox.SelectedIndexChanged += new System.EventHandler(this.localeItemSelectBox_SelectedIndexChanged);
             // 
-            // panel2
+            // divider1
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(166, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(996, 655);
-            this.panel2.TabIndex = 8;
+            this.divider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.divider1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.divider1.Location = new System.Drawing.Point(0, 305);
+            this.divider1.Name = "divider1";
+            this.divider1.Size = new System.Drawing.Size(166, 24);
+            this.divider1.TabIndex = 9;
             // 
             // localeFileSelectBox
             // 
@@ -91,14 +91,14 @@
             this.localeFileSelectBox.TabIndex = 6;
             this.localeFileSelectBox.SelectedIndexChanged += new System.EventHandler(this.localeFileSelectBox_SelectedIndexChanged);
             // 
-            // divider1
+            // panel2
             // 
-            this.divider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.divider1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.divider1.Location = new System.Drawing.Point(0, 305);
-            this.divider1.Name = "divider1";
-            this.divider1.Size = new System.Drawing.Size(166, 24);
-            this.divider1.TabIndex = 9;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(166, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(996, 655);
+            this.panel2.TabIndex = 8;
             // 
             // panel3
             // 
@@ -115,51 +115,25 @@
             this.panel3.Size = new System.Drawing.Size(996, 655);
             this.panel3.TabIndex = 28;
             // 
-            // cancelButton
+            // label1
             // 
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cancelButton.Location = new System.Drawing.Point(631, 474);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(126, 29);
-            this.cancelButton.TabIndex = 27;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(398, 159);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 21);
+            this.label1.TabIndex = 80;
+            this.label1.Text = "Localisation Value";
             // 
-            // deleteButton
+            // label6
             // 
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deleteButton.Location = new System.Drawing.Point(403, 474);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(126, 29);
-            this.deleteButton.TabIndex = 28;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            // 
-            // newButton
-            // 
-            this.newButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.newButton.Location = new System.Drawing.Point(184, 474);
-            this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(126, 29);
-            this.newButton.TabIndex = 29;
-            this.newButton.Text = "Create New";
-            this.newButton.UseVisualStyleBackColor = true;
-            // 
-            // localeKeyInput
-            // 
-            this.localeKeyInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            this.localeKeyInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.localeKeyInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.localeKeyInput.ForeColor = System.Drawing.Color.White;
-            this.localeKeyInput.Location = new System.Drawing.Point(184, 108);
-            this.localeKeyInput.MaxLength = 63;
-            this.localeKeyInput.Name = "localeKeyInput";
-            this.localeKeyInput.Size = new System.Drawing.Size(593, 27);
-            this.localeKeyInput.TabIndex = 30;
-            this.localeKeyInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(403, 79);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 21);
+            this.label6.TabIndex = 79;
+            this.label6.Text = "Localisation Key";
             // 
             // localeValueInput
             // 
@@ -172,27 +146,51 @@
             this.localeValueInput.Name = "localeValueInput";
             this.localeValueInput.Size = new System.Drawing.Size(595, 234);
             this.localeValueInput.TabIndex = 31;
-            this.localeValueInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label6
+            // localeKeyInput
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(403, 79);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(132, 21);
-            this.label6.TabIndex = 79;
-            this.label6.Text = "Localisation Key";
+            this.localeKeyInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.localeKeyInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.localeKeyInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.localeKeyInput.ForeColor = System.Drawing.Color.White;
+            this.localeKeyInput.Location = new System.Drawing.Point(184, 108);
+            this.localeKeyInput.MaxLength = 63;
+            this.localeKeyInput.Name = "localeKeyInput";
+            this.localeKeyInput.Size = new System.Drawing.Size(593, 27);
+            this.localeKeyInput.TabIndex = 30;
             // 
-            // label1
+            // newButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(398, 159);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 21);
-            this.label1.TabIndex = 80;
-            this.label1.Text = "Localisation Value";
+            this.newButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.newButton.Location = new System.Drawing.Point(184, 474);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(126, 29);
+            this.newButton.TabIndex = 29;
+            this.newButton.Text = "Create New";
+            this.newButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.deleteButton.Location = new System.Drawing.Point(403, 474);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(126, 29);
+            this.deleteButton.TabIndex = 28;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cancelButton.Location = new System.Drawing.Point(631, 474);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(126, 29);
+            this.cancelButton.TabIndex = 27;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // LocalisationEditorForm
             // 

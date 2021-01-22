@@ -11,7 +11,7 @@ using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 
-namespace HOI4MI.Manager
+namespace HOI4MI.Entity
 {
     public static class Localisation {
 
