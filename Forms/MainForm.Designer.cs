@@ -42,6 +42,7 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dividerPanel = new System.Windows.Forms.Panel();
+            this.localisationEditorFormButton = new System.Windows.Forms.Button();
             this.sideBar.SuspendLayout();
             this.sideBarBottom.SuspendLayout();
             this.sideBarLogo.SuspendLayout();
@@ -96,6 +97,7 @@
             // 
             this.sideBar.AutoScroll = true;
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.sideBar.Controls.Add(this.localisationEditorFormButton);
             this.sideBar.Controls.Add(this.debugFormButton);
             this.sideBar.Controls.Add(this.provinceCreatorFormButton);
             this.sideBar.Controls.Add(this.stateEditorFormButton);
@@ -245,6 +247,22 @@
             this.dividerPanel.Size = new System.Drawing.Size(16, 829);
             this.dividerPanel.TabIndex = 6;
             // 
+            // localisationEditorFormButton
+            // 
+            this.localisationEditorFormButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.localisationEditorFormButton.FlatAppearance.BorderSize = 0;
+            this.localisationEditorFormButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.localisationEditorFormButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(55)))));
+            this.localisationEditorFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.localisationEditorFormButton.Location = new System.Drawing.Point(0, 260);
+            this.localisationEditorFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.localisationEditorFormButton.Name = "localisationEditorFormButton";
+            this.localisationEditorFormButton.Size = new System.Drawing.Size(196, 65);
+            this.localisationEditorFormButton.TabIndex = 8;
+            this.localisationEditorFormButton.Text = "Localisation Editor";
+            this.localisationEditorFormButton.UseVisualStyleBackColor = true;
+            this.localisationEditorFormButton.Click += new System.EventHandler(this.localisationEditorFormButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -282,5 +300,6 @@
         private System.Windows.Forms.Button provinceCreatorFormButton;
         private System.Windows.Forms.Button debugFormButton;
         private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.Button localisationEditorFormButton;
     }
 }

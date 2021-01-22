@@ -23,6 +23,7 @@ namespace HOI4MI.Forms
         private StateSplitterForm stateSplitter;
         private StateEditorForm stateEditor;
         private ProvinceCreatorForm provinceCreator;
+        private LocalisationEditorForm localisationEditor;
 
         private DebugForm debugForm;
 
@@ -72,6 +73,7 @@ namespace HOI4MI.Forms
             resourceEditor = new ResourceEditorForm(resourceManager);
             stateEditor = new StateEditorForm(resourceManager);
             provinceCreator = new ProvinceCreatorForm();
+            localisationEditor = new LocalisationEditorForm();
 
             debugForm = new DebugForm();
             
@@ -112,10 +114,14 @@ namespace HOI4MI.Forms
         private void provinceCreatorFormButton_Click(object sender, EventArgs e) {
             OpenForm(provinceCreator);
         }
+        private void localisationEditorFormButton_Click(object sender, EventArgs e) {
+            OpenForm(localisationEditor);
+        }
 
         private void debugFormButton_Click(object sender, EventArgs e) {
             OpenForm(debugForm);
         }
+
         #endregion
     }
 }
